@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "react-slick";
 import Image1 from "../../assets/hero/headphone.png";
 import Image2 from "../../assets/category/vr.png";
@@ -29,6 +28,7 @@ const HeroData = [
   },
 ];
 
+// eslint-disable-next-line react/prop-types
 const Hero = ({ handleOrderPopup }) => {
   const settings = {
     dots: false,

@@ -1,10 +1,11 @@
-import React from "react";
 import Image1 from "../../assets/category/gaming.png";
 import Image2 from "../../assets/category/vr.png";
 import Image3 from "../../assets/category/speaker.png";
 import Button from "../Shared/Button";
+import { Link } from "react-router-dom";
 
 const Category = () => {
+
   return (
     <div className="py-8">
       <div className="container">
@@ -16,13 +17,15 @@ const Category = () => {
                 <p className="mb-[2px] text-white">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Laptop
+                  Gaming Console
                 </p>
+                <Link to="/category/gaming">
                 <Button
                   text="Browse"
                   bgColor={"bg-primary"}
                   textColor={"text-white"}
                 />
+                </Link>
               </div>
             </div>
             <img
@@ -38,13 +41,15 @@ const Category = () => {
                 <p className="mb-[2px] text-white">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Earphone
+                  Virtual Reality
                 </p>
+                <Link to="/category/vr">
                 <Button
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-brandGreen"}
                 />
+                </Link>
               </div>
             </div>
             <img src={Image2} alt="" className="w-[320px] absolute bottom-0" />
@@ -58,11 +63,12 @@ const Category = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Gadget
                 </p>
+                <Link to="/category/gadget">
                 <Button
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-brandBlue"}
-                />
+                /></Link>
               </div>
             </div>
             <img
