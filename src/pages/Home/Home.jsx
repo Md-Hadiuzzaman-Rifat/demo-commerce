@@ -1,6 +1,5 @@
 import Products from "../../components/Products/Products.jsx";
 import Blogs from "../../components/Blogs/Blogs.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 import Popup from "../../components/Popup/Popup.jsx";
 import Hero from "../../components/Hero/Hero.jsx";
 import Category from "../../components/Category/Category.jsx";
@@ -47,7 +46,7 @@ const Home = () => {
       <Banner data={BannerData2} />
       <Blogs />
       <Partners />
-      <Footer />
+
       <Popup />
     </div>
   );

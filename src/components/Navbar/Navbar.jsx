@@ -1,6 +1,7 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
+import {useNavigate} from "react-router-dom"
 
 const MenuLinks = [
   {
@@ -42,8 +43,14 @@ const DropdownLinks = [
     link: "/#",
   },
 ];
+
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ handleOrderPopup }) => {
+const Navbar = () => {
+  const navigate= useNavigate()
+  const handleShopping=()=>{
+    navigate('/shoppingCart')
+  }
+
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       <div className="py-4">
@@ -52,10 +59,10 @@ const Navbar = ({ handleOrderPopup }) => {
           <div className="flex items-center gap-4">
             <a
               href="/"
-              className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl
+              className="text-primary font-semibold tracking-widest text-2xl sm:text-3xl
 "
             >
-              Urban Tech
+              Urban_Tech
             </a>
             {/* Menu Items */}
             <div className="hidden lg:block">
@@ -118,7 +125,7 @@ const Navbar = ({ handleOrderPopup }) => {
             </div>
 
             {/* Order-button section */}
-            <button className="relative p-3" onClick={handleOrderPopup}>
+            <button className="relative p-3" onClick={handleShopping}>
               <FaCartShopping className="text-xl text-gray-600 dark:text-gray-400" />
               <div className="w-4 h-4 bg-red-500 text-white rounded-full absolute top-0 right-0 flex items-center justify-center text-xs">
                 4

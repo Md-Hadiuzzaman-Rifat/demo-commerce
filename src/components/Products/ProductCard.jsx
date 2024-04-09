@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import Button from "../Shared/Button";
 // eslint-disable-next-line react/prop-types
 
@@ -22,16 +23,20 @@ const ProductCard = ({ data }) => {
               />
               {/* hover button */}
               <div className="hidden group-hover:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-full w-full text-center group-hover:backdrop-blur-sm justify-center items-center duration-200 rounded-md">
-                <Button
-                  text={"View Details"}
-                  bgColor={"bg-primary"}
-                  textColor={"text-white"}
-                />
+                <Link to="/productDetails">
+                  <Button
+                    text={"View Details"}
+                    bgColor={"bg-primary"}
+                    textColor={"text-white"}
+                  />
+                </Link>
               </div>
             </div>
             <div className="leading-7">
               <h2 className="font-semibold">{data.title}</h2>
-              <h2 className="font-semi-bold line-through text-red-500">${data.price}</h2>
+              <h2 className="font-semi-bold line-through text-red-500">
+                ${data.price}
+              </h2>
               <h2 className="font-bold">${data.price}</h2>
             </div>
           </div>

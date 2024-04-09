@@ -6,6 +6,10 @@ import Home from "./pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Footer from "./components/Footer/Footer";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 
 const App = () => {
   React.useEffect(() => {
@@ -26,7 +30,11 @@ const App = () => {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/category/:category" element={<CategoryPage></CategoryPage>}></Route>
         <Route path="/productDetails" element={ <ProductDetails/> }></Route>
+        <Route path="/login" element={ <Login/> }></Route>
+        <Route path="/register" element={ <Register/> }></Route>
+        <Route path="/shoppingCart" element={ <ShoppingCart/> }></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 };
