@@ -6,7 +6,6 @@ const CategoryPage = () => {
     console.log(category);
     return (
         <div className="container">
-            
             <ProductCarousel></ProductCarousel>
         </div>
     );
