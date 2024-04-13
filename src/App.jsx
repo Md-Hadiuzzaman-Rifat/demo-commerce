@@ -10,7 +10,9 @@ import Register from "./pages/Register/Register";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import MainPageLayout from "./components/MainPageLayout/MainPageLayout";
 import { AuthProvider } from "./context/AuthContext";
-import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin"
+import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
+import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
+import AllProduct from "./AdminPannel/pages/Product/AllProduct"
 
 const App = () => {
   React.useEffect(() => {
@@ -38,14 +40,18 @@ const App = () => {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
+
+            {/* //  admin and dashboard page start */}
+            <Route path="/admin" element={<AdminLogin />}></Route>
+            <Route path="/dashboard/*">
+              <Route path="users" element={ <AllUsers/> }></Route>
+              
+            </Route>
+            <Route path="/upload" element={ <AllProduct/> }></Route>
+
+            {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>
-        <Routes>
-          <Route path='/admin' element={ <AdminLogin/>}></Route>
-          <Route path="/dashboard/*" >
-            
-          </Route>
-        </Routes>
       </AuthProvider>
     </div>
   );

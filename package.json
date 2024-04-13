@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.3",
     "aos": "^2.3.4",
     "firebase": "^10.10.0",
     "pure-react-carousel": "^1.30.1",

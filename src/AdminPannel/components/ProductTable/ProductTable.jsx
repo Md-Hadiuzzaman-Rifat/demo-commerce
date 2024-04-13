@@ -25,7 +25,7 @@ const ProductTable = () => {
           {/* // table body  */}
           <tbody>
             {
-              data.map(row=><TableBody data={row} key={row._id}/>)
+              data?.map(row=><TableBody data={row} key={row._id}/>)
             }
           </tbody>
         </table>

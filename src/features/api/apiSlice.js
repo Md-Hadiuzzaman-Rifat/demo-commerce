@@ -5,5 +5,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://eye-care-back-end.vercel.app/" }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:20200/" }),
   endpoints: () => ({}),
 });
