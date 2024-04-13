@@ -14,6 +14,10 @@ const [loading, setLoading] = useState(false);
 const { login, googleSignIn } = useAuth();
 const navigate = useNavigate();
 
+const handleGoogle=()=>{
+  googleSignIn()
+}
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,17 +83,17 @@ const navigate = useNavigate();
 
                   <div className="flex flex-col gap-2">
                   <button type="submit" className="dark:bg-white dark:text-black text-white bg-gray-500 px-6 py-2 font-semibold rounded-sm text-white">Submit</button>
-                  <button onClick={googleSignIn} className="bg-orange-500 px-6 py-2 font-semibold rounded-sm text-white">Google++</button>
+                  <button onClick={handleGoogle} className="bg-orange-500 px-6 py-2 font-semibold rounded-sm text-white">Google++</button>
                   </div>
-                  <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Already have an account?{" "}
-                    <a
-                      href="#"
-                      className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+                    Create a new account?{" "}
+                    <div
+                      onClick={()=>navigate("/register")}
+                      className="font-medium text-primary-600 hover:underline dark:text-primary-500 cursor-pointer"
                     >
-                      Login here
-                    </a>
-                  </p>
+                      Register
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>

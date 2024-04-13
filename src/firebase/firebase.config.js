@@ -10,12 +10,13 @@
 //   };
   
 
+
   export const firebaseConfig = {
     apiKey: "AIzaSyCE3zTkRsZ2KkpEbPmRfthf5v05R2TO-gU",
     authDomain: "electric-demo.firebaseapp.com",
     projectId: "electric-demo",
     storageBucket: "electric-demo.appspot.com",
     messagingSenderId: "287677231104",
-    appId: "1:287677231104:web:d9a2c3960f950648ba68e5",
+    appId: "1:287677231104:web:d9a2c3960f950648ba68e5"
   };
   

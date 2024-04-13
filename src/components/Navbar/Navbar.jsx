@@ -1,7 +1,9 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { MdLogout } from "react-icons/md";
 
 const MenuLinks = [
   {
@@ -16,11 +18,6 @@ const MenuLinks = [
   },
   {
     id: 3,
-    name: "About",
-    link: "/#about",
-  },
-  {
-    id: 4,
     name: "Blogs",
     link: "/#blog",
   },
@@ -46,10 +43,12 @@ const DropdownLinks = [
 
 // eslint-disable-next-line react/prop-types
 const Navbar = () => {
-  const navigate= useNavigate()
-  const handleShopping=()=>{
-    navigate('/shoppingCart')
-  }
+  const navigate = useNavigate();
+  const handleShopping = () => {
+    navigate("/shoppingCart");
+  };
+
+  const { currentUser, logout } = useAuth();
 
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
@@ -132,9 +131,21 @@ const Navbar = () => {
               </div>
             </button>
             {/* Dark Mode section */}
+
             <div>
               <DarkMode />
             </div>
+
+            {
+              currentUser?.displayName && (<div>{currentUser.displayName.slice(0, 2)}</div>)
+            }
+            {
+              currentUser?.displayName && <div className="cursor-pointer" onClick={logout}> <MdLogout></MdLogout> </div>
+            }
+            {
+              !currentUser?.displayName && (<div onClick={()=>navigate("/login")} className="cursor-pointer">Login</div>)
+            }
+            
           </div>
         </div>
       </div>

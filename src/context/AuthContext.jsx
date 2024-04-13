@@ -39,21 +39,22 @@ export function AuthProvider({ children }) {
   }, []);
 
   // google SignIn
-async function googleSignIn(){
-  const auth=getAuth()
-  const provider = new GoogleAuthProvider();
-  try{
-    const result =await signInWithPopup(auth, provider)
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
-    const user= result.user 
-    console.log(user);
-  }catch{ /* empty */ }
-}
-
+  async function googleSignIn(){
+    const auth=getAuth()
+    const provider = new GoogleAuthProvider();
+    try{
+      const result =await signInWithPopup(auth, provider)
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
+      const user= result.user 
+      console.log(user);
+    }catch{
+      console.log("failed to google");
+    }
+  }
 
   // signup function
+  // signup function
   async function signup(email, password, username) {
-    console.log(email, password, username);
     const auth = getAuth();
     await createUserWithEmailAndPassword(auth, email, password);
 
@@ -75,7 +76,7 @@ async function googleSignIn(){
   }
 
   const saveUser=(user)=>{
-    fetch("https://eye-care-back-end.vercel.app/addUser",{
+    fetch("http://localhost:20200/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

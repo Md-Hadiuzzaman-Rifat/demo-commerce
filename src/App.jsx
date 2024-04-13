@@ -41,9 +41,9 @@ const App = () => {
           </Routes>
         </MainPageLayout>
         <Routes>
-          {/* <Route path="/dashboard/*">
-           <Route path="login" element={ <AdminLogin/> }></Route>
-        </Route> */}
+          <Route path="/dashboard/*">
+            
+          </Route>
         </Routes>
       </AuthProvider>
     </div>
