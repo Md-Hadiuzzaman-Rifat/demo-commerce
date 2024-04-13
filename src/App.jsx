@@ -10,7 +10,7 @@ import Register from "./pages/Register/Register";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import MainPageLayout from "./components/MainPageLayout/MainPageLayout";
 import { AuthProvider } from "./context/AuthContext";
-// import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin"
+import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin"
 
 const App = () => {
   React.useEffect(() => {
@@ -41,7 +41,8 @@ const App = () => {
           </Routes>
         </MainPageLayout>
         <Routes>
-          <Route path="/dashboard/*">
+          <Route path='/admin' element={ <AdminLogin/>}></Route>
+          <Route path="/dashboard/*" >
             
           </Route>
         </Routes>
