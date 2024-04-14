@@ -14,11 +14,11 @@ const AllProduct = () => {
   console.log("Hello");
   
   return (
-    <div className="product">
+    <div className="product container">
       {
         modalCondition && <Modal></Modal>
       }
-      <div className="container">
+      <div>
         <h1>Upload a Product</h1>
         {/* <ProductForm></ProductForm> */}
         <ProductUploadForm></ProductUploadForm>
