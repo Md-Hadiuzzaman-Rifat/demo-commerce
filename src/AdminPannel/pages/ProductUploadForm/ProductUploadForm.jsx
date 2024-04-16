@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAddProductMutation } from "../../../features/product/productApi";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
+import { useGetCategoryQuery } from "../../../features/category/categoryApi";
 
 export default function ProductUploadForm() {
   const [productName, setProductName] = useState("");
@@ -23,7 +24,11 @@ export default function ProductUploadForm() {
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
 
+
+  console.log(files);
+
   const [addProduct, {data, isError, isLoading, isSuccess}]= useAddProductMutation()
+  const {data:getCatData, isSuccess:getCatSuccess }= useGetCategoryQuery()
 
   const selector=useSelector(state=>state.cartHandler)
   const {modalCondition}= selector || {}
@@ -188,9 +193,9 @@ export default function ProductUploadForm() {
                   onChange={(e) => setCategory(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                  <option value="Head Phone">Head Phone</option>
-                  <option value="Monitor">Monitor</option>
-                  <option value="Mouse">Mouse</option>
+                  {
+                    getCatSuccess && getCatData?.length > 0 && getCatData.map(item=> <option key={item._id} value={item.name}>{item.name}</option> )
+                  }
                 </select>
               </div>
             </div>

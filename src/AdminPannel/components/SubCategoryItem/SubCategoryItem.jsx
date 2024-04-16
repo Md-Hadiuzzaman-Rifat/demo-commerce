@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { useDeleteCategoryMutation } from "../../../features/category/categoryApi";
+import { useDeleteSubCategoryMutation } from "../../../features/subCategory/subCategoryApi";
 
-const CategoryItem = ({item}) => {
-    const [deleteCategory, {isLoading, isSuccess}]=useDeleteCategoryMutation()
+
+
+const SubCategory = ({item}) => {
+    const [deleteSubCategory, {isLoading, isSuccess}]=useDeleteSubCategoryMutation()
 
     const handleDelete=()=>{
         console.log(item?._id);
-        deleteCategory(item?._id)
+        deleteSubCategory(item?._id)
     }
 
     return (
@@ -16,4 +18,4 @@ const CategoryItem = ({item}) => {
     );
 };
 
-export default CategoryItem;
+export default SubCategory;

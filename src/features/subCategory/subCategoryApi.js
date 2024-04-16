@@ -13,18 +13,18 @@ export const subCategoryApi = apiSlice.injectEndpoints({
       }),
     }),
 
-    editSubCategory: builder.mutation({
-      query: ({ catId, catData }) => ({
-        url: `/editSubCategory/${catId}`,
-        method: "PUT",
-        body: catData,
+    deleteSubCategory: builder.mutation({
+      query: (id) => ({
+        url: `/deleteSubCategory/${id}`,
+        method: "DELETE",
       }),
     }),
+
   }),
 });
 
 export const {
   useAddSubCategoryMutation,
-  useEditSubCategoryMutation,
+  useDeleteSubCategoryMutation,
   useGetSubCategoryQuery
 } = subCategoryApi;

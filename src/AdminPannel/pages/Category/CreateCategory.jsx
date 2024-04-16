@@ -2,8 +2,9 @@
 import { useState } from "react";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
-import { useAddCategoryMutation } from "../../../features/category/categoryApi";
-import { useAddSubCategoryMutation } from "../../../features/subCategory/subCategoryApi";
+import { useAddCategoryMutation, useGetCategoryQuery } from "../../../features/category/categoryApi";
+import { useAddSubCategoryMutation, useGetSubCategoryQuery } from "../../../features/subCategory/subCategoryApi";
+import SubCategory from "../../components/SubCategoryItem/SubCategoryItem";
 
 const CreateCategory = () => {
   const [addNewCategory, setAddNewCategory] = useState("");
@@ -16,37 +17,17 @@ const CreateCategory = () => {
   const [addSubCategory, { data:subData, isError:subError, isLoading: subLoading, isSuccess:subSuccess }] =
     useAddSubCategoryMutation();
 
+  const {data:getCatData, isSuccess:getCatSuccessData, }= useGetCategoryQuery()
+  const {data:getSubCatData, isSuccess:getSubCatSuccess }= useGetSubCategoryQuery()
 
-  const items = [
-    {
-      id: 1,
-      name: "mobile",
-    },
-    {
-      id: 2,
-      name: "mouse",
-    },
-    {
-      id: 3,
-      name: "keyboard",
-    },
-    {
-      id: 4,
-      name: "speaker",
-    },
-    {
-      id: 5,
-      name: "light",
-    },
-  ];
 
   const handleCategory = (e) => {
     e.preventDefault();
-    addCategory({name:addNewCategory}) 
+    addCategory({name:addNewCategory?.toLowerCase()}) 
   };
   const handleSubCategory = (e) => {
     e.preventDefault();
-    addSubCategory({name:newSubCategory})
+    addSubCategory({name:newSubCategory?.toLowerCase()})
   };
 
   return (
@@ -73,9 +54,11 @@ const CreateCategory = () => {
         </button>
       </form>
       <div className="my-4 flex flex-wrap">
-        {items.map((item) => (
-          <CategoryItem key={item.id} name={item.name} />
-        ))}
+        {
+          getCatSuccessData && getCatData?.length > 0 && getCatData.map((item) => (
+            <CategoryItem key={item._id} item={item} />
+          ))
+        }
       </div>
 
       <form onSubmit={handleSubCategory} className="flex gap-2 ">
@@ -97,9 +80,11 @@ const CreateCategory = () => {
         </button>
       </form>
       <div className="my-4 text-gray-800 flex flex-wrap font-semibold">
-        {items.map((item) => (
-          <CategoryItem key={item.id} name={item.name} />
-        ))}
+      {
+          getSubCatSuccess && getSubCatData?.length > 0 && getSubCatData.map((item) => (
+            <SubCategory key={item._id} item={item} />
+          ))
+        }
       </div>
     </div>
   );
