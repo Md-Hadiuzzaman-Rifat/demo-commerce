@@ -13,6 +13,8 @@ import { AuthProvider } from "./context/AuthContext";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
 import AllProduct from "./AdminPannel/pages/Product/AllProduct"
+import CreateCategory from "./AdminPannel/pages/Category/CreateCategory"
+import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 
 const App = () => {
   React.useEffect(() => {
@@ -31,6 +33,7 @@ const App = () => {
         <MainPageLayout>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/test" element={<ImageUpload/>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route
               path="/category/:category"
@@ -48,7 +51,7 @@ const App = () => {
               
             </Route>
             <Route path="/upload" element={ <AllProduct/> }></Route>
-
+            <Route path="/category" element={ <CreateCategory/> }></Route>
             {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>

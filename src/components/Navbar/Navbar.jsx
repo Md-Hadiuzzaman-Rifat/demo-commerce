@@ -1,7 +1,7 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { MdLogout } from "react-icons/md";
 
@@ -56,13 +56,13 @@ const Navbar = () => {
         <div className="container flex justify-between items-center">
           {/* Logo and Links section */}
           <div className="flex items-center gap-4">
-            <a
-              href="/"
+            <Link 
+              to="/"
               className="text-primary font-semibold tracking-widest text-2xl sm:text-3xl
 "
             >
               Urban_Tech
-            </a>
+            </Link>
             {/* Menu Items */}
             <div className="hidden lg:block">
               <ul className="flex items-center gap-4">

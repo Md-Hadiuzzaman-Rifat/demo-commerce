@@ -4,6 +4,7 @@ import {usersApi} from "../features/users/userApi"
 import orderProductSlice from '../features/orderProduct/orderProductSlice'
 import cartHandler from '../features/cartHandler/cartHandler'
 import productSlice from "../features/product/productSlice"
+import categorySlice from '../features/category/categorySlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     usersApi,
     order:orderProductSlice,
     cartHandler,
-    productSlice
+    productSlice,
+    categorySlice
   },
   middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(apiSlice.middleware)
 })
