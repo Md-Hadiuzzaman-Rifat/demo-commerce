@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAddProductMutation } from "../../../features/product/productApi";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
 import { useGetCategoryQuery } from "../../../features/category/categoryApi";
+import axios from "axios";
 
 export default function ProductUploadForm() {
   const [productName, setProductName] = useState("");
@@ -20,12 +21,11 @@ export default function ProductUploadForm() {
   const [discount, setDiscount] = useState("");
   const [extra, setExtra] = useState("");
   const [extraInfo, setExtraInfo] = useState("");
+  const [brand, setBrand]= useState('')
     
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
 
-
-  console.log(files);
 
   const [addProduct, {data, isError, isLoading, isSuccess}]= useAddProductMutation()
   const {data:getCatData, isSuccess:getCatSuccess }= useGetCategoryQuery()
@@ -53,17 +53,26 @@ export default function ProductUploadForm() {
       setFile(files.filter(x => x.name !== i));
    }
 
-   const handleImage=(e)=>{
-      e.preventDefault()
-      console.log(files);
-   }
+   console.log(files);
 
-
-  const handleUpload=(e)=>{
+  const handleUpload= async (e)=>{
     e.preventDefault()
-    addProduct({productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo})
+    // addProduct({productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo})
     
-    console.log(productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo);
+    // console.log(productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo);
+  
+
+    const formData = new FormData();
+    
+    for (let index=0; index<files?.length; index++){
+      const file= files[index]
+      formData.append("files", file);
+    }
+    axios
+      .post("http://localhost:20200/uploadArray", formData)
+      .then((res) => {})
+      .catch((er) => console.log(er));
+    
   }
 
   useEffect(()=>{
@@ -222,6 +231,25 @@ export default function ProductUploadForm() {
               </div>
             </div>
 
+
+            <div className="col-span-full">
+              <label
+                htmlFor="street-address"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Brand Name
+              </label>
+              <div className="mt-2">
+                <input
+                  onChange={(e) => setBrand(e.target.value)}
+                  type="text"
+                  name="brand"
+                  id="brand"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
             <div className="col-span-full">
               <label
                 htmlFor="street-address"
@@ -239,6 +267,7 @@ export default function ProductUploadForm() {
                 />
               </div>
             </div>
+
             <div className="col-span-full">
               <label
                 htmlFor="Other Link"

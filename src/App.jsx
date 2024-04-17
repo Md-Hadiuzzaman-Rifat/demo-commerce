@@ -14,7 +14,8 @@ import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
 import AllProduct from "./AdminPannel/pages/Product/AllProduct"
 import CreateCategory from "./AdminPannel/pages/Category/CreateCategory"
-import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
+// import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
+import Test from "./components/Test/Test";
 
 const App = () => {
   React.useEffect(() => {
@@ -33,7 +34,7 @@ const App = () => {
         <MainPageLayout>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/test" element={<ImageUpload/>}></Route>
+            <Route path="/test" element={<Test/>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route
               path="/category/:category"

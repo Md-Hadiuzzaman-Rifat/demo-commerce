@@ -1,14 +1,49 @@
+/* eslint-disable no-unused-vars */
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const Test = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function Test() {
+  const [file, setFile] = useState();
+  const [name, setName] = useState("");
+  const [find, setFind] = useState(null);
+
+  const upload = () => {
+    const formData = new FormData();
+    formData.append("file", file);
+    axios
+      .post("http://localhost:20200/upload", formData)
+      .then((res) => {})
+      .catch((er) => console.log(er));
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:20200/get-upload`)
+      .then((res) => res.json())
+      .then((data) => setFind(data));
+  }, []);
+
+  return (
+    <div>
+      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+      <input type="text" onChange={(e) => setName(e.target.value)} />
+      <button type="button" onClick={upload}>
+        Upload
+      </button>
+      <div>
+        {setFind &&
+          find?.map((item) => (
+            <img
+              key={item._id}
+              src={`http://localhost:20200/images/${item.image}`}
+              alt=""
+            />
+          ))}
+      </div>
+    </div>
+  );
+}
 
 export default Test;
-
 
 // <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
 // <div className="text-center">
@@ -27,8 +62,8 @@ export default Test;
 //         className="sr-only"
 //       />
 //     </label>
-    
+
 //   </div>
-  
+
 // </div>
 // </div>
