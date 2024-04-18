@@ -44,12 +44,10 @@ const App = () => {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
-
             {/* //  admin and dashboard page start */}
             <Route path="/admin" element={<AdminLogin />}></Route>
             <Route path="/dashboard/*">
               <Route path="users" element={ <AllUsers/> }></Route>
-              
             </Route>
             <Route path="/upload" element={ <AllProduct/> }></Route>
             <Route path="/category" element={ <CreateCategory/> }></Route>

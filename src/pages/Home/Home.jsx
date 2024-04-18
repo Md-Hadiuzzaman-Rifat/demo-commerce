@@ -12,7 +12,8 @@ import smartwatch2 from "../../assets/category/smartwatch2-removebg-preview.png"
 import SampleProduct from "../../components/SampleProduct/SampleProduct.jsx";
 // import AppStore from "../../components/AppStore/AppStore.jsx";
 import FooterBanner from "../../components/FooterBanner/FooterBanner.jsx";
-import QuickView from "../../components/QuickView/QuickView.jsx";
+import ShoppingCartForm from "../../components/ShoppingCartForm/ShoppingCartForm.jsx";
+// import QuickView from "../../components/QuickView/QuickView.jsx";
 
 const BannerData = {
   discount: "30% OFF",
@@ -52,8 +53,9 @@ const Home = () => {
       <Blogs />
       <Partners />
       {/* <AppStore></AppStore> */}
-      <QuickView></QuickView>
+      {/* <QuickView></QuickView> */}
       <FooterBanner></FooterBanner>
+      <ShoppingCartForm></ShoppingCartForm>
       <Popup />
     </div>
   );
