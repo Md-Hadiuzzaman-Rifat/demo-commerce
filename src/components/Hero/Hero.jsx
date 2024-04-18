@@ -1,121 +1,95 @@
-import Slider from "react-slick";
-import Image1 from "../../assets/hero/headphone.png";
-import Image2 from "../../assets/category/vr.png";
-import Image3 from "../../assets/category/macbook.png";
-import Button from "../Shared/Button";
-
-const HeroData = [
-  {
-    id: 1,
-    img: Image1,
-    subtitle: "Beats Solo",
-    title: "Wireless",
-    title2: "Headphone",
-  },
-  {
-    id: 2,
-    img: Image2,
-    subtitle: "Beats Solo",
-    title: "Wireless",
-    title2: "Virtual",
-  },
-  {
-    id: 1,
-    img: Image3,
-    subtitle: "Beats Solo",
-    title: "Branded",
-    title2: "Laptops",
-  },
-];
-
-// eslint-disable-next-line react/prop-types
-const Hero = ({ handleOrderPopup }) => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 800,
-    slidesToScroll: 1,
-    // autoplay: true,
-    autoplaySpeed: 4000,
-    cssEase: "ease-in-out",
-    pauseOnHover: false,
-    pauseOnFocus: true,
-  };
+export default function Hero() {
   return (
-    <div className="container">
-      <div
-        className="overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] hero-bg-color flex justify-center items-center
-"
-      >
-        <div className="container pb-8 sm:pb-0">
-          {/* Hero section */}
-          <Slider {...settings}>
-            {HeroData.map((data) => (
-              <div key={data.id}>
-                <div className="grid grid-cols-1 sm:grid-cols-2">
-                  {/* text content section */}
-                  <div className="flex flex-col justify-center gap-4 sm:pl-3 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10 ">
-                    <h1
-                      data-aos="zoom-out"
-                      data-aos-duration="500"
-                      data-aos-once="true"
-                      className="text-2xl sm:text-6xl lg:text-2xl font-bold"
-                    >
-                      {data.subtitle}
-                    </h1>
-                    <h1
-                      data-aos="zoom-out"
-                      data-aos-duration="500"
-                      data-aos-once="true"
-                      className="text-5xl sm:text-6xl lg:text-7xl font-bold"
-                    >
-                      {data.title}
-                    </h1>
-                    <h1
-                      data-aos="zoom-out"
-                      data-aos-duration="500"
-                      data-aos-once="true"
-                      className="text-5xl uppercase text-white dark:text-white/5 sm:text-[80px] md:text-[100px] xl:text-[150px] font-bold"
-                    >
-                      {data.title2}
-                    </h1>
-                    <div
-                      data-aos="fade-up"
-                      data-aos-offset="0"
-                      data-aos-duration="500"
-                      data-aos-delay="300"
-                    >
-                      <Button
-                        text="Shop By Category"
-                        bgColor="bg-primary"
-                        textColor="text-white"
-                        handler={handleOrderPopup}
-                      />
+    <div className="relative overflow-hidden bg-white">
+      <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+        <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+          <div className="sm:max-w-lg">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Summer styles are finally here
+            </h1>
+            <p className="mt-4 text-xl text-gray-500">
+              This year, our new summer collection will shelter you from the harsh elements of a world that doesnt care
+              if you live or die.
+            </p>
+          </div>
+          <div>
+            <div className="mt-10">
+              {/* Decorative image grid */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
+              >
+                <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                  <div className="flex items-center space-x-6 lg:space-x-8">
+                    <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  {/* Img section */}
-                  <div className="order-1 sm:order-2">
-                    <div
-                      data-aos="zoom-in"
-                      data-aos-once="true"
-                      className="relative z-10"
-                    >
-                      <img
-                        src={data.img}
-                        alt=""
-                        className="w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto drop-shadow-[-8px_4px_6px_rgba(0,0,0,.4)] relative z-40"
-                      />
+                    <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
+                          alt=""
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </Slider>
+
+              <a
+                href="#"
+                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+              >
+                Shop Collection
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
-
-export default Hero;
+  )
+}

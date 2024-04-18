@@ -53,7 +53,7 @@ const App = () => {
             </Route>
             <Route path="/upload" element={ <AllProduct/> }></Route>
             <Route path="/category" element={ <CreateCategory/> }></Route>
-            {/* //  admin and dashboard page end */}
+          {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>
       </AuthProvider>

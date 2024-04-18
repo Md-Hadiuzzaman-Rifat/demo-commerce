@@ -9,6 +9,10 @@ import Banner from "../../components/Banner/Banner.jsx";
 import Partners from "../../components/Partners/Partners.jsx";
 import headphone from "../../assets/hero/headphone.png";
 import smartwatch2 from "../../assets/category/smartwatch2-removebg-preview.png";
+import SampleProduct from "../../components/SampleProduct/SampleProduct.jsx";
+// import AppStore from "../../components/AppStore/AppStore.jsx";
+import FooterBanner from "../../components/FooterBanner/FooterBanner.jsx";
+import QuickView from "../../components/QuickView/QuickView.jsx";
 
 const BannerData = {
   discount: "30% OFF",
@@ -43,10 +47,13 @@ const Home = () => {
       <Services />
       <Banner data={BannerData} />
       <Products />
+      <SampleProduct></SampleProduct>
       <Banner data={BannerData2} />
       <Blogs />
       <Partners />
-
+      {/* <AppStore></AppStore> */}
+      <QuickView></QuickView>
+      <FooterBanner></FooterBanner>
       <Popup />
     </div>
   );
