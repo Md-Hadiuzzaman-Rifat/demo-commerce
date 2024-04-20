@@ -7,13 +7,18 @@ import Category2 from "../../components/Category/Category2.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 import Partners from "../../components/Partners/Partners.jsx";
-import headphone from "../../assets/hero/headphone.png";
-import smartwatch2 from "../../assets/category/smartwatch2-removebg-preview.png";
+import headphone from "../../assets/red-shirt.png";
+import smartwatch2 from "../../assets/show.png";
 import SampleProduct from "../../components/SampleProduct/SampleProduct.jsx";
 // import AppStore from "../../components/AppStore/AppStore.jsx";
 import FooterBanner from "../../components/FooterBanner/FooterBanner.jsx";
 import ShoppingCartForm from "../../components/ShoppingCartForm/ShoppingCartForm.jsx";
+import NewCategory from "../../components/NewCategory/NewCategory.jsx";
+import Bars from "../../components/Bars/Bars.jsx";
 // import QuickView from "../../components/QuickView/QuickView.jsx";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { IoMdArrowDropright } from "react-icons/io";
+
 
 const BannerData = {
   discount: "30% OFF",
@@ -24,7 +29,7 @@ const BannerData = {
   title3: "Winter Sale",
   title4:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
-  bgColor: "#f42c37",
+  bgColor: "#ff848a",
 };
 
 const BannerData2 = {
@@ -36,13 +41,23 @@ const BannerData2 = {
   title3: "Winter Sale",
   title4:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
-  bgColor: "#2dcc6f",
+  bgColor: "#cccccc",
 };
 
 const Home = () => {
   return (
     <div>
       <Hero />
+      <div className="container">
+        <div className="mt-8 mb-2 py-2 px-4 bg-[#E0F7FA]">
+          {" "}
+          <span className="font-bold">Event T-shirt <IoMdArrowDropright className="inline"/> </span> T-shirt/Clothing with your brand logo or
+          design? We are delivering worldwide at unbeatable prices.{" "}
+          <span className="font-bold">Click here <FaArrowAltCircleRight className="inline"/></span>{" "}
+        </div>
+      </div>
+      <Bars></Bars>
+      <NewCategory></NewCategory>
       <Category />
       <Category2 />
       <Services />

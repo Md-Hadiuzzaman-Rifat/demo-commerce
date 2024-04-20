@@ -1,5 +1,5 @@
-import Image1 from "../../assets/category/gaming.png";
-import Image2 from "../../assets/category/vr.png";
+import Image1 from "../../assets/tshrt.png";
+import Image2 from "../../assets/tshirt1.png";
 import Image3 from "../../assets/category/speaker.png";
 import Button from "../Shared/Button";
 import { Link } from "react-router-dom";
@@ -31,11 +31,11 @@ const Category = () => {
             <img
               src={Image1}
               alt=""
-              className="w-[250px] absolute top-1/2 -translate-y-1/2 -right-0"
+              className="w-[350px] absolute top-1/2 -translate-y-1/2 -right-0"
             />
           </div>
           {/* Second col */}
-          <div className="py-10 pl-5 bg-gradient-to-br from-brandGreen/90 to-brandGreen/90 text-white rounded-3xl relative h-[320px] flex items-start">
+          <div className="py-10 pl-5 bg-gradient-to-br from-brandBlue/90 to-brandCustom/90 text-white rounded-3xl relative h-[320px] flex items-start">
             <div>
               <div className="mb-4">
                 <p className="mb-[2px] text-white">Enjoy</p>

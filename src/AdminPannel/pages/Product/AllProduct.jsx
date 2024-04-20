@@ -17,7 +17,7 @@ const AllProduct = () => {
         modalCondition && <Modal></Modal>
       }
       <div>
-        <h1>Upload a Product</h1>
+        <h1 className="text-2xl font-semibold underline">Upload a Product</h1>
         {/* <ProductForm></ProductForm> */}
         <ProductUploadForm></ProductUploadForm>
       </div>

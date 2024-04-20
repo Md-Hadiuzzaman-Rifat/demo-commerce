@@ -1,8 +1,8 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const Banner = ({ data }) => {
   return (
-    <div className="min-h-[550px] flex justify-center items-center py-12">
+    <div className="min-h-[450px] flex justify-center items-center py-12">
       <div className="container">
         <div
           style={{ backgroundColor: data.bgColor }}
@@ -29,7 +29,7 @@ const Banner = ({ data }) => {
             <img
               src={data.image}
               alt=""
-              className="scale-125 w-[250px] md:w-[340px] mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,.6)] object-cover"
+              className="scale-155 w-[950px] md:w-[740px] mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,.6)] object-cover"
             />
           </div>
           {/* third col */}

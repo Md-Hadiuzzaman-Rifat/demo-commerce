@@ -53,14 +53,14 @@ export default function ProductUploadForm() {
       setFile(files.filter(x => x.name !== i));
    }
 
-   console.log(files);
+
+   const details={productName, brand, review, price, videoLink, otherLink, category, description, variants, featured, discount, extra, extraInfo}
+
 
   const handleUpload= async (e)=>{
     e.preventDefault()
-    // addProduct({productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo})
-    
-    // console.log(productName, review, price, videoLink, otherLink, category, files, description, variants, featured, discount, extra, extraInfo);
-  
+
+   
 
     const formData = new FormData();
     
@@ -68,8 +68,9 @@ export default function ProductUploadForm() {
       const file= files[index]
       formData.append("files", file);
     }
+    formData.append("message", JSON.stringify(details))
     axios
-      .post("http://localhost:20200/uploadArray", formData)
+      .post("http://localhost:20200/uploadProduct", formData)
       .then((res) => {})
       .catch((er) => console.log(er));
     
