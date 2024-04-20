@@ -12,10 +12,11 @@ import MainPageLayout from "./components/MainPageLayout/MainPageLayout";
 import { AuthProvider } from "./context/AuthContext";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
-import AllProduct from "./AdminPannel/pages/Product/AllProduct"
-import CreateCategory from "./AdminPannel/pages/Category/CreateCategory"
+import AllProduct from "./AdminPannel/pages/Product/AllProduct";
+import CreateCategory from "./AdminPannel/pages/Category/CreateCategory";
 // import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import Test from "./components/Test/Test";
+import Layout from "./AdminPannel/components/Layout/Layout";
 
 const App = () => {
   React.useEffect(() => {
@@ -34,7 +35,7 @@ const App = () => {
         <MainPageLayout>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/test" element={<Test/>}></Route>
+            <Route path="/test" element={<Test />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route
               path="/category/:category"
@@ -45,13 +46,15 @@ const App = () => {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
             {/* //  admin and dashboard page start */}
-            <Route path="/admin" element={<AdminLogin />}></Route>
-            <Route path="/dashboard/*">
-              <Route path="users" element={ <AllUsers/> }></Route>
-            </Route>
-            <Route path="/upload" element={ <AllProduct/> }></Route>
-            <Route path="/category" element={ <CreateCategory/> }></Route>
-          {/* //  admin and dashboard page end */}
+            <Layout>
+              <Route path="/admin" element={<AdminLogin />}></Route>
+              <Route path="/dashboard/*">
+                <Route path="users" element={<AllUsers />}></Route>
+              </Route>
+              <Route path="/upload" element={<AllProduct />}></Route>
+              <Route path="/category" element={<CreateCategory />}></Route>
+            </Layout>
+            {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>
       </AuthProvider>

@@ -60,10 +60,8 @@ export default function ProductUploadForm() {
   const handleUpload= async (e)=>{
     e.preventDefault()
 
-   
-
     const formData = new FormData();
-    
+
     for (let index=0; index<files?.length; index++){
       const file= files[index]
       formData.append("files", file);

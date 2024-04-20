@@ -22,6 +22,8 @@ function Test() {
       .then((data) => setFind(data));
   }, []);
 
+  console.log(find);
+
   return (
     <div>
       <input type="file" onChange={(e) => setFile(e.target.files[0])} />

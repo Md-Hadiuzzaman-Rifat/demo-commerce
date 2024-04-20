@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import "./Layout.scss";
 import Header from "../Header/Header";
 

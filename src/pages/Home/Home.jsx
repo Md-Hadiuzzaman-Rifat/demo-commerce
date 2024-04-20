@@ -19,7 +19,6 @@ import Bars from "../../components/Bars/Bars.jsx";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 
-
 const BannerData = {
   discount: "30% OFF",
   title: "Fine Smile",
@@ -51,9 +50,14 @@ const Home = () => {
       <div className="container">
         <div className="mt-8 mb-2 py-2 px-4 bg-[#E0F7FA]">
           {" "}
-          <span className="font-bold">Event T-shirt <IoMdArrowDropright className="inline"/> </span> T-shirt/Clothing with your brand logo or
-          design? We are delivering worldwide at unbeatable prices.{" "}
-          <span className="font-bold">Click here <FaArrowAltCircleRight className="inline"/></span>{" "}
+          <span className="font-bold">
+            Event T-shirt <IoMdArrowDropright className="inline" />{" "}
+          </span>{" "}
+          T-shirt/Clothing with your brand logo or design? We are delivering
+          worldwide at unbeatable prices.{" "}
+          <span className="font-bold">
+            Click here <FaArrowAltCircleRight className="inline" />
+          </span>{" "}
         </div>
       </div>
       <Bars></Bars>
@@ -61,9 +65,11 @@ const Home = () => {
       <Category />
       <Category2 />
       <Services />
+
+      <SampleProduct></SampleProduct>
       <Banner data={BannerData} />
       <Products />
-      <SampleProduct></SampleProduct>
+
       <Banner data={BannerData2} />
       <Blogs />
       <Partners />
