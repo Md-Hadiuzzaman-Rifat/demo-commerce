@@ -94,9 +94,7 @@ const products = [
   export default function SampleProduct() {
     return (
       <div className="bg-white">
-        <div className="mx-auto container px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-  
+        <div className="mx-auto container px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-2 gap-x-2 gap-y-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-4">
             {products.map((product) => (
               <div key={product.id} className="group relative">

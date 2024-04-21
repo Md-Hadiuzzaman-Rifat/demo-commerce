@@ -43,6 +43,19 @@ const BannerData2 = {
   bgColor: "#cccccc",
 };
 
+const bars=[
+  {
+    style: "text-[#cc8119] bg-[#fcf4e9]",
+    heading: "NEW ARRIVAL",
+    text: ""
+  },
+  {
+    style :"text-[#009688] bg-[#ccf7f1]",
+    text:"THE BEST QUALITY OUTFIT",
+    heading: "TOP RATED",
+    textStyle: "mb-[-14px] mt-[4px]"
+  }
+]
 const Home = () => {
   return (
     <div>
@@ -60,12 +73,12 @@ const Home = () => {
           </span>{" "}
         </div>
       </div>
-      <Bars></Bars>
+      <Bars item={bars[0]}></Bars>
       <NewCategory></NewCategory>
       <Category />
       <Category2 />
       <Services />
-
+      <Bars item={bars[1]}></Bars>
       <SampleProduct></SampleProduct>
       <Banner data={BannerData} />
       <Products />

@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
+import {Link} from "react-router-dom";
 
 const CategoryItem = ({item}) => {
   const {description, images}= item || {}
   console.log(description, images[0].filename);
-
   
   return (
-    <div>
-       <a
-        href="#"
+
+       <Link
+        to={`/productDetails/${item?._id}`}
         className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         <img
-          className="object-cover w-full rounded-t-lg h-76 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+          className="object-cover w-full rounded-t-lg h-56 md:h-52 md:w-48 md:rounded-none md:rounded-s-lg"
           src={`http://localhost:20200/Images/${images[0].filename}`}
           alt=""
         />
@@ -24,9 +24,7 @@ const CategoryItem = ({item}) => {
            Full Sleeves are always in tranding ..
           </p>
         </div>
-      </a>
-
-    </div>
+      </Link>
 
   );
 };

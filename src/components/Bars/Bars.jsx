@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 
-const Bars = () => {
+const Bars = ({item}) => {
+    const {text, style, heading, textStyle}= item
     return (
         <div className="container">
-            <div className="bg-[#fcf4e9]">
-                <h1 className="text-[#cc8119] text-4xl font-bold align-middle p-4">NEW ARRIVAL</h1>
+            <div className={`cursor-pointer flex flex-col items-center ${style}`}>
+                <p className={`font-semibold ${textStyle}`}>{text}</p>
+                <h1 className={`text-4xl font-bold p-4`}>{heading}</h1>
             </div>
         </div>
     );
