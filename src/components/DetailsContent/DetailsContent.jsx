@@ -1,11 +1,19 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import  { useState } from 'react';
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { makeSizes } from '../../utils/sizes';
+
+
 
 const DetailsContent = ({desc}) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
+
   const {brand, category, description, discount, extra, extraInfo, price, productName, review}= desc
+
+  const sizes=makeSizes(extra)
+  console.log(sizes);
 
   let newArr=[]
 
@@ -24,15 +32,18 @@ const DetailsContent = ({desc}) => {
     }
   };
 
+  
+
     return (
         <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
           <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600 dark:text-gray-400">
-            {brand}
+            {category}
           </p>
           <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4 dark:text-gray-200">
             {productName}
           </h2>
 
+{/* // total start  */}
           <div className=" flex flex-row justify-between  mt-5">
             <div className=" flex flex-row space-x-3 text-xl">
               {
@@ -44,16 +55,20 @@ const DetailsContent = ({desc}) => {
               22 reviews
             </p>
           </div>
-
-          <p className=" font-normal text-base leading-6 text-gray-600 mt-7 dark:text-gray-400">
-            {description}
-          </p>
-          <div className="flex flex-col ">
+          {/* price  */}
+          <div className="flex flex-row gap-4 ">
           <p className=" font-semibold text-gray-400 line-through lg:text-xl text-md lg:leading-6 leading-5 mt-6 ">
            $ {price}
           </p><span className='inline font-semibold, lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 font-bold'>$ { discount}</span>
           </div>
 
+        {/* sizes  */}
+        <div className='flex flex-row gap-2 mt-4'>
+              <div className='transition border cursor-pointer hover:shadow-md px-4 py-1 duration-100' >M</div>
+              
+        </div>
+
+              {/* // quantity  */}
           <div className="lg:mt-11 mt-10">
             <div className="flex flex-row justify-between">
               <p className=" font-medium text-base leading-4 text-gray-600 dark:text-gray-200">
@@ -112,6 +127,13 @@ const DetailsContent = ({desc}) => {
             <hr className=" bg-gray-200 w-full mt-4" />
           </div>
 
+
+          <p className=" font-normal text-base leading-6 text-gray-600 mt-7 dark:text-gray-400">
+            {description}
+          </p>
+
+
+          
           <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">
             Add to shopping bag
           </button>

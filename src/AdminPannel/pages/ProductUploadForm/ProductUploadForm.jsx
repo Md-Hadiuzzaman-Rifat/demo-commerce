@@ -19,7 +19,7 @@ export default function ProductUploadForm() {
   const [variants, setVariants] = useState("");
   const [featured, setFeatured] = useState("Regular");
   const [discount, setDiscount] = useState("");
-  const [extra, setExtra] = useState("");
+  const [extra, setExtra] = useState(null);
   const [extraInfo, setExtraInfo] = useState("");
   const [brand, setBrand]= useState('')
     

@@ -7,7 +7,7 @@ import CategoryPage from "../CategoryPage/CategoryPage";
 const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetSingleProductQuery(id);
-  console.log(data?.description);
+
   return (
     <div>
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">

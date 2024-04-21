@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 // add product to local storage
 const addToDb = id => {
     const exists = getDb();
@@ -80,3 +81,5 @@ const findOne=(id)=>{
   }
   
   export { addToDb, removeFromDb, clearTheCart, getStoredCart , reduceFromDb, findOne}
+
+  
