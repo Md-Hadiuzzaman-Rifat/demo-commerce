@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 // add product to local storage
+
 const addToDb = id => {
     const exists = getDb();
     let shopping_cart = {};

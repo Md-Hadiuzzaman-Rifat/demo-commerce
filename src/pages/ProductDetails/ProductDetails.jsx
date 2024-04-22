@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import DetailsImage from "../../components/DetialsImage/DetailsImage";
 import DetailsContent from "../../components/DetailsContent/DetailsContent";
 import CategoryPage from "../CategoryPage/CategoryPage";
-
 const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetSingleProductQuery(id);

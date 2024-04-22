@@ -16,9 +16,9 @@ import ShoppingCartForm from "../../components/ShoppingCartForm/ShoppingCartForm
 import NewCategory from "../../components/NewCategory/NewCategory.jsx";
 import Bars from "../../components/Bars/Bars.jsx";
 // import QuickView from "../../components/QuickView/QuickView.jsx";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { IoMdArrowDropright } from "react-icons/io";
+
 import RightCart from "../../components/RightCart/RightCart.jsx";
+import Notice from "../../components/Notice/Notice.jsx";
 
 const BannerData = {
   discount: "30% OFF",
@@ -62,19 +62,7 @@ const Home = () => {
     <div>
         <RightCart></RightCart>
       <Hero />
-      <div className="container">
-        <div className="mt-8 mb-2 py-2 px-4 bg-[#E0F7FA]">
-          {" "}
-          <span className="font-bold">
-            Event T-shirt <IoMdArrowDropright className="inline" />{" "}
-          </span>{" "}
-          T-shirt/Clothing with your brand logo or design? We are delivering
-          worldwide at unbeatable prices.{" "}
-          <span className="font-bold">
-            Click here <FaArrowAltCircleRight className="inline" />
-          </span>{" "}
-        </div>
-      </div>
+      <Notice></Notice>
       <Bars item={bars[0]}></Bars>
       <NewCategory></NewCategory>
       <Category />

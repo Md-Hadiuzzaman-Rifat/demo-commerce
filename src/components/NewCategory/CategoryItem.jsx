@@ -12,7 +12,7 @@ const CategoryItem = ({item}) => {
       >
         <img
           className="object-cover w-full rounded-t-lg h-56 md:h-52 md:w-48 md:rounded-none md:rounded-s-lg"
-          src={`http://localhost:20200/Images/${images[0].filename}`}
+          src={`http://localhost:20200/Images/${images[0]?.filename}`}
           alt=""
         />
         <div className="flex flex-col justify-between p-4 leading-normal">

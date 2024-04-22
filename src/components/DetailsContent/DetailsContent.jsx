@@ -3,17 +3,18 @@
 import { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { makeSizes } from "../../utils/sizes";
-import {addCard} from "../../features/CardOrder/cardOrderSlice"
-import { useSelector, useDispatch } from 'react-redux'
-import {useParams} from "react-router-dom"
-import { addToDb } from "../../utilities/localStorage";
+import { addCard } from "../../features/CardOrder/cardOrderSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addToDb, findOne, reduceFromDb } from "../../utilities/localStorage";
+
 
 const DetailsContent = ({ desc }) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [selectSize, setSelectSize] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const {id}= useParams()
+  const { id } = useParams();
 
   const {
     brand,
@@ -37,18 +38,25 @@ const DetailsContent = ({ desc }) => {
     }
   }
 
-  const dispatch= useDispatch()
-  const selector= useSelector(state=>state.cardOrder)
+  function counter(id) {
+    return findOne(id) || 0;
+  }
+  let result = counter(id);
+  console.log(result);
+
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.cardOrder);
   console.log(selector);
 
   const addCount = () => {
     setCount((prev) => prev + 1);
-    addToDb(id)
+    addToDb(id);
   };
 
   const minusCount = () => {
-    if (count > 0) {
+    if (result > 0) {
       setCount((prev) => prev - 1);
+      reduceFromDb(id)
     }
   };
   const handleSize = (value, index) => {
@@ -57,13 +65,11 @@ const DetailsContent = ({ desc }) => {
     setSelectedIndex(index);
   };
 
-  const details={id, count, selectSize}
-  
+  const details = { id, count, selectSize };
 
-  const handlePurchase=()=>{
-    dispatch(addCard({id, details}))
-  }
-
+  const handlePurchase = () => {
+    dispatch(addCard({ id, details }));
+  };
 
   return (
     <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
@@ -132,7 +138,7 @@ const DetailsContent = ({ desc }) => {
               aria-label="input"
               className="border text-black text-xl font-semibold border-gray-300 h-full text-center w-14 pb-1"
               type="text"
-              value={count}
+              value={result}
               onChange={(e) => e.target.value}
             />
             <span
@@ -177,7 +183,10 @@ const DetailsContent = ({ desc }) => {
         {description}
       </p>
 
-      <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6" onClick={handlePurchase}>
+      <button
+        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6"
+        onClick={handlePurchase}
+      >
         Add to shopping bag
       </button>
     </div>
