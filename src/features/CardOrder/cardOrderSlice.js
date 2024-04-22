@@ -1,14 +1,15 @@
+
 /* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState={}
+const initialState=[]
 
-const orderProductSlice= createSlice({
-    name:'orderProduct',
+const cardOrderSlice= createSlice({
+    name:'cardOrder',
     initialState,
     reducers:{
-        addToOrder:(state,action)=>{
-            state[action.payload.id]= action.payload.count
+        addCard:(state,action)=>{
+            state[action.payload.id]= state.push(action.payload.details)
         },
         reduceOrder:(state,action)=>{
             state[action.payload.id]= action.payload.count
@@ -22,5 +23,5 @@ const orderProductSlice= createSlice({
         }
     }
 })
-export const {addToOrder, reduceOrder, removeOrder, resetOrder}= orderProductSlice.actions
-export default orderProductSlice.reducer
+export const {addCard, reduceOrder, removeOrder, resetOrder}= cardOrderSlice.actions
+export default cardOrderSlice.reducer
