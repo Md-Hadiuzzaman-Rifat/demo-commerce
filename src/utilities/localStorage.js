@@ -75,7 +75,7 @@ const findOne=(id)=>{
   const getStoredCart = () => {
     const exists = getDb();
     return exists ? JSON.parse(exists) : {};
-  }
+  } 
   
   // clearTheCart
   const clearTheCart = () => {
