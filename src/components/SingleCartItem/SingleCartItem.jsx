@@ -1,5 +1,20 @@
-
+import {useState} from "react"
 const SingleCartItem = () => {
+  const [count, setCount]= useState(0)
+
+
+  
+  const minusCount = () => {
+    if (count > 0) {
+      setCount((prev) => prev - 1);
+    }
+  };
+
+  const addCount = () => {
+    setCount((prev) => prev + 1);
+
+  };
+
   return (
     <div>
       <div className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6  border-b border-gray-200">
@@ -24,77 +39,30 @@ const SingleCartItem = () => {
               </h6>
             </div>
           </div>
-          <div className="flex items-center max-[500px]:justify-center h-full max-md:mt-3">
-            <div className="flex items-center h-full">
-              <button className="group rounded-l-full px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300">
-                <svg
-                  className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black dark:stroke-gray-200"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                >
-                  <path
-                    d="M16.5 11H5.5"
-                    stroke=""
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M16.5 11H5.5"
-                    stroke=""
-                    strokeOpacity="0.2"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M16.5 11H5.5"
-                    stroke=""
-                    strokeOpacity="0.2"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-              <input
-                type="text"
-                className="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[73px] min-w-[60px] placeholder:text-gray-900 py-[15px]  text-center bg-transparent dark:placeholder:text-gray-200"
-                placeholder="9"
-              />
-              <button className="group rounded-r-full px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300">
-                <svg
-                  className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black dark:stroke-gray-200"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                >
-                  <path
-                    d="M11 5.5V16.5M16.5 11H5.5"
-                    stroke=""
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M11 5.5V16.5M16.5 11H5.5"
-                    stroke=""
-                    strokeOpacity="0.2"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M11 5.5V16.5M16.5 11H5.5"
-                    stroke=""
-                    strokeOpacity="0.2"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
+           {/* //  */}
+           <div className="flex">
+            <span
+              onClick={minusCount}
+              className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
+            >
+              -
+            </span>
+            <input
+              id="counter"
+              aria-label="input"
+              className="border text-black text-xl font-semibold border-gray-300 max-h-10 text-center w-14 pb-1"
+              type="text"
+              value={count}
+              onChange={(e) => e.target.value}
+            />
+            <span
+              onClick={addCount}
+              className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
+            >
+              +
+            </span>
           </div>
+           {/* / */}
           <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
             <p className="font-bold text-lg leading-8 text-indigo-600 text-center dark:text-indigo-300">
               $240.00

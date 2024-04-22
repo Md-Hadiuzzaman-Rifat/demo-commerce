@@ -48,11 +48,12 @@ const DetailsContent = ({ desc }) => {
 
   console.log(findOne(id));
 
-  function counter(id) {
-    return findOne(id) || 0;
-  }
-  let result = counter(id);
-  console.log(result);
+  // function counter(id) {
+  //   return findOne(id) || 0;
+  // }
+
+  // let result = counter(id);
+  // console.log(result);
 
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.cardOrder);
@@ -60,15 +61,16 @@ const DetailsContent = ({ desc }) => {
 
   const addCount = () => {
     setCount((prev) => prev + 1);
-    addToDb(id);
+    addToDb(`${id}-${selectSize}`);
   };
 
   const minusCount = () => {
-    if (result > 0) {
+    if (count > 0) {
       setCount((prev) => prev - 1);
-      reduceFromDb(id);
+      reduceFromDb(`${id}-${selectSize}`);
     }
   };
+
   const handleSize = (value, index) => {
     console.log(index);
     setSelectSize(value);
@@ -161,7 +163,7 @@ const DetailsContent = ({ desc }) => {
               aria-label="input"
               className="border text-black text-xl font-semibold border-gray-300 h-full text-center w-14 pb-1"
               type="text"
-              value={result}
+              value={count}
               onChange={(e) => e.target.value}
             />
             <span
