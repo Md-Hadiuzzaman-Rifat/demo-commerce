@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
@@ -6,14 +7,20 @@ import { makeSizes } from "../../utils/sizes";
 import { addCard } from "../../features/CardOrder/cardOrderSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToDb, findOne, reduceFromDb } from "../../utilities/localStorage";
-
+import {
+  addToDb,
+  findOne,
+  reduceFromDb,
+  getStoredCart,
+} from "../../utilities/localStorage";
 
 const DetailsContent = ({ desc }) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [selectSize, setSelectSize] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [warning , setWarning]= useState(false)
+
   const { id } = useParams();
 
   const {
@@ -29,6 +36,7 @@ const DetailsContent = ({ desc }) => {
   } = desc;
 
   const sizes = makeSizes(extra);
+  console.log(count);
 
   // string to array info
   let newArr = [];
@@ -37,6 +45,8 @@ const DetailsContent = ({ desc }) => {
       newArr.push(el);
     }
   }
+
+  console.log(findOne(id));
 
   function counter(id) {
     return findOne(id) || 0;
@@ -56,7 +66,7 @@ const DetailsContent = ({ desc }) => {
   const minusCount = () => {
     if (result > 0) {
       setCount((prev) => prev - 1);
-      reduceFromDb(id)
+      reduceFromDb(id);
     }
   };
   const handleSize = (value, index) => {
@@ -65,11 +75,18 @@ const DetailsContent = ({ desc }) => {
     setSelectedIndex(index);
   };
 
-  const details = { id, count, selectSize };
+  const details = { id, count:findOne(id), selectSize };
 
   const handlePurchase = () => {
-    dispatch(addCard({ id, details }));
+    if(selectSize === null){
+      setWarning(true)
+    }else{
+      setWarning(false)
+      dispatch(addCard({ id, details }));
+    }
   };
+
+
 
   return (
     <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
@@ -117,8 +134,14 @@ const DetailsContent = ({ desc }) => {
           </div>
         ))}
       </div>
-
       {/*  sizes end  */}
+
+      {/* // warning  */}
+      <div style={warning ? {display:"block"}:{display:"none"}}>
+        <p className="bg-red-200 border text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100">
+          Please Select Size
+        </p>
+      </div>
 
       {/* // quantity  */}
       <div className="lg:mt-11 mt-10">
