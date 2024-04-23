@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
 import { useState } from "react";
 const SingleCartItem = ({ data }) => {
   const { amount, id, img, name, size, price } = data || {};
   const [count, setCount] = useState(amount);
+
+  // const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>${productName}>${discount}`  
+  const saveLocal=`${id}>${size}>http://localhost:20200/images/${img[0]?.filename}>${name}>${price}`
 
   let modifiedName;
   if (name.length > 22) {

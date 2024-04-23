@@ -20,6 +20,7 @@ import Layout from "./AdminPannel/components/Layout/Layout";
 import OrderForm from "./components/OrderForm/OrderForm";
 import { useSelector } from "react-redux";
 import CartIcon from "./components/CartIcon/CartIcon";
+// import SuccessCart from "./components/SuccessCart/SuccessCart";
 
 const App = () => {
   React.useEffect(() => {
@@ -41,6 +42,7 @@ const App = () => {
           {
             formCondition && <OrderForm></OrderForm>
           }
+          {/* <SuccessCart></SuccessCart> */}
           <CartIcon></CartIcon>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
