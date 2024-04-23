@@ -2,12 +2,14 @@
 /* eslint-disable react/prop-types */
 
 import { useState } from "react";
+import {addToDb, reduceFromDb} from "../../utilities/localStorage"
 const SingleCartItem = ({ data }) => {
   const { amount, id, img, name, size, price } = data || {};
   const [count, setCount] = useState(amount);
+  
+console.log(img);
 
-  // const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>${productName}>${discount}`  
-  const saveLocal=`${id}>${size}>http://localhost:20200/images/${img[0]?.filename}>${name}>${price}`
+  const saveLocal=`${id}>${size}>${img}>${name}>${price}`
 
   let modifiedName;
   if (name.length > 22) {
@@ -19,11 +21,13 @@ const SingleCartItem = ({ data }) => {
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
+      reduceFromDb(saveLocal);
     }
   };
 
   const addCount = () => {
     setCount((prev) => prev + 1);
+    addToDb(saveLocal);
   };
 
   return (
