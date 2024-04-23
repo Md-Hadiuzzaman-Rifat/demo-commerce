@@ -6,8 +6,8 @@ const SingleCartItem = ({ data }) => {
   const [count, setCount] = useState(amount);
 
   let modifiedName;
-  if (name.length > 20) {
-    modifiedName = name.substring(0, 12) + "...";
+  if (name.length > 22) {
+    modifiedName = name.substring(0, 19) + "...";
   } else {
     modifiedName = name;
   }
