@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import {useState} from "react"
 
+import {useState} from "react"
 const SingleCartItem = ({data}) => {
-  const {amount, id, img, name, size}= data || {}
+
+  const {amount, id, img, name, size, price}= data || {}
   const [count, setCount]= useState(amount)
 
-  console.log(img);
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
@@ -37,7 +37,7 @@ const SingleCartItem = ({data}) => {
                 category
               </h6>
               <h6 className="font-semibold text-base leading-7 text-indigo-600 dark:text-indigo-300">
-                Price: discount Tk
+                Price: {price} Tk
               </h6>
             </div>
           </div>

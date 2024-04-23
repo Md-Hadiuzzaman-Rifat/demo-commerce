@@ -9,7 +9,6 @@ const ShoppingCart = () => {
   const allStoredCart = getStoredCart();
   const initialStored = Object.entries(allStoredCart);
 
-
   const filterLs = [];
   if (initialStored?.length > 0) {
     for (let i = 0; i < initialStored.length; i++) {
@@ -23,7 +22,6 @@ const ShoppingCart = () => {
       });
     }
   }
-  console.log(filterLs);
 
   let findDatabase = [];
 
