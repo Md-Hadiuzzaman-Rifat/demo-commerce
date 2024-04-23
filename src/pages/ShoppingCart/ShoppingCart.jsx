@@ -51,20 +51,28 @@ const ShoppingCart = () => {
             3 Items
           </h2>
         </div>
+
+        {/* // need to modify these two line of code  col-span-12 md:col-span-4 col-span-12 md:col-span-8*/}
+
         <div className="grid grid-cols-12 mt-8 max-md:hidden pb-6 border-b border-gray-200">
-          <div className="col-span-12 md:col-span-7">
+          <div className="col-span-12 md:col-span-4">
             <p className="font-normal text-lg leading-8 text-gray-400">
               Product Details
             </p>
           </div>
-          <div className="col-span-12 md:col-span-5">
+          <div className="col-span-12 md:col-span-8">
             <div className="grid grid-cols-5">
-              <div className="col-span-3">
+              <div className="col-span-2">
                 <p className="font-normal text-lg leading-8 text-gray-400 text-center">
                   Quantity
                 </p>
               </div>
               <div className="col-span-2">
+                <p className="font-normal text-lg leading-8 text-gray-400 text-center">
+                  Size
+                </p>
+              </div>
+              <div className="col-span-1">
                 <p className="font-normal text-lg leading-8 text-gray-400 text-center">
                   Total
                 </p>

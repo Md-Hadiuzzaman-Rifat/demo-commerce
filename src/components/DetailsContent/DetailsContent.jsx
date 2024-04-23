@@ -1,6 +1,7 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
 import { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { makeSizes } from "../../utils/sizes";
@@ -57,8 +58,13 @@ const DetailsContent = ({ desc, img }) => {
   console.log(selector);
 
   const addCount = () => {
-    setCount((prev) => prev + 1);
-    addToDb(saveLocal);
+    if(!selectSize){
+      setWarning(true)
+    }else{
+      setCount((prev) => prev + 1);
+      addToDb(saveLocal);
+      setWarning(false)
+    }
   };
 
   const minusCount = () => {
@@ -136,7 +142,7 @@ const DetailsContent = ({ desc, img }) => {
 
       {/* // warning  */}
       <div style={warning ? {display:"block"}:{display:"none"}}>
-        <p className="bg-red-200 border text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100">
+        <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100">
           Please Select Size
         </p>
       </div>

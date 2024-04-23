@@ -5,7 +5,7 @@ const initialState = {
   searchCondition:false,
   modalCondition:false,
   errorCondition: false,
-  formCondition: false
+  formCondition: true
 }
 
 export const cartHandler = createSlice({

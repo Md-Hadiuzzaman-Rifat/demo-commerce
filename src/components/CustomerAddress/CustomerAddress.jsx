@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CustomerAddress() {
   const [name, setName] = useState("");
@@ -6,6 +7,10 @@ export default function CustomerAddress() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [division, setDivision] = useState("isd");
+
+  const {formCondition}= useSelector(state=>state.cartHandler)
+  console.log(formCondition);
+  const dispatch= useDispatch()
 
   const handleAddress=(e)=>{
     e.preventDefault()

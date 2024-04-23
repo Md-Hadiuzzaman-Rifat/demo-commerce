@@ -1,21 +1,24 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
 
 import CustomerAddress from "../CustomerAddress/CustomerAddress";
+import { useDispatch, useSelector } from "react-redux";
+import { orderFormClose } from "../../features/cartHandler/cartHandler";
 
 export default function Example() {
-  const [open, setOpen] = useState(true);
+  const {formCondition}= useSelector(state=>state.cartHandler)
+  const dispatch= useDispatch()
 
   const cancelButtonRef = useRef(null);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={formCondition} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        onClose={()=>dispatch(orderFormClose())}
       >
         <Transition.Child
           as={Fragment}
@@ -45,7 +48,7 @@ export default function Example() {
                   <p className="text-center font-semibold text-xl p-2">
                     ক্যাশ অন ডেলিভারিতে অর্ডার করতে আপনার তথ্য দিন
                   </p>
-                  <span className="font-bold cursor-pointer text-2xl">
+                  <span onClick={()=>dispatch(orderFormClose())} className="font-bold cursor-pointer text-2xl">
                     <RxCross2></RxCross2>
                   </span>
                 </div>
