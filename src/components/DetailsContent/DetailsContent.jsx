@@ -14,7 +14,7 @@ import {
   getStoredCart,
 } from "../../utilities/localStorage";
 
-const DetailsContent = ({ desc }) => {
+const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [selectSize, setSelectSize] = useState(null);
@@ -22,6 +22,9 @@ const DetailsContent = ({ desc }) => {
   const [warning , setWarning]= useState(false)
 
   const { id } = useParams();
+
+
+  console.log(desc);
 
   const {
     brand,
@@ -46,14 +49,8 @@ const DetailsContent = ({ desc }) => {
     }
   }
 
-  console.log(findOne(id));
+  const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>${productName}>${discount}` 
 
-  // function counter(id) {
-  //   return findOne(id) || 0;
-  // }
-
-  // let result = counter(id);
-  // console.log(result);
 
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.cardOrder);
@@ -61,18 +58,17 @@ const DetailsContent = ({ desc }) => {
 
   const addCount = () => {
     setCount((prev) => prev + 1);
-    addToDb(`${id}-${selectSize}`);
+    addToDb(saveLocal);
   };
 
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
-      reduceFromDb(`${id}-${selectSize}`);
+      reduceFromDb(saveLocal);
     }
   };
 
   const handleSize = (value, index) => {
-    console.log(index);
     setSelectSize(value);
     setSelectedIndex(index);
   };

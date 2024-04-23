@@ -5,17 +5,17 @@ import DetailsContent from "../../components/DetailsContent/DetailsContent";
 import CategoryPage from "../CategoryPage/CategoryPage";
 const ProductDetails = () => {
   const { id } = useParams();
-  const { data, isLoading, isError } = useGetSingleProductQuery(id);
+  const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
 
   return (
     <div>
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div>
           {isLoading && "Sorry for loading"}
-          {!isLoading && data && (
+          {!isLoading && isSuccess && data && (
             <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
               <DetailsImage images={data.images}></DetailsImage>
-              <DetailsContent desc={data.description}></DetailsContent>
+              <DetailsContent desc={data.description} img={data.images}></DetailsContent>
             </div>
           )}
           {!isLoading && data && (
