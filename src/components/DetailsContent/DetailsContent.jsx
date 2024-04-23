@@ -13,6 +13,7 @@ import {
   reduceFromDb,
   getStoredCart,
 } from "../../utilities/localStorage";
+import { orderFormOpen } from "../../features/cartHandler/cartHandler";
 
 const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
@@ -22,7 +23,6 @@ const DetailsContent = ({ desc, img }) => {
   const [warning , setWarning]= useState(false)
 
   const { id } = useParams();
-
 
   console.log(desc);
 
@@ -80,7 +80,7 @@ const DetailsContent = ({ desc, img }) => {
       setWarning(true)
     }else{
       setWarning(false)
-      dispatch(addCard({ id, details }));
+      dispatch(orderFormOpen());
     }
   };
 

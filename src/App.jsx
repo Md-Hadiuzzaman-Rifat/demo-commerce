@@ -15,8 +15,11 @@ import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
 import AllProduct from "./AdminPannel/pages/Product/AllProduct";
 import CreateCategory from "./AdminPannel/pages/Category/CreateCategory";
 // import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
-import Test from "./components/Test/Test";
+import CustomerAddress from "./components/CustomerAddress/CustomerAddress";
 import Layout from "./AdminPannel/components/Layout/Layout";
+import OrderForm from "./components/OrderForm/OrderForm";
+import { useSelector } from "react-redux";
+import CartIcon from "./components/CartIcon/CartIcon";
 
 const App = () => {
   React.useEffect(() => {
@@ -29,13 +32,19 @@ const App = () => {
     AOS.refresh();
   }, []);
 
+  const {formCondition}= useSelector(state=>state.cartHandler)
+
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
       <AuthProvider>
         <MainPageLayout>
+          {
+            formCondition && <OrderForm></OrderForm>
+          }
+          <CartIcon></CartIcon>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/test" element={<Test />}></Route>
+            <Route path="/test" element={<CustomerAddress />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route
               path="/category/:category"

@@ -20,6 +20,8 @@ import Bars from "../../components/Bars/Bars.jsx";
 import RightCart from "../../components/RightCart/RightCart.jsx";
 import Notice from "../../components/Notice/Notice.jsx";
 
+
+
 const BannerData = {
   discount: "30% OFF",
   title: "Fine Smile",
@@ -58,6 +60,8 @@ const bars=[
   }
 ]
 const Home = () => {
+
+
   return (
     <div>
         <RightCart></RightCart>

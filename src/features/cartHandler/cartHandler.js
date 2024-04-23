@@ -4,13 +4,25 @@ const initialState = {
   cartCondition:false,
   searchCondition:false,
   modalCondition:false,
-  errorCondition: false
+  errorCondition: false,
+  formCondition: false
 }
 
 export const cartHandler = createSlice({
   name: 'cartHandler',
   initialState,
   reducers: {
+    // orderFrom Condition
+    orderFormOpen: (state) => {
+        state.formCondition= true
+    },
+    orderFormClose: (state) => {
+        state.formCondition= false
+    },
+    orderFormToggle: (state) => {
+        state.formCondition= !state.formCondition
+    },
+    
     handleOpen: (state) => {
         state.cartCondition= true
     },
@@ -54,6 +66,6 @@ export const cartHandler = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { handleClose,errorModalClose, errorModalOpen, handleOpen, handleToggle, searchOpen, searchClose, searchToggle, modalClose, modalOpen, modalToggle } = cartHandler.actions
+export const { handleClose,errorModalClose, errorModalOpen, handleOpen, handleToggle, searchOpen, searchClose, searchToggle, modalClose, modalOpen, modalToggle, orderFormClose, orderFormOpen, orderFormToggle } = cartHandler.actions
 
 export default cartHandler.reducer
