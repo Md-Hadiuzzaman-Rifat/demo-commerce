@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import {addToDb, reduceFromDb} from "../../utilities/localStorage"
 
 
-const SingleCartItem = ({ data }) => {
-  const { amount, id, img, name, size, price } = data || {};
+const SingleCartItem = ({ data, amount, price, totalPrice }) => {
+  const { id, img, name, size } = data || {};
   const [count, setCount] = useState(amount);
   const [total, setTotal]= useState(0)
 
@@ -21,8 +21,8 @@ const SingleCartItem = ({ data }) => {
 
   useEffect(()=>{
     setTotal(count*price)
-  },[count, price])
-
+    totalPrice(prev=>prev+=count*price)
+  },[count, price, totalPrice])
 
   const minusCount = () => {
     if (count > 0) {

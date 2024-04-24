@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { getStoredCart } from "../../utilities/localStorage";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
+import { useState } from "react";
 // import { useGetSelectedProductMutation } from "../../features/product/productApi";
 
 
@@ -42,6 +43,7 @@ console.log(filterLs);
   //   getSelectedProduct(findDatabase);
   // }, [getSelectedProduct]);
 
+  const [totalPrice, setTotalPrice]= useState(0)
 
   return (
     <div>
@@ -80,11 +82,14 @@ console.log(filterLs);
             </div>
           </div>
           
-          {filterLs.map((item, index) => (
-            <SingleCartItem key={index} data={item}/>
+          {filterLs.map((item ) => (
+            <SingleCartItem totalPrice={setTotalPrice} key={item.id} amount={item.amount}  price={item.price} data={item}/>
           ))
           }
         </div>
+        {
+          console.log(totalPrice)
+        }
 
         {/* // purchase button  */}
         <div>
