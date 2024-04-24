@@ -3,7 +3,7 @@
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { getStoredCart } from "../../utilities/localStorage";
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
-import { useEffect } from "react";
+
 
 const ShoppingCart = () => {
   const allStoredCart = getStoredCart();
@@ -23,22 +23,27 @@ const ShoppingCart = () => {
     }
   }
 
-  let findDatabase = [];
+let priceTotal=0
+for(let element of filterLs){
+  priceTotal+= element.amount * element.price
+}
 
-  const keys = Object.keys(allStoredCart);
 
-  if (keys.length > 0) {
-    for (const element of keys) {
-      findDatabase.push(element.split("-")[0]);
-    }
-  }
+  // let findDatabase = [];
+  // const keys = Object.keys(allStoredCart);
 
-  const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =
-    useGetSelectedProductMutation();
+  // if (keys.length > 0) {
+  //   for (const element of keys) {
+  //     findDatabase.push(element.split("-")[0]);
+  //   }
+  // }
+  // const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =
+  //   useGetSelectedProductMutation();
 
-  useEffect(() => {
-    getSelectedProduct(findDatabase);
-  }, [getSelectedProduct]);
+  // useEffect(() => {
+  //   getSelectedProduct(findDatabase);
+  // }, [getSelectedProduct]);
+
 
   return (
     <div>

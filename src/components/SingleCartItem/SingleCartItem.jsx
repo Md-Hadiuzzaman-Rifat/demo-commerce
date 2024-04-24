@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import {addToDb, reduceFromDb} from "../../utilities/localStorage"
+
+
 const SingleCartItem = ({ data }) => {
   const { amount, id, img, name, size, price } = data || {};
   const [count, setCount] = useState(amount);
-  
-console.log(img);
 
   const saveLocal=`${id}>${size}>${img}>${name}>${price}`
 
@@ -46,7 +46,7 @@ console.log(img);
                 category
               </h6>
               <h6 className="font-semibold text-base leading-7 text-indigo-600 dark:text-indigo-300">
-                Price: {price} Tk
+                Unit Price: {price} Tk
               </h6>
             </div>
           </div>
@@ -89,7 +89,7 @@ console.log(img);
           {/* / */}
           <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
             <p className="font-bold text-lg leading-8 text-indigo-600 text-center dark:text-indigo-300">
-              $240.00
+              {price * amount} Taka
             </p>
           </div>
         </div>
