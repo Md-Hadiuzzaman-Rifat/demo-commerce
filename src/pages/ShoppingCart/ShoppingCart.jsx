@@ -1,13 +1,16 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
+import { useDispatch } from "react-redux";
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { getStoredCart } from "../../utilities/localStorage";
-import { useGetSelectedProductMutation } from "../../features/product/productApi";
+import { orderFormOpen } from "../../features/cartHandler/cartHandler";
+// import { useGetSelectedProductMutation } from "../../features/product/productApi";
 
 
 const ShoppingCart = () => {
   const allStoredCart = getStoredCart();
   const initialStored = Object.entries(allStoredCart);
+  const dispatch= useDispatch()
 
   const filterLs = [];
   if (initialStored?.length > 0) {
@@ -23,12 +26,7 @@ const ShoppingCart = () => {
     }
   }
 
-let priceTotal=0
-for(let element of filterLs){
-  priceTotal+= element.amount * element.price
-}
-
-
+console.log(filterLs);
   // let findDatabase = [];
   // const keys = Object.keys(allStoredCart);
 
@@ -81,15 +79,17 @@ for(let element of filterLs){
               </div>
             </div>
           </div>
-
+          
           {filterLs.map((item, index) => (
-            <SingleCartItem key={index} data={item} />
-          ))}
+            <SingleCartItem key={index} data={item}/>
+          ))
+          }
         </div>
+
         {/* // purchase button  */}
         <div>
-          <div className="bottom-16 md-block border hover:text-gray-200 text-indigo-600  border-indigo-600 flex rounded-lg justify-center bg-indigo-100 cursor-pointer shadow-md hover:bg-indigo-600 transition duration-500">
-            <p className="text-xl align-middle p-4 font-semibold">
+          <div onClick={()=>dispatch(orderFormOpen())} className="bottom-16 md-block border hover:text-gray-200 text-indigo-600  border-indigo-600 flex rounded-lg justify-center bg-indigo-100 cursor-pointer shadow-md hover:bg-indigo-600 transition duration-500">
+            <p className="text-xl text-center p-4 font-semibold">
               ক্যাশ অন ডেলিভারি করিতে ক্লিক করুন
             </p>
           </div>
