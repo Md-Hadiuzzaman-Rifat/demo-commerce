@@ -21,6 +21,7 @@ import OrderForm from "./components/OrderForm/OrderForm";
 import { useSelector } from "react-redux";
 import CartIcon from "./components/CartIcon/CartIcon";
 import { ToastContainer } from "react-toastify";
+import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
 
 const App = () => {
   React.useEffect(() => {
@@ -33,21 +34,18 @@ const App = () => {
     AOS.refresh();
   }, []);
 
-  const {formCondition}= useSelector(state=>state.cartHandler)
+  const { formCondition } = useSelector((state) => state.cartHandler);
 
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
-       <ToastContainer />
+      <ToastContainer />
       <AuthProvider>
         <MainPageLayout>
-          {
-            formCondition && <OrderForm></OrderForm>
-          }
+          {formCondition && <OrderForm></OrderForm>}
 
           <CartIcon></CartIcon>
-          
+
           <Routes>
-          
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<CustomerAddress />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
@@ -55,7 +53,10 @@ const App = () => {
               path="/category/:category"
               element={<CategoryPage></CategoryPage>}
             ></Route>
-            <Route path="/productDetails/:id" element={<ProductDetails />}></Route>
+            <Route
+              path="/productDetails/:id"
+              element={<ProductDetails />}
+            ></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
@@ -65,6 +66,7 @@ const App = () => {
               <Route path="/dashboard/*">
                 <Route path="users" element={<AllUsers />}></Route>
               </Route>
+              <Route path='edit/:id' element={<EditProduct/> }></Route>
               <Route path="/upload" element={<AllProduct />}></Route>
               <Route path="/category" element={<CreateCategory />}></Route>
             </Layout>

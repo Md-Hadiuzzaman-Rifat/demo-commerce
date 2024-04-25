@@ -2,13 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useAddProductMutation } from "../../../features/product/productApi";
+import { useAddProductMutation, useGetSingleProductQuery } from "../../../features/product/productApi";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
 import { useGetCategoryQuery } from "../../../features/category/categoryApi";
 import axios from "axios";
 import TextArea from "../../components/TextArea/TextArea";
+import { useParams } from "react-router-dom";
 
-export default function ProductUploadForm() {
+export default function EditProduct() {
+
+  const {id}=useParams()
+  const {data, isError, isLoading, isSuccess}= useGetSingleProductQuery(id)
+  const {data:getCatData, isSuccess:getCatSuccess }= useGetCategoryQuery()
+  console.log(data);
+
   const [productName, setProductName] = useState("");
   const [review, setReview] = useState(5);
   const [price, setPrice] = useState("");
@@ -27,9 +34,7 @@ export default function ProductUploadForm() {
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
 
-
-  const [addProduct, {data, isError, isLoading, isSuccess}]= useAddProductMutation()
-  const {data:getCatData, isSuccess:getCatSuccess }= useGetCategoryQuery()
+  
 
   const selector=useSelector(state=>state.cartHandler)
   const {modalCondition}= selector || {}
@@ -83,7 +88,7 @@ export default function ProductUploadForm() {
   },[isSuccess, dispatch])
 
   return (
-    <form onSubmit={handleUpload}>
+    <form className="container" onSubmit={handleUpload}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

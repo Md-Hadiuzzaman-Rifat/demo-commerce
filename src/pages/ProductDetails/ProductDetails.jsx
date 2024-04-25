@@ -8,6 +8,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
 
+console.log(data);
   return (
     <div>
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
@@ -21,8 +22,7 @@ const ProductDetails = () => {
           )}
           {!isLoading && data && (
             <div className="aspect-w-16 aspect-h-9 mt-6">
-
-              <iframe src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2F100095051778814%2Fvideos%2F1082289946341126%2F&show_text=false&width=560&t=0" width="560" height="317"   allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" ></iframe>
+             <iframe className="w-full aspect-video md:aspect-square" src="https://www.youtube-nocookie.com/embed/OmcCuVlpyhs?si=X1GiEdoYXIjnwSTb&amp;controls=0"></iframe>
             </div>
           )}
           {isError && "Failed to load"}

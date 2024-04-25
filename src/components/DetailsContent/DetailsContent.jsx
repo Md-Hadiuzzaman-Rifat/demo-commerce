@@ -18,7 +18,7 @@ const DetailsContent = ({ desc, img }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [warning , setWarning]= useState(false)
   const { id } = useParams();
-
+  
 
   const {
     brand,
@@ -191,10 +191,11 @@ const DetailsContent = ({ desc, img }) => {
         </div>
         <hr className=" bg-gray-200 w-full mt-4" />
       </div>
-
-      <p className=" font-normal text-base leading-6 text-gray-600 mt-7 dark:text-gray-400">
-        {description}
-      </p>
+      <div className=" font-normal text-base leading-6 text-gray-600 mt-7 dark:text-gray-400" 
+        dangerouslySetInnerHTML={{ __html: description }}
+      >
+        
+      </div>
 
       <button
         className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6"

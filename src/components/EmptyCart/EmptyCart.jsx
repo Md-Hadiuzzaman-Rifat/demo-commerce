@@ -7,13 +7,17 @@ const EmptyCart = () => {
     const redirect=()=>{
         navigate('/')
     }
+    
     return (
         <div className="container mt-8">
             <div className="flex flex-col items-center justify-center">
                 
-                <p onClick={redirect} className="underline cursor-pointer">Home / ShoppingCart</p>
+                <p onClick={redirect} className="text-violet-500 underline cursor-pointer">Home / ShoppingCart</p>
+
+                <h1 className="text-2xl md:text-4xl mt-4 font-semibold">Your Cart is Empty!</h1>
+
                 <img src={shoppingGif} alt="" className="m-12 w-[60%] max-w-[400px]" />
-                <h1 className="text-2xl font-semibold">Your Cart is Empty!</h1>
+                
                 <div onClick={redirect} className="flex cursor-pointer gap-2 mt-4 font-thin text-gray-700 items-center"><FaArrowLeftLong className="font-thin"></FaArrowLeftLong> <span>Back to Home</span></div>
             </div>
         </div>
