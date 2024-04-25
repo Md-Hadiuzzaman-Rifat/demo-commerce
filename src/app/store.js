@@ -6,7 +6,7 @@ import cartHandler from '../features/cartHandler/cartHandler'
 import productSlice from "../features/product/productSlice"
 import categorySlice from '../features/category/categorySlice'
 import cardOrderSlice from '../features/CardOrder/cardOrderSlice'
-
+import cartSlice from "../features/cartSlice/cartSlice"
 
 export const store = configureStore({
   reducer: {
@@ -17,7 +17,7 @@ export const store = configureStore({
     cartHandler,
     productSlice,
     categorySlice,
-    
+    cart:cartSlice
   },
   middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(apiSlice.middleware)
 })

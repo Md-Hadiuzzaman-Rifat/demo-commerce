@@ -1,17 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { useEffect, useState } from "react";
-import {addToDb, reduceFromDb} from "../../utilities/localStorage"
+import {  useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "../../features/cartSlice/cartSlice";
 
+const SingleCartItem = ({product}) => {
 
-const SingleCartItem = ({ data, amount, price, totalPrice }) => {
-  const { id, img, name, size } = data || {};
-  const [count, setCount] = useState(amount);
+  const {cartQuantity, image, name, price, id} = product || {}
+  const cart = useSelector((state) => state.cart);
+  const dispatch= useDispatch()
+  const [count, setCount] = useState(cartQuantity);
   const [total, setTotal]= useState(0)
 
-  const saveLocal=`${id}>${size}>${img}>${name}>${price}`
-
+  let subString= id?.split(">")[1]
+  console.log(subString);
   let modifiedName;
   if (name.length > 22) {
     modifiedName = name.substring(0, 19) + "...";
@@ -19,28 +22,41 @@ const SingleCartItem = ({ data, amount, price, totalPrice }) => {
     modifiedName = name;
   }
 
-  useEffect(()=>{
-    setTotal(count*price)
-    totalPrice(prev=>prev+=count*price)
-  },[count, price, totalPrice])
+  console.log(cart.cartTotalAmount);
+  console.log(cart.cartTotalQuantity);
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
+
 
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
-      reduceFromDb(saveLocal);
+
+      dispatch(decreaseCart(product));
     }
   };
 
   const addCount = () => {
     setCount((prev) => prev + 1);
-    addToDb(saveLocal);
+    dispatch(addToCart(product));
+  };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
     <div>
       <div className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6  border-b border-gray-200">
         <div className="w-full md:max-w-[126px]">
-          <img src={img} alt="perfume bottle image" className="mx-auto" />
+          <img src={image} alt="perfume bottle image" className="mx-auto" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 w-full">
           <div className="md:col-span-2">
@@ -52,7 +68,7 @@ const SingleCartItem = ({ data, amount, price, totalPrice }) => {
                 category
               </h6>
               <h6 className="font-semibold text-base leading-7 text-indigo-600 dark:text-indigo-300">
-                Unit Price: {price} Tk
+                Unit Price: {price}Tk
               </h6>
             </div>
           </div>
@@ -73,7 +89,7 @@ const SingleCartItem = ({ data, amount, price, totalPrice }) => {
                 aria-label="input"
                 className="border text-black text-xl font-semibold border-indigo-300 max-h-10 text-center w-14 pb-1"
                 type="text"
-                value={count}
+                value={cartQuantity}
                 onChange={(e) => e.target.value}
               />
               <span
@@ -88,7 +104,7 @@ const SingleCartItem = ({ data, amount, price, totalPrice }) => {
           {/* size section  */}
           <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
             <div className="transition border cursor-pointer font-bold bg-gray-800 text-gray-100 px-4 py-1 duration-100">
-              {size.toUpperCase()}
+              {subString?.toUpperCase()}
             </div>
           </div>
           

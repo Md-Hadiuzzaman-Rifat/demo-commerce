@@ -2,19 +2,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { useEffect, useState } from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import {  useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { makeSizes } from "../../utils/sizes";
-import { addCard } from "../../features/CardOrder/cardOrderSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  addToDb,
-  findOne,
-  reduceFromDb,
-  getStoredCart,
-} from "../../utilities/localStorage";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
+import {addToCart, decreaseCart} from "../../features/cartSlice/cartSlice"
+// import { findOne } from "../../utilities/newLocalStorage";
 
 const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
@@ -22,10 +17,8 @@ const DetailsContent = ({ desc, img }) => {
   const [selectSize, setSelectSize] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [warning , setWarning]= useState(false)
-
   const { id } = useParams();
 
-  console.log(desc);
 
   const {
     brand,
@@ -40,7 +33,6 @@ const DetailsContent = ({ desc, img }) => {
   } = desc;
 
   const sizes = makeSizes(extra);
-  console.log(count);
 
   // string to array info
   let newArr = [];
@@ -50,27 +42,25 @@ const DetailsContent = ({ desc, img }) => {
     }
   }
 
-  const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>${productName}>${discount}` 
+  // const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>>>${productName}>${discount}` 
 
 
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.cardOrder);
-  console.log(selector);
 
   const addCount = () => {
     if(!selectSize){
       setWarning(true)
     }else{
       setCount((prev) => prev + 1);
-      addToDb(saveLocal);
       setWarning(false)
+      dispatch(addToCart({id:`${id}>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count }))
     }
   };
 
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
-      reduceFromDb(saveLocal);
+      dispatch(decreaseCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count}))
     }
   };
 
@@ -79,7 +69,6 @@ const DetailsContent = ({ desc, img }) => {
     setSelectedIndex(index);
   };
 
-  const details = { id, count:findOne(id), selectSize };
 
   const handlePurchase = () => {
     if(selectSize === null){

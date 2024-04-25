@@ -1,47 +1,24 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SingleCartItem from "../../components/SingleCartItem/SingleCartItem";
 import { getStoredCart } from "../../utilities/localStorage";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
-import { useState } from "react";
-// import { useGetSelectedProductMutation } from "../../features/product/productApi";
-
+import { useEffect, useState } from "react";
+import {getTotals} from "../../features/cartSlice/cartSlice"
 
 const ShoppingCart = () => {
-  const allStoredCart = getStoredCart();
-  const initialStored = Object.entries(allStoredCart);
+
   const dispatch= useDispatch()
+  const cart = useSelector((state) => state.cart);
+ 
 
-  const filterLs = [];
-  if (initialStored?.length > 0) {
-    for (let i = 0; i < initialStored.length; i++) {
-      filterLs.push({
-        id: initialStored[i][0].split(">")[0],
-        size: initialStored[i][0].split(">")[1],
-        amount: initialStored[i][1],
-        img: initialStored[i][0].split(">")[2],
-        name: initialStored[i][0].split(">")[3],
-        price: initialStored[i][0].split(">")[4],
-      });
-    }
-  }
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
 
-console.log(filterLs);
-  // let findDatabase = [];
-  // const keys = Object.keys(allStoredCart);
 
-  // if (keys.length > 0) {
-  //   for (const element of keys) {
-  //     findDatabase.push(element.split("-")[0]);
-  //   }
-  // }
-  // const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =
-  //   useGetSelectedProductMutation();
 
-  // useEffect(() => {
-  //   getSelectedProduct(findDatabase);
-  // }, [getSelectedProduct]);
 
   const [totalPrice, setTotalPrice]= useState(0)
 
@@ -82,8 +59,8 @@ console.log(filterLs);
             </div>
           </div>
           
-          {filterLs.map((item ) => (
-            <SingleCartItem totalPrice={setTotalPrice} key={item.id} amount={item.amount}  price={item.price} data={item}/>
+          {cart?.cartItems.map((item ) => (
+            <SingleCartItem totalPrice={setTotalPrice} key={item.id} product={item}/>
           ))
           }
         </div>
