@@ -42,8 +42,6 @@ const DetailsContent = ({ desc, img }) => {
     }
   }
 
-  // const saveLocal=`${id}>${selectSize}>http://localhost:20200/images/${img[0]?.filename}>>>${productName}>${discount}` 
-
 
   const dispatch = useDispatch();
 
@@ -53,7 +51,7 @@ const DetailsContent = ({ desc, img }) => {
     }else{
       setCount((prev) => prev + 1);
       setWarning(false)
-      dispatch(addToCart({id:`${id}>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count }))
+      dispatch(addToCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count }))
     }
   };
 
@@ -68,7 +66,6 @@ const DetailsContent = ({ desc, img }) => {
     setSelectSize(value);
     setSelectedIndex(index);
   };
-
 
   const handlePurchase = () => {
     if(selectSize === null){

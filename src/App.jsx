@@ -20,7 +20,7 @@ import Layout from "./AdminPannel/components/Layout/Layout";
 import OrderForm from "./components/OrderForm/OrderForm";
 import { useSelector } from "react-redux";
 import CartIcon from "./components/CartIcon/CartIcon";
-// import SuccessCart from "./components/SuccessCart/SuccessCart";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   React.useEffect(() => {
@@ -37,14 +37,17 @@ const App = () => {
 
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
+       <ToastContainer />
       <AuthProvider>
         <MainPageLayout>
           {
             formCondition && <OrderForm></OrderForm>
           }
-          {/* <SuccessCart></SuccessCart> */}
+
           <CartIcon></CartIcon>
+          
           <Routes>
+          
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<CustomerAddress />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>

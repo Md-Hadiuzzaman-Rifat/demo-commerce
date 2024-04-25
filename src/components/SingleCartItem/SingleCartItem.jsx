@@ -11,10 +11,9 @@ const SingleCartItem = ({product}) => {
   const cart = useSelector((state) => state.cart);
   const dispatch= useDispatch()
   const [count, setCount] = useState(cartQuantity);
-  const [total, setTotal]= useState(0)
 
-  let subString= id?.split(">")[1]
-  console.log(subString);
+  let subString= id?.split(">>>")[1]
+
   let modifiedName;
   if (name.length > 22) {
     modifiedName = name.substring(0, 19) + "...";
@@ -22,19 +21,13 @@ const SingleCartItem = ({product}) => {
     modifiedName = name;
   }
 
-  console.log(cart.cartTotalAmount);
-  console.log(cart.cartTotalQuantity);
-
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
-
-
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
-
       dispatch(decreaseCart(product));
     }
   };
@@ -45,6 +38,7 @@ const SingleCartItem = ({product}) => {
   };
 
   const handleRemoveFromCart = (product) => {
+    console.log(product);
     dispatch(removeFromCart(product));
   };
 
@@ -64,8 +58,8 @@ const SingleCartItem = ({product}) => {
               <h6 className="font-semibold text-base leading-7 text-black dark:text-gray-200">
                 {modifiedName}
               </h6>
-              <h6 className="font-normal text-base leading-7 text-gray-400">
-                category
+              <h6 onClick={()=>handleRemoveFromCart(product)} className="font-normal text-base leading-7 cursor-not-allowed text-gray-400 underline">
+                Remove
               </h6>
               <h6 className="font-semibold text-base leading-7 text-indigo-600 dark:text-indigo-300">
                 Unit Price: {price}Tk
@@ -80,21 +74,21 @@ const SingleCartItem = ({product}) => {
             <div className="flex">
               <span
                 onClick={minusCount}
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-indigo-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
               >
                 -
               </span>
               <input
                 id="counter"
                 aria-label="input"
-                className="border text-black text-xl font-semibold border-indigo-300 max-h-10 text-center w-14 pb-1"
+                className="border text-black text-xl font-semibold border-gray-300 max-h-10 text-center w-14 pb-1"
                 type="text"
                 value={cartQuantity}
                 onChange={(e) => e.target.value}
               />
               <span
                 onClick={addCount}
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-indigo-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
               >
                 +
               </span>
@@ -108,15 +102,15 @@ const SingleCartItem = ({product}) => {
             </div>
           </div>
           
-
           {/* / */}
           <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
-            <p className="font-bold text-lg leading-8 text-indigo-600 text-center dark:text-indigo-300">
-              {total} Taka
+            <p className="text-lg leading-8 text-gray-600 text-center dark:text-gray-300">
+              {cart.cartTotalQuantity*price} Taka
             </p>
           </div>
         </div>
       </div>
+
     </div>
   );
 };
