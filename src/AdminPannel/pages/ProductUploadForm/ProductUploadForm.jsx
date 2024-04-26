@@ -355,7 +355,6 @@ export default function ProductUploadForm() {
           Save
         </button>
       </div>
-      xxxxx
     </form>
   );
 }

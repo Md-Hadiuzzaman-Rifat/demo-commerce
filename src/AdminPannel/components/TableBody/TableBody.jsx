@@ -1,66 +1,44 @@
-import React, { useEffect } from "react";
-import { ImBin } from "react-icons/im";
-import { FiEdit } from "react-icons/fi";
-import "./TableBody.scss"
-import { Link } from "react-router-dom";
-import { useDeleteProductMutation } from "../../../features/product/productApi";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { MdDeleteForever } from "react-icons/md";
+import { RiFileEditFill } from "react-icons/ri";
 
-const TableBody = ({data}) => {
-  let {name, category, discount,_id, featured, image, price}= data || {}
+const TableBody = ({ data }) => {
+  const { description: productDetails, images } = data || {};
+  let { category, brand, price, discount, productName, featured, extra } =
+    productDetails;
 
-  const dis=Math.floor((discount/price)*100)
-
-  const [image1, image2]= image || []
-
-  const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
-
-  useEffect(()=>{
-    if(deleteSuccess){
-      alert("Product Deleted Successfully")
-    }
-  },[deleteSuccess])
-
-  if(name?.length>50){
-    name= name.substring(0, 80)+"..."
-  }
-  
-  const handleDelete=(id)=>{
-    console.log(id);
-    deleteProduct(id)
-  } 
-
-  const style={
-    background:"orange"
+  if (productName?.length > 20) {
+    productName = productName.substring(0, 18) + "...";
   }
 
   return (
-    <tr style={{
-      background: featured ? '#dfd8ff' : ''
-    }} className="tableBody">
-      <td>{name}</td>
-      <td>{category}</td>
-      <td>{price}</td>
-      <td>{dis}%</td>
-      <td>
-        <img
-          className="table-img"
-          src={image1}
-          style={{marginRight:"5px"}}
-          alt=""
-        />
-        <img
-          className="table-img"
-          src={image2}
-          alt=""
-        />
+    <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <th
+        scope="row"
+        className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+      >
+        <div className="ps-3">
+          <div className="text-base font-semibold">{productName}</div>
+          <div className="font-normal text-gray-500">{brand}</div>
+        </div>
+      </th>
+      <td className="px-6 py-4">{category}</td>
+      <td className="px-6 py-4">
+        <div className="flex items-center">
+          <div className="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>{" "}
+          {featured}
+        </div>
       </td>
-      <td className="productAction">
-        <span className="productDelete" onClick={()=>handleDelete(_id)}>
-          <ImBin />{" "}
-        </span>
-        <span className="productEdit">
-          <Link to={`/edit/${_id}`}><FiEdit /></Link>
-        </span>
+      <td className="px-6 py-4">{price}</td>
+      <td className="px-6 py-4">{discount}</td>
+      <td className="px-6 py-4">{discount}</td>
+      <td className="px-6 py-4">{extra}</td>
+      <td className=" px-6 py-4 ">
+        <div className="flex gap-1 items-center">
+          <MdDeleteForever className="text-[20px] text-red-500 cursor-pointer"/>
+          <RiFileEditFill className="text-[16px] text-indigo-500 cursor-pointer"/>
+        </div>
       </td>
     </tr>
   );

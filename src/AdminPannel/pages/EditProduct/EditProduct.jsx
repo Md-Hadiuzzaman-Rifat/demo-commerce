@@ -18,7 +18,6 @@ export default function EditProduct() {
   const { data, isError, isLoading, isSuccess } = useGetSingleProductQuery(id);
   const { data: getCatData, isSuccess: getCatSuccess } = useGetCategoryQuery();
 
-
   const { description: productDescription, images } = data || {};
 
   const {
