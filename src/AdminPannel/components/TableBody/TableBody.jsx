@@ -2,14 +2,20 @@
 /* eslint-disable no-unused-vars */
 import { MdDeleteForever } from "react-icons/md";
 import { RiFileEditFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const TableBody = ({ data }) => {
   const { description: productDetails, images } = data || {};
   let { category, brand, price, discount, productName, featured, extra } =
     productDetails;
+    const navigate= useNavigate()
 
   if (productName?.length > 20) {
     productName = productName.substring(0, 18) + "...";
+  }
+
+  const handleEdit=(id)=>{
+    navigate(`/edit/${id}`)
   }
 
   return (
@@ -36,8 +42,8 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">{extra}</td>
       <td className=" px-6 py-4 ">
         <div className="flex gap-1 items-center">
-          <MdDeleteForever className="text-[20px] text-red-500 cursor-pointer"/>
-          <RiFileEditFill className="text-[16px] text-indigo-500 cursor-pointer"/>
+          <MdDeleteForever  className="text-[20px] text-red-500 cursor-pointer"/>
+          <RiFileEditFill onClick={()=>handleEdit(data._id)} className="text-[16px] text-indigo-500 cursor-pointer"/>
         </div>
       </td>
     </tr>

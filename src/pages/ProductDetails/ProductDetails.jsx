@@ -20,11 +20,13 @@ console.log(data);
               <DetailsContent desc={data.description} img={data.images}></DetailsContent>
             </div>
           )}
+    
           {!isLoading && data && (
             <div className="aspect-w-16 aspect-h-9 mt-6">
              <iframe className="w-full aspect-video md:aspect-square" src="https://www.youtube-nocookie.com/embed/OmcCuVlpyhs?si=X1GiEdoYXIjnwSTb&amp;controls=0"></iframe>
             </div>
           )}
+
           {isError && "Failed to load"}
         </div>
       </div>

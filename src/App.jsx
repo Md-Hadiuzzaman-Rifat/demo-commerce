@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 import CartIcon from "./components/CartIcon/CartIcon";
 import { ToastContainer } from "react-toastify";
 import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
+import SameCategory from "./components/SameCategory/SameCategory"
 
 const App = () => {
   React.useEffect(() => {
@@ -46,6 +47,7 @@ const App = () => {
           <CartIcon></CartIcon>
 
           <Routes>
+            
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<CustomerAddress />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
@@ -57,6 +59,7 @@ const App = () => {
               path="/productDetails/:id"
               element={<ProductDetails />}
             ></Route>
+            <Route path="/categoryPage" element={<SameCategory/>}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>

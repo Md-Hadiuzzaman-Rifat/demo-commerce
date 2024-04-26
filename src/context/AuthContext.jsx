@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -25,10 +26,11 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
+    console.log("called ");
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      saveUser(user)
+      // saveUser(user)
       setLoading(false);
       if(user){
         getIdToken(user)

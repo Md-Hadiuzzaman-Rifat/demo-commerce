@@ -7,11 +7,12 @@ import { useEffect, useState } from "react";
 import { getTotals } from "../../features/cartSlice/cartSlice";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  const navigate= useNavigate()
 
   useEffect(() => {
     dispatch(getTotals());
@@ -86,7 +87,7 @@ const ShoppingCart = () => {
               <p className="cursor-pointer bg-indigo-600 text-white rounded-md p-2 font-semibold text-center">
                 Checkout
               </p>
-              <div className="cursor-pointer flex gap-2 items-center text-gray-400">
+              <div onClick={()=>navigate('/')} className="cursor-pointer flex gap-2 items-center text-gray-400">
                 <FaArrowLeftLong className="text-gray-400 " />{" "}
                 <span className="mb-[2px]">Continue Shopping</span>
               </div>
