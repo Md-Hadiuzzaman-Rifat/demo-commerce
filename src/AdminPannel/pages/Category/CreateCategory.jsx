@@ -1,17 +1,19 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import { useAddCategoryMutation, useGetCategoryQuery } from "../../../features/category/categoryApi";
 import { useAddSubCategoryMutation, useGetSubCategoryQuery } from "../../../features/subCategory/subCategoryApi";
 import SubCategory from "../../components/SubCategoryItem/SubCategoryItem";
 import CategoryForm from "../../../components/CategoryForm/CategoryForm";
+import Modal from "../../../components/Modal/Modal"
+
 const CreateCategory = () => {
   const [addNewCategory, setAddNewCategory] = useState("");
   const [newSubCategory, setNewSubCategory] = useState("");
 
 
-  const [addSubCategory, { data:subData, isError:subError, isLoading: subLoading, isSuccess:subSuccess }] =
+  const [addSubCategory, { data:subData, isError:subError, isLoading: subLoading, isSuccess:addSuccess }] =
     useAddSubCategoryMutation();
 
   const {data:getSubCatData, isSuccess:getSubCatSuccess }= useGetSubCategoryQuery()
@@ -21,9 +23,18 @@ const CreateCategory = () => {
     e.preventDefault();
     addSubCategory({name:newSubCategory?.toLowerCase()})
   };
+  useEffect(()=>{
+    if(addSuccess){
+      console.log("fuck");
+      setNewSubCategory("")
+    }
+  },[addSuccess])
 
   return (
     <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
+      {/* {
+          addSuccess && <Modal></Modal>
+      } */}
       <h1 className="text-3xl font-semibold">
         Create Category and SubCategory
       </h1>
@@ -34,8 +45,9 @@ const CreateCategory = () => {
         <div>
           <input
             onChange={(e) => setNewSubCategory(e.target.value)}
+            value={newSubCategory}
             type="text"
-            placeholder="Sub Category Name"
+            placeholder="Subcategory Name"
             name="subCategory"
             id="subCategory"
             autoComplete="family-name"

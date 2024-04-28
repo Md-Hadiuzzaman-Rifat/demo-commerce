@@ -3,19 +3,19 @@
 
 import { useEffect, useState } from "react";
 import { useAddCategoryMutation, useGetCategoryQuery } from "../../features/category/categoryApi";
+import axios from "axios";
 
 function CategoryForm() {
   const [file, setFile] = useState();
   const [category, setCategory] = useState("");
   
   const [addCategory,{isSuccess: addSuccess}]=useAddCategoryMutation()
-  const {data:getCategory, isSuccess: getSuccess}= useGetCategoryQuery()
+  const {data:getCatData, isSuccess: getCatSuccess}= useGetCategoryQuery()
  
-  console.log(addSuccess);
   const upload = () => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("category", category);
+    formData.append("category", category.toLowerCase());
     // axios
     //   .post("http://localhost:20200/createCategory", formData)
     //   .then((res) => res.json())
@@ -36,7 +36,7 @@ function CategoryForm() {
   };
 
   return (
-    <div className="container mx-auto max-w-2xl py-16 sm:px-6 sm:py-24 lg:max-w-7xl">
+    <div className="container mx-auto max-w-2xl py-5 sm:px-6 sm:py-12 lg:max-w-7xl">
 
       <input className="m-2" type="file" onChange={(e) => setFile(e.target.files[0])} />
       
@@ -46,7 +46,10 @@ function CategoryForm() {
       </button>
 
       <div className="grid mt-4 p-4 bg-gray-100 grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        {getSuccess && getSuccess && getCategory.map((item) => (
+        {
+          getCatSuccess && getCatData?.length===0 && "No Category Found"
+        }
+        {getCatSuccess && getCatData?.length > 0 && getCatData.map((item) => (
           <div key={item._id} className="border-2  overflow-hidden">
             <div className="flex justify-between font-semibold bg-white px-4 text-xl items-center">
               <p className="">{item?.category}</p>

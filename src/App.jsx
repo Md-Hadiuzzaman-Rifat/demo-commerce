@@ -72,7 +72,7 @@ const App = () => {
               </Route>
               <Route path='edit/:id' element={<EditProduct/> }></Route>
               <Route path="/upload" element={<AllProduct />}></Route>
-              <Route path="/category" element={<CreateCategory />}></Route>
+              <Route path="/createCategory" element={<CreateCategory />}></Route>
             </Layout>
             {/* //  admin and dashboard page end */}
           </Routes>
