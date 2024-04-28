@@ -94,8 +94,8 @@ const products = [
   export default function SampleProduct() {
     return (
       <div className="bg-white">
-        <div className="mx-auto container px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 grid grid-cols-2 gap-x-2 gap-y-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-4">
+        <div className="mx-auto container py-4  sm:py-8">
+          <div className="grid grid-cols-2 gap-x-2 gap-y-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-4">
             {products.map((product) => (
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">

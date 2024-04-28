@@ -38,7 +38,6 @@ export default function ProductUploadForm() {
   const handleFile = (e) => {
       setMessage("");
       let file = e.target.files;
-
       for (let i = 0; i < file.length; i++) {
           const fileType = file[i]['type'];
           const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
@@ -54,15 +53,9 @@ export default function ProductUploadForm() {
       setFile(files.filter(x => x.name !== i));
    }
 
-
-   const details={productName, brand, review, price, videoLink, otherLink, category, description, variants, featured, discount, extra, extraInfo}
-
-
   const handleUpload= async (e)=>{
     e.preventDefault()
-
     const formData = new FormData();
-
     for (let index=0; index<files?.length; index++){
       const file= files[index]
       formData.append("files", file);
@@ -73,7 +66,10 @@ export default function ProductUploadForm() {
       .then((res) => {})
       .catch((er) => console.log(er));
     
-  }
+  }  
+
+  const details={productName, brand, review, price, videoLink, otherLink, category, description, variants, featured, discount, extra, extraInfo}
+
 
   useEffect(()=>{
     if(isSuccess){
