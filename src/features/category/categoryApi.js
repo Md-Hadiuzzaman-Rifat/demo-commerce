@@ -1,17 +1,21 @@
 import { apiSlice } from "../api/apiSlice";
 
 export const categoryApi = apiSlice.injectEndpoints({
+  tagTypes: ["Categories"],
+
   endpoints: (builder) => ({
     getCategory: builder.query({
-      query: () => "/getCategory",
+      query: () => "/getCategories",
+      providesTags: ["Categories"],
     }),
 
     addCategory: builder.mutation({
       query: (data) => ({
-        url: "/addCategory",
+        url: "/createCategory",
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Categories"],
     }),
 
     deleteCategory: builder.mutation({
@@ -20,7 +24,7 @@ export const categoryApi = apiSlice.injectEndpoints({
         method: "DELETE",
       }),
     }),
-
+    invalidatesTags: ["Categories"],
   }),
 });
 

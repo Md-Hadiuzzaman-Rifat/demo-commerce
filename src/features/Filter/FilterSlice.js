@@ -3,6 +3,7 @@ import { apiSlice } from "../api/apiSlice"
 const initialState={
     category:"All",
     subCategory:[],
+    sort:'byRating'
 }
 
 export const orderStatusSlice= apiSlice({

@@ -97,15 +97,15 @@ const products = [
         <div className="mx-auto container py-4  sm:py-8">
           <div className="grid grid-cols-2 gap-x-2 gap-y-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-4">
             {products.map((product) => (
-              <div key={product.id} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+              <div key={product.id} className="group relative border-gray-200 border-2">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none  lg:h-60">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full group-hover:opacity-75"
                   />
                 </div>
-                <div className="mt-4 flex justify-between">
+                <div className="mt-4 flex justify-between px-4 py-2">
                   <div>
                     <h3 className="text-sm text-gray-700">
                       <a href={product.href}>
@@ -117,6 +117,7 @@ const products = [
                   </div>
                   <p className="text-sm font-medium text-gray-900">{product.price}</p>
                 </div>
+                <p className="text-center bg-indigo-500 font-semibold text-white p-2">View Details</p>
               </div>
             ))}
           </div>
