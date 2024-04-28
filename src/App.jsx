@@ -24,6 +24,7 @@ import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
 import SameCategory from "./components/SameCategory/SameCategory"
 // import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import Test from "./components/Test/Test";
+import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 
 const App = () => {
   React.useEffect(() => {
@@ -44,13 +45,11 @@ const App = () => {
       <AuthProvider>
         <MainPageLayout>
           {formCondition && <OrderForm></OrderForm>}
-
           <CartIcon></CartIcon>
-
           <Routes>
-            
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<Test />}></Route>
+            <Route path="/image" element={<ImageUpload />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route
               path="/category/:category"

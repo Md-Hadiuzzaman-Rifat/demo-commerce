@@ -20,8 +20,6 @@ import Bars from "../../components/Bars/Bars.jsx";
 import RightCart from "../../components/RightCart/RightCart.jsx";
 import Notice from "../../components/Notice/Notice.jsx";
 
-
-
 const BannerData = {
   discount: "30% OFF",
   title: "Fine Smile",
@@ -46,25 +44,23 @@ const BannerData2 = {
   bgColor: "#cccccc",
 };
 
-const bars=[
+const bars = [
   {
     style: "text-[#cc8119] bg-[#fcf4e9]",
     heading: "NEW ARRIVAL",
-    text: ""
+    text: "",
   },
   {
-    style :"text-[#009688] bg-[#ccf7f1]",
-    text:"THE BEST QUALITY OUTFIT",
+    style: "text-[#009688] bg-[#ccf7f1]",
+    text: "THE BEST QUALITY OUTFIT",
     heading: "TOP RATED",
-    textStyle: "mb-[-14px] mt-[4px]"
-  }
-]
+    textStyle: "mb-[-14px] mt-[4px]",
+  },
+];
 const Home = () => {
-
-
   return (
     <div>
-        <RightCart></RightCart>
+      <RightCart></RightCart>
       <Hero />
       <Notice></Notice>
       <Bars item={bars[0]}></Bars>

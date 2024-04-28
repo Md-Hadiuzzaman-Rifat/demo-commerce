@@ -4,6 +4,15 @@ import {Link} from "react-router-dom";
 
 const CategoryItem = ({item}) => {
   const {description, images}= item || {}
+  let {productName, price, discount}= description || {}
+  
+  let modifiedName;
+  if (productName.length > 25) {
+    modifiedName = productName.substring(0, 22) + "...";
+  } else {
+    modifiedName = productName;
+  }
+
   
   return (
        <Link
@@ -16,11 +25,11 @@ const CategoryItem = ({item}) => {
           alt=""
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Full Sleeve
+          <h5 className="mb-2 text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+            {modifiedName}
           </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-           Full Sleeves are always in tranding ..
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-through">
+           Price: {price} 
           </p>
         </div>
       </Link>
