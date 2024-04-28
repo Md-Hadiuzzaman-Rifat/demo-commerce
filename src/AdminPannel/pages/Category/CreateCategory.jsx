@@ -1,8 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import ImageUpload from "../../components/ImageUpload/ImageUpload";
-import CategoryItem from "../../components/CategoryItem/CategoryItem";
-import { useAddCategoryMutation, useGetCategoryQuery } from "../../../features/category/categoryApi";
 import { useAddSubCategoryMutation, useGetSubCategoryQuery } from "../../../features/subCategory/subCategoryApi";
 import SubCategory from "../../components/SubCategoryItem/SubCategoryItem";
 import CategoryForm from "../../../components/CategoryForm/CategoryForm";
