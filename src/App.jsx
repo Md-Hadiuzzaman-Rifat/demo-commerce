@@ -14,7 +14,6 @@ import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
 import AllProduct from "./AdminPannel/pages/Product/AllProduct";
 import CreateCategory from "./AdminPannel/pages/Category/CreateCategory";
-// import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import Layout from "./AdminPannel/components/Layout/Layout";
 import OrderForm from "./components/OrderForm/OrderForm";
 import { useSelector } from "react-redux";
@@ -22,8 +21,6 @@ import CartIcon from "./components/CartIcon/CartIcon";
 import { ToastContainer } from "react-toastify";
 import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
 import SameCategory from "./components/SameCategory/SameCategory"
-// import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
-import Test from "./components/Test/Test";
 import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import QuickView from "./components/QuickView/QuickView";
 

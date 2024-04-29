@@ -39,9 +39,6 @@ export default function ProductUploadForm() {
   const [message, setMessage] = useState();
 
 
- console.log(subcategory);
-
-
   const dispatch = useDispatch();
 
   const handleFile = (e) => {
@@ -90,6 +87,7 @@ export default function ProductUploadForm() {
     discount,
     extra,
     extraInfo,
+    shortDescription
   };
 
   useEffect(() => {
@@ -222,7 +220,6 @@ export default function ProductUploadForm() {
                   onChange={(e) => setCategory(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                  
                   {getCatSuccess &&
                     getCatData?.length > 0 &&
                     getCatData.map((item) => (
@@ -234,6 +231,7 @@ export default function ProductUploadForm() {
               </div>
             </div>
 
+                   {/* sub category  */}
             <div className="sm:col-span-3">
               <label
                 htmlFor="subcategory"
@@ -400,7 +398,7 @@ export default function ProductUploadForm() {
             id="otherLink"
             className="block px-4 mb-4 w-[300px] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
-          <label htmlFor="Color or Size Properties">Name</label>
+          <label htmlFor="Color or Size Properties">Color or Size Properties</label>
           <input
             onChange={(e) => setExtra(e.target.value)}
             placeholder="S, M, L, XL, XXL"
