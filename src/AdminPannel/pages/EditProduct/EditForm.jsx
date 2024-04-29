@@ -63,7 +63,8 @@ export default function EditForm({ data }) {
 
 
   // console.log(data?.description?.subcategory);
-  // console.log(data?.description?.category);
+  console.log(data?.description?.category);
+  // console.log(subcategory); 
 
   const details = {
     productName,
@@ -213,6 +214,8 @@ export default function EditForm({ data }) {
 
               {/* // short description end   */}
 
+              
+
               <div className="sm:col-span-3">
                 <label
                   htmlFor="category"
@@ -239,6 +242,9 @@ export default function EditForm({ data }) {
                   </select>
                 </div>
               </div>
+
+              <p className="font-semibold">Selected Category</p>
+              <p className="mt-[-20px] text-red-500">{category}</p>
 
               <div className="sm:col-span-3">
                 <label
@@ -267,6 +273,12 @@ export default function EditForm({ data }) {
                     </div>
                   )}
               </div>
+
+              {/* // selected category  */}
+              <p className="font-semibold col-span-full mb-[-20px]">Selected Subcategory: </p>
+              <p className="col-span-full">[{
+                  subcategory.map((item, index)=> <span className="text-red-500" key={index}>{` ${item } ,  `} </span> )
+                }]</p>
 
               {/* // full Description  */}
               <div className="col-span-full mb-4">
@@ -348,7 +360,7 @@ export default function EditForm({ data }) {
             <label htmlFor="Available Size or Color">Color or Size</label>
             <input
               onChange={(e) => setExtraInfo(e.target.value)}
-              placeholder="Extra information like Color or Size"
+              placeholder="Color / Size"
               type="text"
               value={extraInfo}
               name="otherLink"
