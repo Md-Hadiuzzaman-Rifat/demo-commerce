@@ -149,7 +149,7 @@ const DetailsContent = ({ desc, img }) => {
             <input
               id="counter"
               aria-label="input"
-              className="border text-black text-xl font-semibold border-gray-300 h-full text-center w-14 pb-1"
+              className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
               type="text"
               value={count}
               onChange={(e) => e.target.value}

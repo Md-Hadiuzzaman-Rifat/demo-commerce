@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAddProductMutation } from "../../../features/product/productApi";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
 import { useGetCategoryQuery } from "../../../features/category/categoryApi";
+import {useGetSubCategoryQuery} from "../../../features/subCategory/subCategoryApi"
 import axios from "axios";
 import TextArea from "../../components/TextArea/TextArea";
 
@@ -12,32 +13,35 @@ export default function ProductUploadForm() {
   // get Category 
   const { data: getCatData, isSuccess: getCatSuccess } = useGetCategoryQuery();
 
+  // get Subcategory 
+  const {data: getSubCatData, isSuccess:getSubCatSuccess, isLoading: subCatLoading}= useGetSubCategoryQuery()
+  // Add Product
+  const [addProduct, { data, isError, isLoading, isSuccess }] =
+    useAddProductMutation();
+
+  const selector = useSelector((state) => state.cartHandler);
+ 
   const [productName, setProductName] = useState("");
   const [review, setReview] = useState(5);
   const [price, setPrice] = useState("");
   const [videoLink, setVideoLink] = useState("");
   const [otherLink, setOtherLink] = useState("");
   const [category, setCategory] = useState( getCatData?.[0]?.category || "Add Category");
-  const [subCategory, setSubCategory] = useState("");
+  const [subcategory, setSubcategory] = useState([]);
   const [description, setDescription] = useState("");
   const [variants, setVariants] = useState("");
-  const [featured, setFeatured] = useState("Regular");
   const [discount, setDiscount] = useState("");
   const [extra, setExtra] = useState(null);
   const [extraInfo, setExtraInfo] = useState("");
   const [brand, setBrand] = useState("");
   const [shortDescription, setShortDescription] = useState("");
-
-
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
 
-  const [addProduct, { data, isError, isLoading, isSuccess }] =
-    useAddProductMutation();
+
+ console.log(subcategory);
 
 
-  const selector = useSelector((state) => state.cartHandler);
-  const { modalCondition } = selector || {};
   const dispatch = useDispatch();
 
   const handleFile = (e) => {
@@ -82,7 +86,7 @@ export default function ProductUploadForm() {
     category,
     description,
     variants,
-    featured,
+    subcategory,
     discount,
     extra,
     extraInfo,
@@ -94,6 +98,15 @@ export default function ProductUploadForm() {
       console.log("success");
     }
   }, [isSuccess, dispatch]);
+
+  
+  const  handleChange=(e)=> {
+    if (e.target.checked) {
+       setSubcategory([...subcategory, e.target.value]);
+    } else {
+       setSubcategory(subcategory.filter((item) => item !== e.target.value));
+    }
+ }
 
   return (
     <form onSubmit={handleUpload}>
@@ -223,24 +236,26 @@ export default function ProductUploadForm() {
 
             <div className="sm:col-span-3">
               <label
-                htmlFor="featured"
+                htmlFor="subcategory"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Featured
+                Subcategory
               </label>
-              <div className="mt-2">
-                <select
-                  id="featured"
-                  name="featured"
-                  autoComplete="featured"
-                  onChange={(e) => setFeatured(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                >
-                  <option className="Regular">Regular</option>
-                  <option className="StockOut">StockOut</option>
-                  <option className="TopRated">TopRated</option>
-                </select>
-              </div>
+              {/* // subcategory data  */}
+              {
+                subCatLoading && "Sorry For Loading"
+              }
+              {
+                !subCatLoading && getSubCatSuccess && getSubCatData?.length >  0 && (
+                  <div>
+                    {
+                      getSubCatData.map(item=><div key={item._id} >
+                        <input className="font-thin rounded-full" onChange = {handleChange} value={item.name} type="checkbox"/> <span>{item.name?.toUpperCase()}</span>
+                      </div> )
+                    }
+                  </div>
+                )
+              }
             </div>
 
             <div className="col-span-full mb-4">
