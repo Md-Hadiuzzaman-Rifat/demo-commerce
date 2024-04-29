@@ -8,6 +8,8 @@ import { useGetCategoryQuery } from "../../../features/category/categoryApi";
 import axios from "axios";
 import TextArea from "../../components/TextArea/TextArea";
 import { useGetSubCategoryQuery } from "../../../features/subCategory/subCategoryApi";
+import { useParams } from "react-router-dom";
+import { useEditProductMutation } from "../../../features/product/productApi";
 
 export default function EditForm({ data }) {
   // get Category
@@ -58,13 +60,10 @@ export default function EditForm({ data }) {
   const [files, setFile] = useState([]);
 
   const selector = useSelector((state) => state.cartHandler);
-  const { modalCondition } = selector || {};
+
   const dispatch = useDispatch();
 
-
-  // console.log(data?.description?.subcategory);
-  console.log(data?.description?.category);
-  // console.log(subcategory); 
+  const {id}= useParams()
 
   const details = {
     productName,
@@ -80,6 +79,7 @@ export default function EditForm({ data }) {
     discount,
     extra,
     extraInfo,
+  
   };
 
   const handleChange = (e) => {
@@ -90,20 +90,13 @@ export default function EditForm({ data }) {
     }
   };
 
+  const [editProduct, {isSuccess}]=useEditProductMutation()
+
+
+
   const handleUpload = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-
-    for (let index = 0; index < files?.length; index++) {
-      const file = files[index];
-      formData.append("files", file);
-    }
-    formData.append("message", JSON.stringify(details));
-    axios
-      .post("http://localhost:20200/uploadProduct", formData)
-      .then((res) => {})
-      .catch((er) => console.log(er));
+    editProduct({productId:id, productObj:{description: details, images:data?.images}})
   };
 
   return (
@@ -242,10 +235,10 @@ export default function EditForm({ data }) {
                   </select>
                 </div>
               </div>
-
-              <p className="font-semibold">Selected Category</p>
-              <p className="mt-[-20px] text-red-500">{category}</p>
-
+                      <div className="flex col-span-full gap-2">
+              <p className="font-semibold">Selected Category: </p>
+              <p className=" text-red-500">{category}</p>
+              </div>
               <div className="sm:col-span-3">
                 <label
                   htmlFor="subcategory"
@@ -354,8 +347,6 @@ export default function EditForm({ data }) {
             </div>
           </div>
 
-
-          <p>Extra Information</p>
           <div>
             <label htmlFor="Available Size or Color">Color or Size</label>
             <input

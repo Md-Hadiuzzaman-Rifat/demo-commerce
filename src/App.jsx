@@ -67,7 +67,7 @@ const App = () => {
               <Route path="/dashboard/*">
                 <Route path="users" element={<AllUsers />}></Route>
               </Route>
-              <Route path='edit/:productId' element={<EditProduct/> }></Route>
+              <Route path='edit/:id' element={<EditProduct/> }></Route>
               <Route path="/upload" element={<AllProduct />}></Route>
               <Route path="/createCategory" element={<CreateCategory />}></Route>
             </Layout>
