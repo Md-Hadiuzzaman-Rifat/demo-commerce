@@ -23,6 +23,9 @@ import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
 import SameCategory from "./components/SameCategory/SameCategory"
 import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import QuickView from "./components/QuickView/QuickView";
+import MainContent from "./AdminPannel/components/MainContent/MainContent"
+import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder"
+import Control from "./AdminPannel/pages/Control/Control"
 
 const App = () => {
   React.useEffect(() => {
@@ -69,6 +72,9 @@ const App = () => {
               </Route>
               <Route path='edit/:id' element={<EditProduct/> }></Route>
               <Route path="/upload" element={<AllProduct />}></Route>
+              <Route path="/orders" element={<MainContent></MainContent>} />
+              <Route path="orders/:orderId" element={<ViewOrder />}></Route>
+              <Route path="control" element={<Control></Control>} />
               <Route path="/createCategory" element={<CreateCategory />}></Route>
             </Layout>
             {/* //  admin and dashboard page end */}

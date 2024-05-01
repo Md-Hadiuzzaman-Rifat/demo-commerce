@@ -1,20 +1,42 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-export default function CustomerAddress() {
+export default function CustomerAddress({orderedItem}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [division, setDivision] = useState("isd");
+  const [division, setDivision] = useState("osd");
 
-  const {formCondition}= useSelector(state=>state.cartHandler)
-  console.log(formCondition);
-  const dispatch= useDispatch()
 
   const handleAddress=(e)=>{
     e.preventDefault()
-    console.log(name, email, phone, address, division);
+    const data={name, email, phone, address, division}
+    const orderStatus={name, email, address, division, orderedItem  }
+    
+    // create client 
+    fetch(`http://localhost:20200/addClient`,{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), 
+    })
+    .then(res=>res.json())
+    .catch(err=>console.log(err+" Failed from create client"))
+
+    // create order 
+    fetch(`http://localhost:20200/confirmOrder`,{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderStatus), 
+    })
+    .then(res=>res.json())
+    .catch(err=>console.log(err+" Failed from create client"))
+    
   }
 
   return (
@@ -99,11 +121,12 @@ export default function CustomerAddress() {
 
         <div className="border my-4 p-4 rounded-md">
           <div className="flex flex-col gap-2">
-            <p className="font-bold">Shipping Method</p>
+            <p className="font-bold">Shipping Address</p>
             <label>
               <input
                 onChange={(e) =>setDivision(e.target.value)}
                 type="radio"
+                checked={division === "isd"}
                 name="myRadio"
                 value="isd"
               />{" "}
@@ -115,6 +138,7 @@ export default function CustomerAddress() {
                  onChange={(e) =>setDivision(e.target.value)}
                 type="radio"
                 name="myRadio"
+                checked={division === "osd"}
                 value="osd"
               />{" "}
               Outside Dhaka

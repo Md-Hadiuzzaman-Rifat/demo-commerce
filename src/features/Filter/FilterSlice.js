@@ -6,15 +6,15 @@ const initialState={
     sort:'byRating'
 }
 
-export const orderStatusSlice= apiSlice({
+export const filterSlice= apiSlice({
     name:"filterSlice",
     initialState,
     reducers:{
         changeStatus:(state,action)=>{
-            state[action.payload.id].status=action.payload.status
+            state.category = action.payload.category
         }
     }
 })
 
-export const {changeStatus}= orderStatusSlice.actions
-export default orderStatusSlice.reducer
+export const {changeStatus}= filterSlice.actions
+export default filterSlice.reducer

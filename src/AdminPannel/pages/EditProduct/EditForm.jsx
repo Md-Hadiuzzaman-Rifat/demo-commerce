@@ -42,6 +42,7 @@ export default function EditForm({ data }) {
     shortDescription: eShortDescription,
   } = data?.description || {};
 
+
   const [productName, setProductName] = useState(eProductName);
   const [review, setReview] = useState(eReview);
   const [price, setPrice] = useState(ePrice);
@@ -270,7 +271,7 @@ export default function EditForm({ data }) {
               {/* // selected category  */}
               <p className="font-semibold col-span-full mb-[-20px]">Selected Subcategory: </p>
               <p className="col-span-full">[{
-                  subcategory.map((item, index)=> <span className="text-red-500" key={index}>{` ${item } ,  `} </span> )
+                  subcategory?.map((item, index)=> <span className="text-red-500" key={index}>{` ${item } ,  `} </span> )
                 }]</p>
 
               {/* // full Description  */}

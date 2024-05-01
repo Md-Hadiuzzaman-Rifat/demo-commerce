@@ -18,6 +18,7 @@ const ShoppingCart = () => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
+
   const [totalPrice, setTotalPrice] = useState(0);
 
   return (

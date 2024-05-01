@@ -1,16 +1,24 @@
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
 
 import CustomerAddress from "../CustomerAddress/CustomerAddress";
 import { useDispatch, useSelector } from "react-redux";
 import { orderFormClose } from "../../features/cartHandler/cartHandler";
+import {getTotals} from "../../features/cartSlice/cartSlice"
 
-export default function Example() {
+export default function OrderForm() {
   const {formCondition}= useSelector(state=>state.cartHandler)
   const dispatch= useDispatch()
-
   const cancelButtonRef = useRef(null);
+
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
+  const orderedItem= cart?.cartItems
 
   return (
     <Transition.Root show={formCondition} as={Fragment}>
@@ -55,7 +63,7 @@ export default function Example() {
 
                 <div className="bg-white px-4  sm:p-6 sm:pb-4">
                   <div className="text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <CustomerAddress></CustomerAddress>
+                    <CustomerAddress orderedItem={orderedItem}></CustomerAddress>
                   </div>
                 </div>
               </Dialog.Panel>
