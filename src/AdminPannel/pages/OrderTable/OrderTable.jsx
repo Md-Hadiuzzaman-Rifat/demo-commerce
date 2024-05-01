@@ -1,6 +1,5 @@
 import "./OrderTable.scss";
 import OrderTableBody from "../../components/OrderTableBody/OrderTableBody";
-import { useState } from "react";
 import { useGetAllOrderedQuery } from "../../../features/confirmOrder/confirmOrder";
 
 const OrderTable = () => {

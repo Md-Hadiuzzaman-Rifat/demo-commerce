@@ -4,7 +4,7 @@ import Button from "../Shared/Button";
 // eslint-disable-next-line react/prop-types
 
 const ProductCard = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="mb-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 place-items-center">
