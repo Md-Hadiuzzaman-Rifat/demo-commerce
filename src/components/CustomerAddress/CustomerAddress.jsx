@@ -1,22 +1,37 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { usePurchaseOrderMutation } from "../../features/confirmOrder/confirmOrder";
+import { useNavigate } from "react-router-dom";
+import { Radio } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { orderFormClose } from "../../features/cartHandler/cartHandler";
 
 export default function CustomerAddress({orderedItem}) {
+  const {formCondition}= useSelector(state=>state.cartHandler)
+
+  const dispatch= useDispatch()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [division, setDivision] = useState("osd");
+  const [receivedData, setReceivedData]= useState({})
 
+  const [purchaseOrder,{data:successData ,isSuccess:successPurchase  ,isLoading:purchaseLoading}]= usePurchaseOrderMutation()
+
+  const navigate= useNavigate()
+
+const data={name, email, phone, address, division}
+const orderStatus={name, email, address, division, orderedItem  }
+
+console.log(orderStatus);
 
   const handleAddress=(e)=>{
     e.preventDefault()
-    const data={name, email, phone, address, division}
-    const orderStatus={name, email, address, division, orderedItem  }
-    
+
     // create client 
-    fetch(`http://localhost:20200/addClient`,{
+    fetch(`http://localhost:20220/addClient`,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,21 +41,32 @@ export default function CustomerAddress({orderedItem}) {
     .then(res=>res.json())
     .catch(err=>console.log(err+" Failed from create client"))
 
-    // create order 
-    fetch(`http://localhost:20200/confirmOrder`,{
-      method:"POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(orderStatus), 
-    })
-    .then(res=>res.json())
-    .catch(err=>console.log(err+" Failed from create client"))
-    
+    // // // create order 
+    purchaseOrder(orderStatus)
   }
+
+ 
+  useEffect(()=>{
+    if(successPurchase && successData){
+      setReceivedData(successData)
+      dispatch(orderFormClose())
+      navigate('/paymentPage', {state:{successData}})
+    }
+  },[successPurchase,successData,receivedData,  dispatch ,navigate])
 
   return (
     <div className="isolate bg-white px-6  lg:px-8 ">
+      {
+        purchaseLoading && <Radio
+        visible={true}
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="radio-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        />
+      }
       <form
         onSubmit={handleAddress}
         method="POST"

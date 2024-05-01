@@ -17,7 +17,7 @@ function CategoryForm() {
     formData.append("file", file);
     formData.append("category", category.toLowerCase());
     // axios
-    //   .post("http://localhost:20200/createCategory", formData)
+    //   .post("http://localhost:20220/createCategory", formData)
     //   .then((res) => res.json())
     //   .then((data) => console.log(data))
     //   .catch((er) => console.log(er));
@@ -28,7 +28,7 @@ function CategoryForm() {
 
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`http://localhost:20200/category/${imageName}`, {
+    fetch(`http://localhost:20220/category/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -63,7 +63,7 @@ function CategoryForm() {
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`http://localhost:20200/images/${item.image}`}
+                src={`http://localhost:20220/images/${item.image}`}
                 className="object-cover"
                 alt=""
               />

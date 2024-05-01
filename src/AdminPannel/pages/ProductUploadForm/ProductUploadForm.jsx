@@ -68,7 +68,7 @@ export default function ProductUploadForm() {
     }
     formData.append("message", JSON.stringify(details));
     axios
-      .post("http://localhost:20200/uploadProduct", formData)
+      .post("http://localhost:20220/uploadProduct", formData)
       .then((res) => {})
       .catch((er) => console.log(er));
   };

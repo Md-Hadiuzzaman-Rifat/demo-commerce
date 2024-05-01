@@ -1,15 +1,40 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
 import bkash from "../../assets/bkash.png";
 import nagad from "../../assets/nagad.png";
+import {useLocation, useNavigate} from 'react-router-dom';
 
 const PaymentPage = () => {
   const [phone, setPhone] = useState("");
   const [transId, setTransId] = useState("");
+  const location = useLocation();
+  const { insertedId }= location?.state?.successData ||{}
+  const payment= {id:insertedId ,phone, transId}
+  const [successData, setSuccessData]= useState("")
+  const navigate= useNavigate()
 
-  const handlePayment=(e)=>{
+  console.log(insertedId);
+  const handlePayment=async(e)=>{
     e.preventDefault()
-    console.log(phone, transId)
+    fetch('http://localhost:20220/editPayment',{
+      method:"PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payment)
+    })
+    .then(res=>res.json())
+    .then(data=>setSuccessData(data))
+    .catch(err=>console.log(err))
   }
+
+  useEffect(()=>{
+    if(successData){
+      navigate('/orderSuccess')
+    }
+  },[successData, navigate])
+
 
   return (
     <div className="container min-h-screen">

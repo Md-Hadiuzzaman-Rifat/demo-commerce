@@ -51,14 +51,14 @@ const DetailsContent = ({ desc, img }) => {
     }else{
       setCount((prev) => prev + 1);
       setWarning(false)
-      dispatch(addToCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count }))
+      dispatch(addToCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20220/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count }))
     }
   };
 
   const minusCount = () => {
     if (count > 0) {
       setCount((prev) => prev - 1);
-      dispatch(decreaseCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20200/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count}))
+      dispatch(decreaseCart({id:`${id}>>>${selectSize}`,name: desc.productName, image:`http://localhost:20220/images/${img[0]?.filename}`, price:desc.discount, cartQuantity:count}))
     }
   };
 
