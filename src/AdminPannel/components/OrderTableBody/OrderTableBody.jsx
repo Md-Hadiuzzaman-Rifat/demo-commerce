@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import  { useState } from "react";
 import { IoMdDownload } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { TbEyeClosed } from "react-icons/tb";
@@ -8,12 +9,12 @@ import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrde
 
 
 const OrderTableBody = ({item}) => {
-  const {_id, timestamp, status, payable, advancePaid, transactionId}= item
-  const [orderStatus, setOrderStatus]=useState(status)
-
-  console.log(item);
+  const {_id,total, payment, date, status }= item || {}
   
-  const [editOrder,{isLoading, isError}]=useEditOrderMutation()
+
+  const [orderStatus, setOrderStatus]=useState(status)
+  
+  const [editOrder]=useEditOrderMutation()
 
   const handleEdit=(e)=>{
     setOrderStatus(e)
@@ -22,12 +23,12 @@ const OrderTableBody = ({item}) => {
   }
   
   return (
-      <tr className="orderTableBody">
+      <tr className="orderTableBody container">
         <td><Link target="_blank" to={`${_id}`}>{_id}</Link></td>
-        <th>{payable}</th>
-        <td>{advancePaid}</td>
-        <td>{transactionId}</td>
-        <td>{timestamp}</td>
+        <th>{total}</th>
+        <td>Gap</td>
+        <td><p>{payment?.phone}</p> <p>{payment?.transId}</p> </td>
+        <td>{date}</td>
         <td>
         <select
             name="category"
@@ -48,7 +49,6 @@ const OrderTableBody = ({item}) => {
           <div className="content">
           <Link to=""><IoMdDownload></IoMdDownload></Link>
           <Link to={`invoice/${_id}`} state={item}><TbEyeClosed></TbEyeClosed></Link>
-          {/* <Link to={`/invoice/${_id}`} state={item}><TbEyeClosed></TbEyeClosed></Link> */}
           <Link to=""><FaEdit></FaEdit></Link>
           </div>
         </td>

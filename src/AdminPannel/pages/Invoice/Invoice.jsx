@@ -1,4 +1,3 @@
-import React from "react";
 import InvoiceHeader from "./InvoiceHeader";
 import InvoiceDetails from "./InvoiceDetails";
 import InvoiceTotal from "./InvoiceTotal";
@@ -7,6 +6,7 @@ import { useLocation } from "react-router-dom";
 
 const Invoice = () => {
   let {state}=useLocation()
+  console.log("state");
   return (
     <div className="Invoice">
       <div className="container">

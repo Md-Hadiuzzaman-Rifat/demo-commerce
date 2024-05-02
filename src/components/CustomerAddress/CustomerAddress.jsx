@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Radio } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { orderFormClose } from "../../features/cartHandler/cartHandler";
+import { clearCart, getTotals } from "../../features/cartSlice/cartSlice";
 
 export default function CustomerAddress({orderedItem}) {
   const {formCondition}= useSelector(state=>state.cartHandler)
@@ -18,14 +19,16 @@ export default function CustomerAddress({orderedItem}) {
   const [division, setDivision] = useState("osd");
   const [receivedData, setReceivedData]= useState({})
 
+  const cart = useSelector((state) => state.cart);
   const [purchaseOrder,{data:successData ,isSuccess:successPurchase  ,isLoading:purchaseLoading}]= usePurchaseOrderMutation()
 
   const navigate= useNavigate()
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
 
 const data={name, email, phone, address, division}
-const orderStatus={name, email, address, division, orderedItem  }
-
-console.log(orderStatus);
+const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date(0).toLocaleDateString(), total: cart?.cartTotalAmount }
 
   const handleAddress=(e)=>{
     e.preventDefault()
@@ -40,16 +43,15 @@ console.log(orderStatus);
     })
     .then(res=>res.json())
     .catch(err=>console.log(err+" Failed from create client"))
-
     // // // create order 
     purchaseOrder(orderStatus)
   }
-
  
   useEffect(()=>{
     if(successPurchase && successData){
       setReceivedData(successData)
       dispatch(orderFormClose())
+      dispatch(clearCart())
       navigate('/paymentPage', {state:{successData}})
     }
   },[successPurchase,successData,receivedData,  dispatch ,navigate])
