@@ -5,9 +5,10 @@ import { useGetProductsQuery } from "../../../features/product/productApi";
 import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
-  const { data, isLoading, isSuccess } = useGetProductsQuery();
+  const {data, isSuccess, isError, isLoading}=useGetProductsQuery()
+
   return (
-    <div className="productTable">
+    <div className="productTable container">
       {isLoading && "Loading..."}
       {!isLoading && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -123,7 +124,7 @@ const ProductTable = () => {
                   Category
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Featured
+                  Subcategory
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Price

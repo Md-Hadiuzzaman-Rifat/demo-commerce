@@ -18,7 +18,6 @@ const AllProduct = () => {
         <h1 className="text-2xl font-semibold underline">Upload a Product</h1>
         <ProductUploadForm></ProductUploadForm>
       </div>
-      <ProductTable></ProductTable>
     </div>
   );
 };

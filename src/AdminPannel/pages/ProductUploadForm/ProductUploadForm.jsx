@@ -15,11 +15,15 @@ export default function ProductUploadForm() {
 
   // get Subcategory 
   const {data: getSubCatData, isSuccess:getSubCatSuccess, isLoading: subCatLoading}= useGetSubCategoryQuery()
+
   // Add Product
   const [addProduct, { data, isError, isLoading, isSuccess }] =
     useAddProductMutation();
 
   const selector = useSelector((state) => state.cartHandler);
+  
+  // Promise.all([getCatData, getSubCatData])
+  // .then(res=>console.log(res))
  
   const [productName, setProductName] = useState("");
   const [review, setReview] = useState(5);

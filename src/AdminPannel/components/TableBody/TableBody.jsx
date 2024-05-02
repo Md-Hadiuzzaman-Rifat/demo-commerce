@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 const TableBody = ({ data }) => {
   const { description: productDetails, images } = data || {};
-  let { category, brand, price, discount, productName, featured, extra } =
+  let { category, brand, price, discount, productName, subcategory, extra } =
     productDetails;
     const navigate= useNavigate()
 
   if (productName?.length > 20) {
     productName = productName.substring(0, 18) + "...";
   }
+
+  console.log(images[0]?.filename);
 
   const handleEdit=(id)=>{
     navigate(`/edit/${id}`)
@@ -33,12 +35,14 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">
         <div className="flex items-center">
           <div className="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>{" "}
-          {featured}
+          {subcategory}
         </div>
       </td>
       <td className="px-6 py-4">{price}</td>
       <td className="px-6 py-4">{discount}</td>
-      <td className="px-6 py-4">{discount}</td>
+      <td className="px-6 py-4">
+          <img className="max-w-20" src={`http://localhost:20220/Images/${images[0]?.filename}`} alt="" />
+        </td>
       <td className="px-6 py-4">{extra}</td>
       <td className=" px-6 py-4 ">
         <div className="flex gap-1 items-center">

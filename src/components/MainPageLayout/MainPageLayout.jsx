@@ -1,4 +1,4 @@
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 // eslint-disable-next-line react/prop-types
@@ -8,7 +8,6 @@ const MainPageLayout = ({children}) => {
         <div>
             <Navbar></Navbar>
             {children}
-            <Footer></Footer>
         </div>
     );
 };

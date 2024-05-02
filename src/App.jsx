@@ -28,7 +28,8 @@ import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder"
 import Control from "./AdminPannel/pages/Control/Control"
 import PaymentPage from "./components/PaymentPage/PaymentPage";
 import OrderSuccess from "./components/OrderSuccess/OrderSuccess"
-import Invoice from "./AdminPannel/pages/Invoice/Invoice"
+import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
+// import Invoice from "./AdminPannel/pages/Invoice/Invoice"
 
 const App = () => {
   React.useEffect(() => {
@@ -81,7 +82,8 @@ const App = () => {
               <Route path="control" element={<Control></Control>} />
               <Route path="/createCategory" element={<CreateCategory />}></Route>
               <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
-              <Route path="/orders/invoice/:id" element={<Invoice />}></Route>
+              <Route path="/allProducts" element={<ProductTable />}></Route>
+              {/* <Route path="/orders/invoice/:id" element={<Invoice />}></Route> */}
             </Layout>
             {/* //  admin and dashboard page end */}
           </Routes>
