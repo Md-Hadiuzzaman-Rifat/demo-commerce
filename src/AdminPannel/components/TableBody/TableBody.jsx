@@ -18,18 +18,27 @@ const TableBody = ({ data }) => {
   if (productName?.length > 20) {
     productName = productName.substring(0, 18) + "...";
   }
-  console.log(images);
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:20220/garbage`,{
+  const editGarbage=async(id)=>{
+    console.log(id)
+    fetch(`http://localhost:20220/garbageTrash`,{
       method: "PUT",
       headers:{
         "Content-Type": "application/json",
       },
       body: JSON.stringify({id, images}),
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
+  }
+
+  const deleteGarbage=async(id)=>{
+    fetch(`http://localhost:20220/garbage/${id}`,{
+      method: "DELETE",
+    })
+  }
+
+  const handleDelete = async(id) => {
+    Promise.all([editGarbage(id), deleteGarbage(id)])
+    .then(res=>console.log(res))
   };
 
   const handleEdit = (id) => {
