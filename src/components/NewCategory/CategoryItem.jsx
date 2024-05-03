@@ -37,7 +37,7 @@ const CategoryItem = ({ item }) => {
         <p className="mb-3 font-medium text-gray-700 dark:text-gray-400 ">
           Offer Price: {discount}
         </p>
-        <button onClick={quickView} className="bg-black py-1 px-2 font-semibold text-white">Save {price - discount}</button>
+        <button onClick={quickView} className=" bg-black py-1 px-2 font-semibold text-white">Save {price - discount}</button>
       </div>
     </Link>
   );

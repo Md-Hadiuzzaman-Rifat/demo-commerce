@@ -102,7 +102,7 @@ const products = [
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full group-hover:opacity-75"
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full group-hover:opacity-75 group-hover:scale-125 duration-200"
                   />
                 </div>
                 <div className="mt-4 flex justify-between px-4 py-2">

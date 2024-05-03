@@ -41,7 +41,7 @@ export default function ProductUploadForm() {
   const [shortDescription, setShortDescription] = useState("");
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
-
+  const [error, setError]= useState(true)
 
   const dispatch = useDispatch();
 
@@ -100,6 +100,12 @@ export default function ProductUploadForm() {
       console.log("success");
     }
   }, [isSuccess, dispatch]);
+
+  useEffect(()=>{
+    if(files?.length > 0){
+      setError(false)
+    }
+  },[files])
 
   
   const  handleChange=(e)=> {
@@ -389,6 +395,10 @@ export default function ProductUploadForm() {
           </div>
         </div>
 
+        {
+          error && <p className="text-red-500 font-bold text-2xl">Upload image</p>
+        }
+
         {/* image upload end   */}
 
         <p>Extra Information</p>
@@ -422,6 +432,7 @@ export default function ProductUploadForm() {
           Cancel
         </button>
         <button
+        disabled={files?.length == 0}
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >

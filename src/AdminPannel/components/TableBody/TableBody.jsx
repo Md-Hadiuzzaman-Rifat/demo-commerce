@@ -3,22 +3,38 @@
 import { MdDeleteForever } from "react-icons/md";
 import { RiFileEditFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import {useDeleteProductMutation} from "../../../features/product/productApi"
 
 const TableBody = ({ data }) => {
-  const { description: productDetails, images } = data || {};
+  const { description: productDetails, images, _id } = data || {};
   let { category, brand, price, discount, productName, subcategory, extra } =
     productDetails;
-    const navigate= useNavigate()
+
+    
+
+  const navigate = useNavigate();
+  const {editProduct}=useDeleteProductMutation()
 
   if (productName?.length > 20) {
     productName = productName.substring(0, 18) + "...";
   }
+  console.log(images);
 
-  console.log(images[0]?.filename);
+  const handleDelete = (id) => {
+    fetch(`http://localhost:20220/garbage`,{
+      method: "PUT",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id, images}),
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
+  };
 
-  const handleEdit=(id)=>{
-    navigate(`/edit/${id}`)
-  }
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
+  };
 
   return (
     <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -41,13 +57,23 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">{price}</td>
       <td className="px-6 py-4">{discount}</td>
       <td className="px-6 py-4">
-          <img className="max-w-20" src={`http://localhost:20220/Images/${images[0]?.filename}`} alt="" />
-        </td>
+        <img
+          className="max-w-20"
+          src={`http://localhost:20220/Images/${images[0]?.filename}`}
+          alt=""
+        />
+      </td>
       <td className="px-6 py-4">{extra}</td>
       <td className=" px-6 py-4 ">
         <div className="flex gap-1 items-center">
-          <MdDeleteForever  className="text-[20px] text-red-500 cursor-pointer"/>
-          <RiFileEditFill onClick={()=>handleEdit(data._id)} className="text-[16px] text-indigo-500 cursor-pointer"/>
+          <MdDeleteForever
+            className="text-[20px] text-red-500 cursor-pointer"
+            onClick={() => handleDelete(data._id)}
+          />
+          <RiFileEditFill
+            onClick={() => handleEdit(data._id)}
+            className="text-[16px] text-indigo-500 cursor-pointer"
+          />
         </div>
       </td>
     </tr>
