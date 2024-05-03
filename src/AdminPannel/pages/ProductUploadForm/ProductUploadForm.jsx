@@ -17,7 +17,7 @@ export default function ProductUploadForm() {
   const {data: getSubCatData, isSuccess:getSubCatSuccess, isLoading: subCatLoading}= useGetSubCategoryQuery()
 
   // Add Product
-  const [addProduct, { data, isError, isLoading, isSuccess }] =
+  const [addProduct, { data, isError, isLoading, isSuccess:addSuccess }] =
     useAddProductMutation();
 
   const selector = useSelector((state) => state.cartHandler);
@@ -71,10 +71,12 @@ export default function ProductUploadForm() {
       formData.append("files", file);
     }
     formData.append("message", JSON.stringify(details));
-    axios
-      .post("http://localhost:20220/uploadProduct", formData)
-      .then((res) => {})
-      .catch((er) => console.log(er));
+    // axios
+    //   .post("http://localhost:20220/uploadProduct", formData)
+    //   .then((res) => {})
+    //   .catch((er) => console.log(er));
+
+    addProduct(formData)
   };
 
   const details = {
@@ -95,11 +97,11 @@ export default function ProductUploadForm() {
   };
 
   useEffect(() => {
-    if (isSuccess) {
+    if (addSuccess) {
       dispatch(modalOpen());
       console.log("success");
     }
-  }, [isSuccess, dispatch]);
+  }, [addSuccess, dispatch]);
 
   useEffect(()=>{
     if(files?.length > 0){
