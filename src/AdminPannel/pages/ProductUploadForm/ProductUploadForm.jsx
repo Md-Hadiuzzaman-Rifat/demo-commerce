@@ -75,7 +75,6 @@ export default function ProductUploadForm() {
     //   .post("http://localhost:20220/uploadProduct", formData)
     //   .then((res) => {})
     //   .catch((er) => console.log(er));
-
     addProduct(formData)
   };
 
