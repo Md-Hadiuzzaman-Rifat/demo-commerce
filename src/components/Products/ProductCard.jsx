@@ -4,17 +4,17 @@ import Button from "../Shared/Button";
 // eslint-disable-next-line react/prop-types
 
 const ProductCard = ({ data }) => {
-  // console.log(data);
+  console.log(data);
   return (
     <div className="mb-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 place-items-center">
         {/* card section */}
-        {data?.map((data) => (
+        {data?.map((data, index) => (
           <div
             data-aos="fade-up"
-            data-aos-delay={data.aosDelay}
+            data-aos-delay={index * 200}
             className="group"
-            key={data.id}
+            key={data._id}
           >
             <div className="relative">
               <img

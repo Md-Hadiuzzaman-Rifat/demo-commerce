@@ -6,6 +6,11 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily:{
+        abc: ["Rajdhani", "sans-serif"],
+        mont: ["Raleway", "sans-serif"],
+        blinker: ["Blinker", "sans-serif"]
+      },
       colors: {
         primary: "#f42c37",
         secondary: "#f42c37",
