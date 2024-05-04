@@ -56,6 +56,12 @@ const bars = [
     heading: "TOP RATED",
     textStyle: "mb-[-14px] mt-[4px]",
   },
+  {
+    style: "text-[#9059a1] bg-[#d5c1dc]",
+    text: "THE BEST QUALITY OUTFIT",
+    heading: "FREE DELIVERY",
+    textStyle: "mb-[-14px] mt-[4px]",
+  },
 ];
 const Home = () => {
   return (
@@ -70,9 +76,10 @@ const Home = () => {
       <Services />
       <Bars item={bars[1]}></Bars>
       <SampleProduct></SampleProduct>
+ 
       <Banner data={BannerData} />
+      <Bars item={bars[2]}></Bars>
       <Products />
-
       <Banner data={BannerData2} />
       <Blogs />
       <Partners />
