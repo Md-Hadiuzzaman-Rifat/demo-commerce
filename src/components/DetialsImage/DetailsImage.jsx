@@ -7,7 +7,7 @@ const DetailsImage = ({ images }) => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row-reverse flex-col gap-4">
+    <div className=" w-full sm:w-96 md:w-8/12 pt-0 lg:pt-12 lg:w-6/12 flex lg:flex-row-reverse flex-col gap-4">
       {/* main images  */}
       <div className=" lg:w-8/12 bg-gray-100 flex justify-center items-center">
          <img

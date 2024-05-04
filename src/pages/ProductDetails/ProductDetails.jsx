@@ -14,7 +14,7 @@ const ProductDetails = () => {
         <div>
           {isLoading && "Sorry for loading"}
           {!isLoading && isSuccess && data && (
-            <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
+            <div className="flex justify-center items-center lg:items-start lg:flex-row flex-col gap-8">
               <DetailsImage images={data.images}></DetailsImage>
               <DetailsContent desc={data.description} img={data.images}></DetailsContent>
             </div>
