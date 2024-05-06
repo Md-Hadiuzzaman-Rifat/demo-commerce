@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import DetailsImage from "../../components/DetialsImage/DetailsImage";
 import DetailsContent from "../../components/DetailsContent/DetailsContent";
 import CategoryPage from "../CategoryPage/CategoryPage";
-
+import SubCategoryPage from "../../components/SubCategoryPage/SubCategoryPage";
+import FooterBanner from "../../components/FooterBanner/FooterBanner"
 const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
@@ -21,7 +22,7 @@ const ProductDetails = () => {
           )}
     
           {!isLoading && data && (
-            <div className="aspect-w-16 aspect-h-9 mt-6">
+            <div className="aspect-w-16 aspect-h-9 mt-6 container">
              <iframe className="w-full aspect-video md:aspect-square" src="https://www.youtube-nocookie.com/embed/OmcCuVlpyhs?si=X1GiEdoYXIjnwSTb&amp;controls=0"></iframe>
             </div>
           )}
@@ -30,6 +31,9 @@ const ProductDetails = () => {
         </div>
       </div>
       <CategoryPage></CategoryPage>
+      <SubCategoryPage></SubCategoryPage>
+      <div className="mb-16"></div>
+      <FooterBanner></FooterBanner>
     </div>
   );
 };

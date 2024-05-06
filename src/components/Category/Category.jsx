@@ -15,7 +15,7 @@ const Category = () => {
                 <p className="mb-[2px] text-gray-400">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Earphone
+                  Polo Shirt
                 </p>
                 <Button
                   text="Browse"
@@ -33,7 +33,7 @@ const Category = () => {
                 <p className="mb-[2px] text-gray-400">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Earphone
+                  Full Sleeve
                 </p>
                 <Button
                   text="Browse"
@@ -51,7 +51,7 @@ const Category = () => {
                 <p className="mb-[2px] text-white">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Laptop
+                  T-Shirt
                 </p>
                 <Button
                   text="Browse"
