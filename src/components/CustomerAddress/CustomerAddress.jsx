@@ -34,7 +34,7 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
     e.preventDefault()
 
     // create client 
-    fetch(`http://localhost:20220/addClient`,{
+    fetch(`https://demo-commerce-backend.vercel.app/addClient`,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",

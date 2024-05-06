@@ -4,7 +4,7 @@ const CarouselItem = () => {
 
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
-        <img className="rounded-t-lg" src="http://localhost:20220/images/1714747401213_white.png" alt="product image" />
+        <img className="rounded-t-lg" src="https://demo-commerce-backend.vercel.app/images/1714747401213_white.png" alt="product image" />
     </a>
     <div className="px-2">
         <a href="#">

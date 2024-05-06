@@ -54,7 +54,7 @@ const DetailsContent = ({ desc, img }) => {
         addToCart({
           id: `${id}>>>${selectSize}`,
           name: desc.productName,
-          image: `http://localhost:20220/images/${img[0]?.filename}`,
+          image: `https://demo-commerce-backend.vercel.app/images/${img[0]?.filename}`,
           price: desc.discount,
           cartQuantity: count,
         })
@@ -69,7 +69,7 @@ const DetailsContent = ({ desc, img }) => {
         decreaseCart({
           id: `${id}>>>${selectSize}`,
           name: desc.productName,
-          image: `http://localhost:20220/images/${img[0]?.filename}`,
+          image: `https://demo-commerce-backend.vercel.app/images/${img[0]?.filename}`,
           price: desc.discount,
           cartQuantity: count,
         })
