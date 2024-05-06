@@ -29,6 +29,7 @@ import Control from "./AdminPannel/pages/Control/Control"
 import PaymentPage from "./components/PaymentPage/PaymentPage";
 import OrderSuccess from "./components/OrderSuccess/OrderSuccess"
 import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
+import GarbageCollection from "./pages/GarbageCollection/GarbageCollection";
 // import Invoice from "./AdminPannel/pages/Invoice/Invoice"
 
 const App = () => {
@@ -72,9 +73,7 @@ const App = () => {
             <Layout>
               <Route path="/admin" element={<AdminLogin />}></Route>
               <Route path="/paymentPage" element={<PaymentPage />}></Route>
-              <Route path="/dashboard/*">
                 <Route path="users" element={<AllUsers />}></Route>
-              </Route>
               <Route path='edit/:id' element={<EditProduct/> }></Route>
               <Route path="/upload" element={<AllProduct />}></Route>
               <Route path="/orders" element={<OrderCollection></OrderCollection>} />
@@ -83,6 +82,7 @@ const App = () => {
               <Route path="/createCategory" element={<CreateCategory />}></Route>
               <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
               <Route path="/allProducts" element={<ProductTable />}></Route>
+              <Route path="/garbage" element={<GarbageCollection />}></Route>
               {/* <Route path="/orders/invoice/:id" element={<Invoice />}></Route> */}
             </Layout>
             {/* //  admin and dashboard page end */}

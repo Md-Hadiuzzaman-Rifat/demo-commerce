@@ -76,7 +76,6 @@ const Home = () => {
       <Services />
       <Bars item={bars[1]}></Bars>
       <SampleProduct></SampleProduct>
- 
       <Banner data={BannerData} />
       <Bars item={bars[2]}></Bars>
       <Products />
@@ -91,5 +90,5 @@ const Home = () => {
     </div>
   );
 };
-
+// https://react-slick.neostack.com/docs/example/pause-on-hover
 export default Home;
