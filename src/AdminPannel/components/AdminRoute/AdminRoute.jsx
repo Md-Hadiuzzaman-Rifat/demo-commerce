@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 
 
-
 const AdminRoute = ({children}) => {
     return (
         <div>

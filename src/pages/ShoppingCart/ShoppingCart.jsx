@@ -19,6 +19,11 @@ const ShoppingCart = () => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
 
   const [totalPrice, setTotalPrice] = useState(0);
 
