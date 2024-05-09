@@ -5,7 +5,7 @@ const ProductLayout2 = () => {
     <div >
       <div className="relative flex flex-col items-center">
         <img
-          src="https://demo-commerce-backend.vercel.app/images/1714746813232_gray.jpg"
+          src="http://localhost:20220/images/1714746813232_gray.jpg"
           alt=""
         />
         <div className="flex items-center bg-white w-[120px] rounded-md absolute bottom-[-10px] justify-center gap-2 shadow-lg">

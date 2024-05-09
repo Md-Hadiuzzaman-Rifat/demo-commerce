@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Slider from "react-slick";
 import CarouselItem from "../../components/CarouselItem/CarouselItem"
+import "./productCarouse.scss"
 
 function AutoPlayMethods() {
   let sliderRef = useRef(null);
@@ -25,7 +26,7 @@ function AutoPlayMethods() {
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 580,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 2,
@@ -33,7 +34,7 @@ function AutoPlayMethods() {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 400,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1
@@ -41,13 +42,14 @@ function AutoPlayMethods() {
         }
       ]
   };
+
+  
   return (
     <div className="slider-container mt-8">
       <h2 className="text-xl font-abc font-semibold">Similar Category</h2>
       <div className="h-[1px] w-full bg-black mt-2 mb-4"></div>
 
-      <Slider ref={slider => (sliderRef = slider)} {...settings}>
-
+      <Slider className="carousel" ref={slider => (sliderRef = slider)} {...settings}>
         <CarouselItem></CarouselItem>
         <CarouselItem></CarouselItem>
         <CarouselItem></CarouselItem>
@@ -60,3 +62,4 @@ function AutoPlayMethods() {
   );
 }
 export default AutoPlayMethods;
+

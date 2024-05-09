@@ -14,21 +14,21 @@ function Test() {
     formData.append("file", file);
     formData.append("category", category);
     axios
-      .post("https://demo-commerce-backend.vercel.app/upload", formData)
+      .post("http://localhost:20220/upload", formData)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((er) => console.log(er));
   };
 
   useEffect(() => {
-    fetch(`https://demo-commerce-backend.vercel.app/get-upload`)
+    fetch(`http://localhost:20220/get-upload`)
       .then((res) => res.json())
       .then((data) => setFind(data));
   }, []);
 
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`https://demo-commerce-backend.vercel.app/category/${imageName}`, {
+    fetch(`http://localhost:20220/category/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -58,7 +58,7 @@ function Test() {
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`https://demo-commerce-backend.vercel.app/images/${item.image}`}
+                src={`http://localhost:20220/images/${item.image}`}
                 className="object-cover"
                 alt=""
               />

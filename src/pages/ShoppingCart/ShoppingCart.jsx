@@ -8,6 +8,7 @@ import { getTotals } from "../../features/cartSlice/cartSlice";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
 import { useNavigate } from "react-router-dom";
+import FooterBanner from "../../components/FooterBanner/FooterBanner"
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const ShoppingCart = () => {
   return (
     <div>
       <div className="flex cursor-cell hover:bg-gray-200 hover:text-gray-500 flex-col items-center justify-center w-full pb-4 bg-gray-500 text-gray-200 h-32 lg:h-52 duration-300">
-        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold">
+        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold font-abc">
           Shopping Cart
         </h1>
       </div>
@@ -107,6 +108,8 @@ const ShoppingCart = () => {
           </div>
         </div>
       )}
+      <div className="mt-16"></div>
+      <FooterBanner></FooterBanner>
     </div>
   );
 };

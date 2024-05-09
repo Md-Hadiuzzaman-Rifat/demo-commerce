@@ -77,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("https://demo-commerce-backend.vercel.app/addUser",{
+    fetch("http://localhost:20220/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

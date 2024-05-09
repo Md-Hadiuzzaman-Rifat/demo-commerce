@@ -6,16 +6,18 @@ import { useLocation } from "react-router-dom";
 
 const Invoice = () => {
   let {state}=useLocation()
-  console.log("state");
+  console.log(state);
   return (
     <div className="Invoice">
       <div className="container">
-        <InvoiceHeader details={state}/>
+       <InvoiceHeader details={state}/>
         <InvoiceDetails details={state}/>
-        <InvoiceTotal details={state} />
+        <InvoiceTotal details={state} /> 
       </div>
     </div>
   );
 };
 
 export default Invoice;
+
+

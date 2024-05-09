@@ -17,7 +17,7 @@ const PaymentPage = () => {
   console.log(insertedId);
   const handlePayment=async(e)=>{
     e.preventDefault()
-    fetch('https://demo-commerce-backend.vercel.app/editPayment',{
+    fetch('http://localhost:20220/editPayment',{
       method:"PUT",
       headers: {
         "Content-Type": "application/json",

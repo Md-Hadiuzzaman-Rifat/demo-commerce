@@ -72,7 +72,7 @@ export default function ProductUploadForm() {
     }
     formData.append("message", JSON.stringify(details));
     // axios
-    //   .post("https://demo-commerce-backend.vercel.app/uploadProduct", formData)
+    //   .post("http://localhost:20220/uploadProduct", formData)
     //   .then((res) => {})
     //   .catch((er) => console.log(er));
     addProduct(formData)

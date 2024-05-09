@@ -19,9 +19,9 @@ const InvoiceHeader = ({ details }) => {
           <p>
             BILL FROM: <strong>The Spectacle 23</strong>
           </p>
-          <p>
+          
             <p>Phone: +8801876273090</p>
-          </p>
+          
           <p>Address: Mirpur-11, Dhaka-1216</p>
           </div>
           <hr />

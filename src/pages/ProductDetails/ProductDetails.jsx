@@ -5,9 +5,16 @@ import DetailsContent from "../../components/DetailsContent/DetailsContent";
 import CategoryPage from "../CategoryPage/CategoryPage";
 import SubCategoryPage from "../../components/SubCategoryPage/SubCategoryPage";
 import FooterBanner from "../../components/FooterBanner/FooterBanner"
+import { useEffect } from "react";
+
 const ProductDetails = () => {
+  
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
