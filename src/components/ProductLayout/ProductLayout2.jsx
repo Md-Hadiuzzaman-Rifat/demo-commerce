@@ -7,6 +7,7 @@ const ProductLayout2 = () => {
         <img
           src="http://localhost:20220/images/1714746813232_gray.jpg"
           alt=""
+          className="cursor-pointer"
         />
         <div className="flex items-center bg-white w-[120px] rounded-md absolute bottom-[-10px] justify-center gap-2 shadow-lg">
             <p className="font-semibold">৳1000</p>

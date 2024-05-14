@@ -112,6 +112,7 @@ const DetailsContent = ({ desc, img }) => {
         </p>
       </div>
       {/* price  */}
+      <div className="flex flex-row justify-between">
       <div className="flex flex-row gap-4 ">
         <p className=" font-semibold text-gray-400 line-through lg:text-xl text-md lg:leading-6 leading-5 mt-4 font-abc">
           $ {price}
@@ -119,6 +120,9 @@ const DetailsContent = ({ desc, img }) => {
         <span className="inline font-semibold, lg:text-2xl text-xl lg:leading-6 leading-5 font-abc mt-4 font-bold">
           $ {discount}
         </span>
+        
+      </div>
+      <button className="mr-8 py-2 px-4 m-2 bg-indigo-500 text-sm font-semibold text-white font-mont rounded-sm border-2 border-gray-800 ">View Size </button>
       </div>
 
       <p className="font-abc font-semibold mt-4">{extraInfo?.toUpperCase()}</p>
@@ -179,7 +183,6 @@ const DetailsContent = ({ desc, img }) => {
             </span>
           </div>
         </div>
-    
       </div>
       <button
         className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-4 mt-2"
