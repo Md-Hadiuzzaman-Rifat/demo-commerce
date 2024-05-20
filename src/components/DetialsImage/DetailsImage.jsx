@@ -5,18 +5,19 @@ import { useState } from "react";
 /* eslint-disable no-unused-vars */
 const DetailsImage = ({ images }) => {
   const [selected, setSelected] = useState(0);
+  console.log(images);
 
   return (
     <div className=" w-full sm:w-96 md:w-8/12 pt-0 lg:pt-12 lg:w-6/12 flex lg:flex-row-reverse flex-col gap-4">
       {/* main images  */}
-      <div className=" lg:w-8/12 bg-gray-100 flex justify-center items-center">
+      <div className=" lg:w-9/12 bg-gray-100 flex justify-center items-center">
          <img
           src={`http://localhost:20220/Images/${images[selected].filename}`}
           alt="Wooden Chair Previw"
         /> 
       </div>
       {/* // optional images  */}
-      <div className=" w-full lg:w-4/12 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 gap-6">
+      <div className=" w-full lg:w-3/12 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 gap-6">
         {images.map((img, index) => (
           <div
             key={index}

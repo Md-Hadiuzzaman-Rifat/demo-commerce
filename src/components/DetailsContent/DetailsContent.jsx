@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
 import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
+import { PiToiletPaperLight } from "react-icons/pi";
 
 
 const DetailsContent = ({ desc, img }) => {
@@ -122,7 +123,7 @@ const DetailsContent = ({ desc, img }) => {
         </span>
         
       </div>
-      <button className="mr-8 py-2 px-4 m-2 bg-indigo-500 text-sm font-semibold text-white font-mont rounded-sm border-2 border-gray-800 ">View Size </button>
+      <button className="flex underline gap-2 text-gray-400 items-center me-8"> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
       </div>
 
       <p className="font-abc font-semibold mt-4">{extraInfo?.toUpperCase()}</p>

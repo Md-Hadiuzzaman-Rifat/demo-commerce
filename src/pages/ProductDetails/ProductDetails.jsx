@@ -12,6 +12,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,14 +28,13 @@ const ProductDetails = () => {
               <DetailsContent desc={data.description} img={data.images}></DetailsContent>
             </div>
           )}
-    
-          {!isLoading && data && (
-            <div className="aspect-w-16 aspect-h-9 mt-6 container">
-             <iframe width='560' height='315' src='https://www.youtube.com/embed/HzQIbfGgvek?si=jUaO4xg0GhfYYSy-' title='YouTube video player' frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerPolicy='strict-origin-when-cross-origin' allowFullScreen></iframe>
-            </div>
+          
+          {!isLoading && data && data?.description?.videoLink && (
+            <div className="aspect-w-16 aspect-h-9 mt-6 container" dangerouslySetInnerHTML={{ __html: data?.description?.videoLink }}></div>
           )}
 
           {isError && "Failed to load"}
+          
         </div>
       </div>
       <CategoryPage></CategoryPage>
