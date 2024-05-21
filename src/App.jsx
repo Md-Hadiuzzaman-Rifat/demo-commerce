@@ -31,6 +31,7 @@ import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
 import GarbageCollection from "./pages/GarbageCollection/GarbageCollection";
 import Invoice from "./AdminPannel/pages/Invoice/Invoice";
 import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
+import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSkeleton";
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
               path="/category/:category"
               element={<CategoryPage></CategoryPage>}
             ></Route>
+            <Route path="/test2" element={<ProductListSkeleton/>}></Route>
             <Route
               path="/productDetails/:id"
               element={<ProductDetails />}

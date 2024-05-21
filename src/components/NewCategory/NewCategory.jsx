@@ -1,4 +1,5 @@
 import { useGetProductsQuery } from "../../features/product/productApi";
+import ProductListSkeleton from "../ProductListSkeleton/ProductListSkeleton";
 import CategoryItem from "./CategoryItem";
 
 const NewCategory = () => {
@@ -8,7 +9,7 @@ const NewCategory = () => {
     <div className="py-8">
       <div className="container">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 justify-between">
-          {isLoading && "Sorry for loading"}
+          {isLoading && <ProductListSkeleton/>}
           {/* {
           isSuccess && data?.length>0 && data?.map(item=> <CategoryItem key={item._id} item={item}/>)
         } */}

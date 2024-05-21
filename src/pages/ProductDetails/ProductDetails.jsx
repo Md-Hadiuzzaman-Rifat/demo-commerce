@@ -11,6 +11,7 @@ import SubCategoryPage from "../../components/SubCategoryPage/SubCategoryPage";
 import FooterBanner from "../../components/FooterBanner/FooterBanner";
 import { useEffect } from "react";
 import ProductDetailsLoader from "../../components/Loader/ProductDetailsLoader";
+import DetailsSkeleton from "../../components/DetailsSkeleton/DetailsSkeleton";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const ProductDetails = () => {
     <div>
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div>
-          {isLoading && <ProductDetailsLoader />}
+          {isLoading && <DetailsSkeleton/>}
           {!isLoading && isSuccess && data && (
             <div className="flex justify-center items-center lg:items-start lg:flex-row flex-col gap-8">
               <DetailsImage images={data?.images}></DetailsImage>

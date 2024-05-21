@@ -9,8 +9,7 @@ export default function FooterBanner() {
           <div className="max-w-xl lg:max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
-              Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
-              dolore.
+              To Get Big Discount Subscribe us and Follow our facebook page.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
@@ -38,21 +37,26 @@ export default function FooterBanner() {
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
-              <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
+              <dt className="mt-4 font-semibold text-white">Our Shop Address</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
+                Mirpur-10, Block: A, Lane: 8, House no: 18
+                <p>Mirpur Benarashi Palli</p>
+                <p>Dhaka - 1216</p>
               </dd>
             </div>
             <div className="flex flex-col items-start">
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
-              <dt className="mt-4 font-semibold text-white">No spam</dt>
+              <dt className="mt-4 font-semibold text-white">Contact Us</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
+                আমাদের সাথে বিসনেস বা যে কোনো প্রয়োজনে সরাসরি যোগাযোগ করুন <span className='font-bold text-white'>+8801910803372</span> এই নম্বরে
               </dd>
             </div>
           </dl>
+          <p className="mt-4 text-xl leading-8 text-gray-300">
+              This Web Application Created and Maintained By <span className='text-orange-300 font-bold text-2xl mx-3'>URBAN TECH BD.</span>
+            </p>
         </div>
       </div>
       <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
