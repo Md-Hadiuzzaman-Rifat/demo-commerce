@@ -64,6 +64,7 @@ const App = () => {
               element={<CategoryPage></CategoryPage>}
             ></Route>
             <Route path="/test2" element={<ProductListSkeleton/>}></Route>
+            
             <Route
               path="/productDetails/:id"
               element={<ProductDetails />}

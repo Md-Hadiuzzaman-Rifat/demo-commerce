@@ -9,6 +9,8 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 import { MdOutlineBorderColor } from "react-icons/md";
 import { GrOrderedList } from "react-icons/gr";
+import { CgSidebarOpen } from "react-icons/cg";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 const AdminLayout = ({ children }) => {
@@ -29,19 +31,18 @@ const AdminLayout = ({ children }) => {
           open ? "w-72" : "w-20 "
         } bg-purple-100 h-screen p-5  pt-8 relative duration-300 `}
       >
-        <img
-          src="./src/assets/control.png"
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+        <div
+          className={`absolute text-2xl text-purple-500 cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
-          onClick={() => setOpen(!open)}
-        />
+          onClick={() => setOpen(!open)}> <FaArrowLeft/>
+          </div>
         <div className="flex gap-x-4 items-center">
-          <img
+          <div
             src="./src/assets/logo.png"
-            className={`cursor-pointer duration-500 ${
+            className={`cursor-pointer text-2xl duration-500 ${
               open && "rotate-[360deg]"
-            }`}
-          />
+            }`}><CgSidebarOpen />
+          </div>
           <h1
             className={`text-gray-600 origin-left font-medium text-xl duration-200 underline ${
               !open && "scale-0"

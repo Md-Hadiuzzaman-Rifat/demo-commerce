@@ -7,18 +7,18 @@ import { useNavigate } from "react-router-dom";
 const CarouselItem = ({ data }) => {
   const { description, images, _id } = data || {};
   const { productName, price, discount, review } = description || {};
+
   const navigate= useNavigate()
 
   const handleDescription=(id)=>{
     navigate(`/productDetails/${id}`)
   }
 
-
   return (
     <div onClick={()=>handleDescription(_id)} className="w-full max-w-sm p-2 bg-white dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img 
-          className="rounded-t-lg"
+          className="rounded-t-lg max-h-[150px] sm:max-h-[185px] w-full object-cover"
           src={`http://localhost:20220/images/${images?.[0].filename}`}
           alt="product image"
         />

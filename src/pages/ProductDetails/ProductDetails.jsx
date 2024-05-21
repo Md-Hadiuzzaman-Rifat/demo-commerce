@@ -10,7 +10,6 @@ import CategoryPage from "../CategoryPage/CategoryPage";
 import SubCategoryPage from "../../components/SubCategoryPage/SubCategoryPage";
 import FooterBanner from "../../components/FooterBanner/FooterBanner";
 import { useEffect } from "react";
-import ProductDetailsLoader from "../../components/Loader/ProductDetailsLoader";
 import DetailsSkeleton from "../../components/DetailsSkeleton/DetailsSkeleton";
 
 const ProductDetails = () => {
