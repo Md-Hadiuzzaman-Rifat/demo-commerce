@@ -4,6 +4,7 @@ import { useAddSubCategoryMutation, useGetSubCategoryQuery } from "../../../feat
 import SubCategory from "../../components/SubCategoryItem/SubCategoryItem";
 import CategoryForm from "../../../components/CategoryForm/CategoryForm";
 import Modal from "../../../components/Modal/Modal"
+import AdminLayout from "../../AdminLayout/AdminLayout";
 
 const CreateCategory = () => {
   const [addNewCategory, setAddNewCategory] = useState("");
@@ -28,6 +29,7 @@ const CreateCategory = () => {
   },[addSuccess])
 
   return (
+    <AdminLayout>
     <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
       {/* {
           addSuccess && <Modal></Modal>
@@ -66,6 +68,7 @@ const CreateCategory = () => {
         }
       </div>
     </div>
+    </AdminLayout>
   );
 };
 

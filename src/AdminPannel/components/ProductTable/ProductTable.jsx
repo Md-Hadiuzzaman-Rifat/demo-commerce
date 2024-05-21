@@ -3,12 +3,16 @@
 import "./ProductTable.scss";
 import { useGetProductsQuery } from "../../../features/product/productApi";
 import TableBody from "../TableBody/TableBody";
+import AdminNavbar from "../AdminNavbar/AdminNavbar";
+import AdminLayout from "../../AdminLayout/AdminLayout";
 
 const ProductTable = () => {
   const {data, isSuccess, isError, isLoading}=useGetProductsQuery()
 
   return (
+    <AdminLayout>
     <div className="productTable container">
+      
       {isLoading && "Loading..."}
       {!isLoading && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -152,7 +156,9 @@ const ProductTable = () => {
           </table>
         </div>
       )}
+     
     </div>
+    </AdminLayout>
   );
 };
 

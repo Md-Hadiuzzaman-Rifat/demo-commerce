@@ -11,26 +11,26 @@ import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import MainPageLayout from "./components/MainPageLayout/MainPageLayout";
 import { AuthProvider } from "./context/AuthContext";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
-import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
-import AllProduct from "./AdminPannel/pages/Product/AllProduct";
+// import AllUsers from "./AdminPannel/pages/AdminAllUsers/AllUsers";
+import UploadProduct from "./AdminPannel/pages/Product/UploadProduct";
 import CreateCategory from "./AdminPannel/pages/Category/CreateCategory";
 import OrderForm from "./components/OrderForm/OrderForm";
 import { useSelector } from "react-redux";
 import CartIcon from "./components/CartIcon/CartIcon";
 import { ToastContainer } from "react-toastify";
 import EditProduct from "./AdminPannel/pages/EditProduct/EditProduct";
-import SameCategory from "./components/SameCategory/SameCategory"
+import SameCategory from "./components/SameCategory/SameCategory";
 import ImageUpload from "./AdminPannel/components/ImageUpload/ImageUpload";
 import QuickView from "./components/QuickView/QuickView";
-import OrderCollection from "./AdminPannel/components/OrderCollection/OrderCollection"
-import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder"
-import Control from "./AdminPannel/pages/Control/Control"
+import OrderCollection from "./AdminPannel/components/OrderCollection/OrderCollection";
+import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
+import Control from "./AdminPannel/pages/Control/Control";
 import PaymentPage from "./components/PaymentPage/PaymentPage";
-import OrderSuccess from "./components/OrderSuccess/OrderSuccess"
+import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
 import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
 import GarbageCollection from "./pages/GarbageCollection/GarbageCollection";
-import Invoice from "./AdminPannel/pages/Invoice/Invoice"
-
+import Invoice from "./AdminPannel/pages/Invoice/Invoice";
+import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 
 const App = () => {
@@ -66,7 +66,7 @@ const App = () => {
               path="/productDetails/:id"
               element={<ProductDetails />}
             ></Route>
-            <Route path="/categoryPage" element={<SameCategory/>}></Route>
+            <Route path="/categoryPage" element={<SameCategory />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
@@ -74,19 +74,29 @@ const App = () => {
             <Route path="orderSuccess" element={<OrderSuccess />}></Route>
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             {/* //  admin and dashboard page start */}
+
             <Route path="/dashboard">
-                <Route path="users" element={<AllUsers />}></Route>
-              <Route path='edit/:id' element={<EditProduct/> }></Route>
-              <Route path="upload" element={<AllProduct />}></Route>
-              <Route path="orders" element={<OrderCollection></OrderCollection>} />
-              <Route path="orders/:orderId" element={<ViewOrder />}></Route>
-              <Route path="control" element={<Control></Control>} />
-              <Route path="createCategory" element={<CreateCategory />}></Route>
-              
-              <Route path="allProducts" element={<ProductTable />}></Route>
-              <Route path="garbage" element={<GarbageCollection />}></Route>
-              <Route path="orders/invoice/:id" element={<Invoice />}></Route>
-              </Route>
+              <AdminLayout>
+                {/* <Route path="users" element={<AllUsers />}></Route> */}
+                <Route path="edit/:id" element={<EditProduct />}></Route>
+                <Route path="upload" element={<UploadProduct />}></Route>
+                <Route
+                  path="orders"
+                  element={<OrderCollection></OrderCollection>}
+                />
+                <Route path="orders/:orderId" element={<ViewOrder />}></Route>
+                <Route path="control" element={<Control></Control>} />
+                <Route
+                  path="createCategory"
+                  element={<CreateCategory />}
+                ></Route>
+        
+                <Route path="allProducts" element={<ProductTable />}></Route>
+                <Route path="garbage" element={<GarbageCollection />}></Route>
+                <Route path="orders/invoice/:id" element={<Invoice />}></Route>
+              </AdminLayout>
+            </Route>
+
             {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>
