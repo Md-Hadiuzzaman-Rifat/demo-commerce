@@ -93,7 +93,7 @@ const DetailsContent = ({ desc, img }) => {
   };
 
   return (
-    <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
+    <div className="  w-full sm:w-auto md:w-8/12 lg:w-6/12 items-center">
       <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600 font-abc  dark:text-gray-400">
         {category?.toUpperCase()}
       </p>
@@ -123,7 +123,7 @@ const DetailsContent = ({ desc, img }) => {
         </span>
         
       </div>
-      <button className="flex underline gap-2 text-gray-400 items-center me-8"> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
+      <button className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
       </div>
 
       <p className="font-abc font-semibold mt-4">{extraInfo?.toUpperCase()}</p>

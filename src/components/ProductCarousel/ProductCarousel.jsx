@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
 import { useRef } from "react";
@@ -5,16 +6,17 @@ import Slider from "react-slick";
 import CarouselItem from "../../components/CarouselItem/CarouselItem"
 import "./productCarouse.scss"
 
-function AutoPlayMethods() {
+function AutoPlayMethods({category, data}) {
   let sliderRef = useRef(null);
+
 
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 6,
-    slidesToScroll: 1,
+    speed: 1000,
     autoplay: true,
-    autoplaySpeed: 2000,
+    slidesToShow: 6,
+    adaptiveHeight: true,
     responsive: [
         {
           breakpoint: 1024,
@@ -50,13 +52,12 @@ function AutoPlayMethods() {
       <div className="h-[1px] w-full bg-black mt-2 mb-4"></div>
 
       <Slider className="carousel" ref={slider => (sliderRef = slider)} {...settings}>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
+        {
+         data?.
+         filter(item=>item?.description?.category === category)
+         .map(item=><CarouselItem key={item._id} data={item}></CarouselItem>)
+         
+      }
       </Slider>
     </div>
   );
