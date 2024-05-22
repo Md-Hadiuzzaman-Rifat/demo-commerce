@@ -1,17 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { resizeName } from "../../utils/sizes";
 
 const CategoryItem = ({ item }) => {
   const { description, images } = item || {};
   let { productName, price, discount } = description || {};
 
-  let modifiedName;
-  if (productName.length > 25) {
-    modifiedName = productName.substring(0, 22) + "...";
-  } else {
-    modifiedName = productName;
-  }
+
   const quickView=()=>{
     console.log("done");
   }
@@ -28,7 +24,7 @@ const CategoryItem = ({ item }) => {
       />
       <div className="flex flex-col justify-between p-2 leading-normal">
         <h5 className="mb-0 md:mb-2 text-lg font-semibold text-gray-900 dark:text-white font-abc ">
-          {modifiedName}
+          {resizeName(productName, 15)}
         </h5>
         <p className="mb-0 md:mb-2 font-normal text-gray-700 dark:text-gray-400 line-through font-blinker">
           Price: {price} Taka

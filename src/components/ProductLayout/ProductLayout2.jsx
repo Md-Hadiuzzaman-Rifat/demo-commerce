@@ -3,7 +3,6 @@
 
 import { useNavigate } from "react-router-dom";
 
-
 const ProductLayout2 = ({data}) => {
   const {images, _id}= data || {}
   const navigate= useNavigate()
@@ -12,6 +11,7 @@ const ProductLayout2 = ({data}) => {
 
   const handleDetails=(id)=>{
     navigate(`/productDetails/${id}`)
+    window.scrollTo(0, 0);
   }
 
   return (
@@ -22,7 +22,7 @@ const ProductLayout2 = ({data}) => {
         <img
           src={`http://localhost:20220/images/${images[0].filename}`}
           alt=""
-          className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover"
+          className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover hover:opacity-70 duration-75"
           onClick={()=>handleDetails(_id)}
         />
         <div className="flex items-center bg-white w-[120px] rounded-md absolute bottom-[-10px] justify-center gap-2 shadow-lg">
