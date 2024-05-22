@@ -8,8 +8,9 @@ const NewCategory = () => {
   return (
     <div className="py-8">
       <div className="container">
+      {isLoading && <ProductListSkeleton/>}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 justify-between">
-          {isLoading && <ProductListSkeleton/>}
+
           {/* {
           isSuccess && data?.length>0 && data?.map(item=> <CategoryItem key={item._id} item={item}/>)
         } */}
