@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 
 import { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
@@ -33,13 +35,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function QuickView() {
+export default function QuickView({data}) {
+  const {description, _id, images} = data || {}
+  
   const [open, setOpen] = useState(true)
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
+
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={open} as={Fragment} className="mt-14">
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
@@ -77,10 +81,10 @@ export default function QuickView() {
 
                   <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
                     <div className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
-                      <img src={product.imageSrc} alt={product.imageAlt} className="object-cover object-center" />
+                      <img src={`http://localhost:20220/images/${images?.[0].filename}`} alt={product.imageAlt} className="object-cover object-center" />
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
-                      <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.name}</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{description?.productName}</h2>
 
                       <section aria-labelledby="information-heading" className="mt-2">
                         <h3 id="information-heading" className="sr-only">
@@ -117,43 +121,7 @@ export default function QuickView() {
                         <h3 id="options-heading" className="sr-only">
                           Product options
                         </h3>
-
                         <form>
-                          {/* Colors */}
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-900">Color</h4>
-
-                            <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
-                              <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
-                              <span className="flex items-center space-x-3">
-                                {product.colors.map((color) => (
-                                  <RadioGroup.Option
-                                    key={color.name}
-                                    value={color}
-                                    className={({ active, checked }) =>
-                                      classNames(
-                                        color.selectedClass,
-                                        active && checked ? 'ring ring-offset-1' : '',
-                                        !active && checked ? 'ring-2' : '',
-                                        'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
-                                      )
-                                    }
-                                  >
-                                    <RadioGroup.Label as="span" className="sr-only">
-                                      {color.name}
-                                    </RadioGroup.Label>
-                                    <span
-                                      aria-hidden="true"
-                                      className={classNames(
-                                        color.class,
-                                        'h-8 w-8 rounded-full border border-black border-opacity-10'
-                                      )}
-                                    />
-                                  </RadioGroup.Option>
-                                ))}
-                              </span>
-                            </RadioGroup>
-                          </div>
 
                           {/* Sizes */}
                           <div className="mt-10">

@@ -11,11 +11,13 @@ import SubCategoryPage from "../../components/SubCategoryPage/SubCategoryPage";
 import FooterBanner from "../../components/FooterBanner/FooterBanner";
 import { useEffect } from "react";
 import DetailsSkeleton from "../../components/DetailsSkeleton/DetailsSkeleton";
+import { useSelector } from "react-redux";
+import QuickView from "../../components/QuickView/QuickView";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useGetSingleProductQuery(id);
-
+  const { open } = useSelector((state) => state?.popUp);
   const {
     data: allProductData,
     isSuccess: allProductSuccess,
@@ -29,6 +31,9 @@ const ProductDetails = () => {
 
   return (
     <div>
+      {
+        open && <QuickView/>
+      }
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div>
           {isLoading && <DetailsSkeleton/>}
