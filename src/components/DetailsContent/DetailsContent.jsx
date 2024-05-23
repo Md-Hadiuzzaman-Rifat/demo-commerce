@@ -35,7 +35,7 @@ const DetailsContent = ({ desc, img }) => {
 
   const sizes = makeSizes(extra);
 
-  // string to array info
+  // make a single number to array for rating
   let newArr = [];
   if (review) {
     for (let el = 0; el < review; el++) {
