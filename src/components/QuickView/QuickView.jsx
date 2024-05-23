@@ -5,6 +5,8 @@ import { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
+import { useDispatch, useSelector } from 'react-redux'
+import {popUpClose, popUpOpen} from "../../features/quickView/quickViewSlice"
 
 const product = {
   name: 'Basic Tee 6-Pack ',
@@ -35,16 +37,21 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function QuickView({data}) {
-  const {description, _id, images} = data || {}
-  
-  const [open, setOpen] = useState(true)
-
+export default function QuickView() {
+ 
+  const dispatch= useDispatch()
+  const {value, open}= useSelector(state=>state?.popUp)
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const {_id, description, images}= value || {}
+  console.log(description);
+
+  const handleAdd=()=>{
+
+  }
 
   return (
-    <Transition.Root show={open} as={Fragment} className="mt-14">
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={open} as={Fragment} className="mt-14 font-abc">
+      <Dialog as="div" className="relative z-10" onClose={()=>dispatch(popUpClose())}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -73,7 +80,7 @@ export default function QuickView({data}) {
                   <button
                     type="button"
                     className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
-                    onClick={() => setOpen(false)}
+                    onClick={() => dispatch(popUpClose())}
                   >
                     <span className="sr-only">Close</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -84,15 +91,19 @@ export default function QuickView({data}) {
                       <img src={`http://localhost:20220/images/${images?.[0].filename}`} alt={product.imageAlt} className="object-cover object-center" />
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
-                      <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{description?.productName}</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{description?.productName?.toUpperCase()}</h2>
 
                       <section aria-labelledby="information-heading" className="mt-2">
                         <h3 id="information-heading" className="sr-only">
                           Product information
                         </h3>
-
-                        <p className="text-2xl text-gray-900">{product.price}</p>
-
+                        {/* // price section  */}
+                        <div className='flex gap-2 font-medium'>
+                        <h3 className='text-xl'>Price:</h3>
+                        <p className="text-xl text-gray-900 font-thin line-through">{} Taka</p>
+                        <p className="text-xl text-gray-900">{description?.price} Taka</p>
+                        </div>
+                       
                         {/* Reviews */}
                         <div className="mt-6">
                           <h4 className="sr-only">Reviews</h4>
@@ -126,7 +137,7 @@ export default function QuickView({data}) {
                           {/* Sizes */}
                           <div className="mt-10">
                             <div className="flex items-center justify-between">
-                              <h4 className="text-sm font-medium text-gray-900">Size</h4>
+                              <h4 className="text-sm font-medium text-gray-900">{description?.extraInfo}</h4>
                               <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                 Size guide
                               </a>
@@ -186,6 +197,7 @@ export default function QuickView({data}) {
                           </div>
 
                           <button
+                            onClick={handleAdd}
                             type="submit"
                             className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >

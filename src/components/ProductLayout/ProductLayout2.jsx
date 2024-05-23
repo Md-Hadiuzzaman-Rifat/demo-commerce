@@ -4,7 +4,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { popUpOpen, popUpToggle} from "../../features/quickView/quickViewSlice"
+import { popUpOpen} from "../../features/quickView/quickViewSlice"
 
 const ProductLayout2 = ({ data }) => {
   const { images, _id } = data || {};
@@ -18,8 +18,10 @@ const ProductLayout2 = ({ data }) => {
     navigate(`/productDetails/${id}`);
     window.scrollTo(0, 0);
   };
-  const handlePopUp=()=>{
-    dispatch(popUpOpen())
+
+  const handlePopUp=(data)=>{
+    // console.log(data);
+    dispatch(popUpOpen(data))
   }
 
   return (
@@ -39,7 +41,7 @@ const ProductLayout2 = ({ data }) => {
             </div>
           </div>
           <div>
-            <p onClick={handlePopUp} className="text-center mt-4 bg-gray-800 text-white p-1 cursor-pointer font-semibold">
+            <p onClick={()=>handlePopUp(data)} className="text-center mt-4 bg-gray-800 text-white p-1 cursor-pointer font-semibold">
               {" "}
               + Add To Cart
             </p>

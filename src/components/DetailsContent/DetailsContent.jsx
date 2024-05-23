@@ -54,9 +54,9 @@ const DetailsContent = ({ desc, img }) => {
       dispatch(
         addToCart({
           id: `${id}>>>${selectSize}`,
-          name: desc.productName,
+          name: desc?.productName,
           image: `http://localhost:20220/images/${img[0]?.filename}`,
-          price: desc.discount,
+          price: desc?.discount,
           cartQuantity: count,
         })
       );
