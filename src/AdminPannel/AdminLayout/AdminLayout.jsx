@@ -29,7 +29,7 @@ const AdminLayout = ({ children }) => {
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } bg-purple-100 h-screen p-5  pt-8 relative duration-300 `}
+        } bg-gray-700 h-screen p-5  pt-8 relative duration-300 `}
       >
         <div
           className={`absolute text-2xl text-purple-500 cursor-pointer -right-3 top-9 w-7 border-dark-purple
@@ -41,10 +41,10 @@ const AdminLayout = ({ children }) => {
             src="./src/assets/logo.png"
             className={`cursor-pointer text-2xl duration-500 ${
               open && "rotate-[360deg]"
-            }`}><CgSidebarOpen />
+            }`}><CgSidebarOpen className="text-white"/>
           </div>
           <h1
-            className={`text-gray-600 origin-left font-medium text-xl duration-200 underline ${
+            className={`text-gray-200 origin-left font-medium text-xl duration-200 underline ${
               !open && "scale-0"
             }`}
           >
@@ -56,7 +56,7 @@ const AdminLayout = ({ children }) => {
             <Link
               to={`${Menu.link}`}
               key={index}
-              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-600 text-md font-mont items-center gap-x-4 
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-200 text-md font-mont items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                 index === 0 && "bg-light-white"
               } `}

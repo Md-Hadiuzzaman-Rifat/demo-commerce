@@ -1,11 +1,11 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const InvoiceHeader = ({ details }) => {
   return (
-    <div className="invoiceHeader">
+    <div className="invoiceHeader font-abc leading-5 pt-4">
       <div className="invoice-top">
         <div>
-          <h1 className="invoice-logo">The Spectacle 23</h1>
+          <h1 className="invoice-logo">Urban Region BD</h1>
           <p>Invoice Id: {details._id}</p>
           <p>Date: {details.timestamp}</p>
         </div>
@@ -17,7 +17,7 @@ const InvoiceHeader = ({ details }) => {
       <div className="invoice-billing">
         <div>
           <p>
-            BILL FROM: <strong>The Spectacle 23</strong>
+            BILL FROM: <strong>Urban Region BD</strong>
           </p>
           
             <p>Phone: +8801876273090</p>
