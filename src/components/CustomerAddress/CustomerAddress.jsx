@@ -19,6 +19,7 @@ export default function CustomerAddress({orderedItem}) {
   const [division, setDivision] = useState("osd");
   const [receivedData, setReceivedData]= useState({})
 
+
   const cart = useSelector((state) => state.cart);
   const [purchaseOrder,{data:successData ,isSuccess:successPurchase  ,isLoading:purchaseLoading}]= usePurchaseOrderMutation()
 
@@ -28,7 +29,7 @@ export default function CustomerAddress({orderedItem}) {
   }, [cart, dispatch]);
 
 const data={name, email, phone, address, division}
-const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date(0).toLocaleDateString(), total: cart?.cartTotalAmount }
+const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date().toLocaleString(), total: cart?.cartTotalAmount }
 
   const handleAddress=(e)=>{
     e.preventDefault()

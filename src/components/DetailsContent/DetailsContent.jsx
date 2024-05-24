@@ -19,6 +19,7 @@ const DetailsContent = ({ desc, img }) => {
   const [selectSize, setSelectSize] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [warning, setWarning] = useState(false);
+  const [amountWarning, setAmountWarning]= useState(false)
   const { id } = useParams();
 
   const {
@@ -84,7 +85,7 @@ const DetailsContent = ({ desc, img }) => {
   };
 
   const handlePurchase = () => {
-    if (selectSize === null) {
+    if (selectSize === null || count === 0) {
       setWarning(true);
     } else {
       setWarning(false);
@@ -147,8 +148,8 @@ const DetailsContent = ({ desc, img }) => {
 
       {/* // warning  */}
       <div style={warning ? { display: "block" } : { display: "none" }}>
-        <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100 font-abc">
-          Please Select Size
+        <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-2 text-xl text-center mt-2 duration-100 font-abc">
+          Please Select Size And Quantity
         </p>
       </div>
       

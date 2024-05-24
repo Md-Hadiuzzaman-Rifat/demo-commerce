@@ -51,7 +51,7 @@ export default function EditForm({ data }) {
   const [videoLink, setVideoLink] = useState(eVideoLink);
   const [otherLink, setOtherLink] = useState(eOtherLink);
   const [category, setCategory] = useState(eCategory);
-  const [subcategory, setSubcategory] = useState(eSubcategory);
+  const [subcategory, setSubcategory] = useState(eSubcategory || []);
   const [shortDescription, setShortDescription] = useState(eShortDescription);
   const [description, setDescription] = useState(eDescription);
   const [variants, setVariants] = useState(eVariants);
@@ -80,7 +80,9 @@ export default function EditForm({ data }) {
     extraInfo,
   };
 
+
   const handleChange = (e) => {
+    console.log(e.target.checked);
     if (e.target.checked) {
       setSubcategory([...subcategory, e.target.value]);
     } else {

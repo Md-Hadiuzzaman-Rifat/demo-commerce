@@ -37,8 +37,10 @@ const TableBody = ({ data }) => {
   }
 
   const handleDelete = async(id) => {
-    Promise.all([editGarbage(id), deleteGarbage(id)])
-    .then(res=>console.log(res))
+    let res= await Promise.all([editGarbage(id), deleteGarbage(id)])
+
+    alert("Product Deleted Successfully.")
+    window.location.reload();
   };
 
   const handleEdit = (id) => {

@@ -7,10 +7,9 @@ import { FaEdit } from "react-icons/fa";
 import "./OrderTableBody.scss"
 import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrder";
 
-
 const OrderTableBody = ({item}) => {
   const {_id,total, payment, date, status }= item || {}
-  
+    console.log(item);
 
   const [orderStatus, setOrderStatus]=useState(status)
   
