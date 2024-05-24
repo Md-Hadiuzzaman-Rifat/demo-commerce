@@ -42,7 +42,7 @@ const TableBody = ({ data }) => {
   };
 
   const handleEdit = (id) => {
-    navigate(`/edit/${id}`);
+    navigate(`/dashboard/edit/${id}`);
   };
 
   return (

@@ -19,7 +19,7 @@ const CarouselItem = ({ data }) => {
     <div onClick={()=>handleDescription(_id)} className="w-full max-w-sm p-2 bg-white dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img 
-          className="rounded-t-lg max-h-[180px] sm:max-h-[200px] w-full object-cover"
+          className="rounded-t-lg max-h-[110px] sm:h-[150px] md:max-h-[250px] w-full object-cover"
           src={`http://localhost:20220/images/${images?.[0].filename}`}
           alt="product image"
         />

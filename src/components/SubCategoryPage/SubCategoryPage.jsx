@@ -4,7 +4,7 @@ import { AiFillTablet } from "react-icons/ai";
 import ProductLayout2 from "../ProductLayout/ProductLayout2";
 const SubCategoryPage = ({ subcategory, data }) => {
 
-const filtered_product = data.filter((person) => person.description.subcategory.includes(subcategory?.[0] || subcategory?.[1]  ) )
+const filtered_product = data.filter((person) => person?.description?.subcategory?.includes(subcategory?.[0] || subcategory?.[1]  ) )
 
 
   return (

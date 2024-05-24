@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useGetCategoryQuery } from "../../../features/category/categoryApi";
 import axios from "axios";
 import TextArea from "../../components/TextArea/TextArea";
 import { useGetSubCategoryQuery } from "../../../features/subCategory/subCategoryApi";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEditProductMutation } from "../../../features/product/productApi";
 
 export default function EditForm({ data }) {
+
   // get Category
   const {
     data: getCatData,
@@ -43,6 +44,7 @@ export default function EditForm({ data }) {
   } = data?.description || {};
 
 
+
   const [productName, setProductName] = useState(eProductName);
   const [review, setReview] = useState(eReview);
   const [price, setPrice] = useState(ePrice);
@@ -58,13 +60,8 @@ export default function EditForm({ data }) {
   const [extraInfo, setExtraInfo] = useState(eExtraInfo);
   const [brand, setBrand] = useState(eBrand);
 
-  const [files, setFile] = useState([]);
-
-  const selector = useSelector((state) => state.cartHandler);
-
-  const dispatch = useDispatch();
-
   const {id}= useParams()
+  const navigate= useNavigate()
 
   const details = {
     productName,
@@ -77,10 +74,10 @@ export default function EditForm({ data }) {
     description,
     variants,
     shortDescription,
+    subcategory,
     discount,
     extra,
     extraInfo,
-  
   };
 
   const handleChange = (e) => {
@@ -93,13 +90,18 @@ export default function EditForm({ data }) {
 
   const [editProduct, {isSuccess}]=useEditProductMutation()
 
-
-
   const handleUpload = async (e) => {
     e.preventDefault();
     editProduct({productId:id, productObj:{description: details, images:data?.images}})
   };
 
+   useEffect(()=>{
+    if(isSuccess){
+      navigate('/dashboard/allProducts')
+      alert("Edited Successfully")
+    }
+   },[isSuccess, navigate])
+  
   return (
     <div>
       <form className="container" onSubmit={handleUpload}>
@@ -256,7 +258,7 @@ export default function EditForm({ data }) {
                       {getSubCatData.map((item) => (
                         <div key={item._id}>
                           <input
-                            className="font-thin rounded-full"
+                            className="font-thin rounded-full text-sm"
                             onChange={handleChange}
                             value={item.name}
                             type="checkbox"

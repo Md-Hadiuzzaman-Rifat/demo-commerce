@@ -29,7 +29,7 @@ const AdminLayout = ({ children }) => {
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } bg-gray-700 h-screen p-5  pt-8 relative duration-300 `}
+        } bg-gray-700 min-h-screen p-5  pt-8 relative duration-300 `}
       >
         <div
           className={`absolute text-2xl text-purple-500 cursor-pointer -right-3 top-9 w-7 border-dark-purple

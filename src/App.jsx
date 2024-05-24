@@ -99,6 +99,7 @@ const App = () => {
                 <Route path="orders/invoice/:id" element={<Invoice />}></Route>
               </AdminLayout>
             </Route>
+
             {/* //  admin and dashboard page end */}
           </Routes>
         </MainPageLayout>

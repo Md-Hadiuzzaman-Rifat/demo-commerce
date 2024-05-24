@@ -16,7 +16,7 @@ const NewCategory = () => {
         } */}
           {isSuccess &&
             data?.length > 0 &&
-            data.filter(item=>item.description.subcategory.includes("new arrival"))
+            data.filter(item=>item?.description?.subcategory?.includes("new arrival"))
             .map((item) => <CategoryItem key={item._id} item={item} />)}
 
           {isError && "Failed to load"}
