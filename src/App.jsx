@@ -79,6 +79,7 @@ const App = () => {
             {/* //  admin and dashboard page start */}
 
             <Route path="/dashboard">
+            <Route path="" element={<AdminLogin />}></Route>
               <AdminLayout>
                 {/* <Route path="users" element={<AllUsers />}></Route> */}
                 <Route path="edit/:id" element={<EditProduct />}></Route>
@@ -93,7 +94,6 @@ const App = () => {
                   path="createCategory"
                   element={<CreateCategory />}
                 ></Route>
-        
                 <Route path="allProducts" element={<ProductTable />}></Route>
                 <Route path="garbage" element={<GarbageCollection />}></Route>
                 <Route path="orders/invoice/:id" element={<Invoice />}></Route>

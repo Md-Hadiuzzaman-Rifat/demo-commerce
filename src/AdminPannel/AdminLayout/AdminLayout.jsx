@@ -16,14 +16,14 @@ import { FaArrowLeft } from "react-icons/fa";
 const AdminLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    
     { title: "Orders", src: <MdOutlineBorderColor className="text-2xl"/>, gap: true , link:"/dashboard/orders"},
+    { title: "Products ", src: <GrOrderedList className="text-2xl"/>, link:"/dashboard/allProducts"},
     { title: "Upload", src: <IoIosCreate className="text-2xl"/> , link:"/dashboard/upload"},
     { title: "Control ", src: <MdOutlineAdminPanelSettings className="text-2xl"/>, link:"/dashboard/control"},
     { title: "Garbage ", src: <MdAutoDelete className="text-2xl"/>, link:"/dashboard/garbage"},
-    { title: "Products ", src: <GrOrderedList className="text-2xl"/>, link:"/dashboard/allProducts"},
     { title: "Category ", src: <MdCategory className="text-2xl"/>, link:"/dashboard/createCategory"},
   ];
+  
   return (
     <div className="flex">
       <div
@@ -43,13 +43,13 @@ const AdminLayout = ({ children }) => {
               open && "rotate-[360deg]"
             }`}><CgSidebarOpen className="text-white"/>
           </div>
-          <h1
+          <Link to="/dashboard/orders"
             className={`text-gray-200 origin-left font-medium text-xl duration-200 underline ${
               !open && "scale-0"
             }`}
           >
             Admin Panel
-          </h1>
+          </Link>
         </div>
         <ul className="pt-6">
           {Menus.map((Menu, index) => (

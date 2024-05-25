@@ -213,7 +213,6 @@ export default function EditForm({ data }) {
               {/* // short description end   */}
 
               
-
               <div className="sm:col-span-3">
                 <label
                   htmlFor="category"
@@ -240,7 +239,7 @@ export default function EditForm({ data }) {
                   </select>
                 </div>
               </div>
-                      <div className="flex col-span-full gap-2">
+                      <div className="flex col-span-full gap-2 text-base">
               <p className="font-semibold">Selected Category: </p>
               <p className=" text-red-500">{category}</p>
               </div>
@@ -249,14 +248,14 @@ export default function EditForm({ data }) {
                   htmlFor="subcategory"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Subcategory
+                  <p className="underline mb-4">Subcategory</p>
                 </label>
                 {/* // subcategory data  */}
                 {subCatLoading && "Sorry For Loading"}
                 {!subCatLoading &&
                   getSubCatSuccess &&
                   getSubCatData?.length > 0 && (
-                    <div>
+                    <div className="text-sm">
                       {getSubCatData.map((item) => (
                         <div key={item._id}>
                           <input
@@ -273,7 +272,7 @@ export default function EditForm({ data }) {
               </div>
 
               {/* // selected category  */}
-              <p className="font-semibold col-span-full mb-[-20px]">Selected Subcategory: </p>
+              <p className="font-semibold col-span-full text-base mb-[-20px]">Selected Subcategory: </p>
               <p className="col-span-full">[{
                   subcategory?.map((item, index)=> <span className="text-red-500" key={index}>{` ${item } ,  `} </span> )
                 }]</p>

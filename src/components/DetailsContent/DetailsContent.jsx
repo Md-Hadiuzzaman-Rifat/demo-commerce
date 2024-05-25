@@ -4,14 +4,13 @@
 
 import {  useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
-
 import { makeSizes } from "../../utils/sizes";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
 import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
 import { PiToiletPaperLight } from "react-icons/pi";
-
+import { Link } from "react-router-dom";
 
 const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
@@ -153,7 +152,6 @@ const DetailsContent = ({ desc, img }) => {
         </p>
       </div>
       
-
       {/* // quantity  */}
       <div className="lg:mt-11 mt-10">
         <div className="flex flex-row items-center justify-between">
@@ -187,10 +185,16 @@ const DetailsContent = ({ desc, img }) => {
         </div>
       </div>
       <button
-        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-4 mt-2"
+        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2"
+        
+      >
+        <Link to="/">Buy More</Link>
+      </button>
+      <button
+        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
         onClick={handlePurchase}
       >
-        Add to shopping bag
+        Go For Payment
       </button>
       <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
 

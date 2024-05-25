@@ -5,7 +5,7 @@ import { useGetAllOrderedQuery } from "../../../features/confirmOrder/confirmOrd
 
 const OrderTable = () => {
   const { data, isLoading, isError } = useGetAllOrderedQuery();
-  console.log(data);
+
   return (
     <div className="orderTable font-abc text-sm">
       <table>
@@ -23,7 +23,7 @@ const OrderTable = () => {
         <tbody>
           {!isLoading && data?.length > 0 &&
             data
-            // .sort((a,b)=>new Date(b?.date) - new Date(a?.date))
+            
             .map((item) => (
               <OrderTableBody key={item._id} item={item}></OrderTableBody>
             ))}
