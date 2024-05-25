@@ -33,6 +33,7 @@ import Invoice from "./AdminPannel/pages/Invoice/Invoice";
 import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
 import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSkeleton";
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
+import Payment2 from "./components/Payment2/Payment2";
 
 const App = () => {
   React.useEffect(() => {
@@ -73,7 +74,8 @@ const App = () => {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
-            <Route path="/paymentPage" element={<PaymentPage />}></Route>
+            <Route path="/paymentPage" element={<Payment2 />}></Route>
+            {/* <Route path="/paymentPage" element={<PaymentPage />}></Route> */}
             <Route path="orderSuccess" element={<OrderSuccess />}></Route>
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             {/* //  admin and dashboard page start */}

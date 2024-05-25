@@ -4,7 +4,6 @@ import { useGetGarbageQuery } from "../../features/garbage/garbageApi";
 
 const GarbageCollection = () => {
   const { data, isSuccess, isError, isLoading } = useGetGarbageQuery();
-  console.log(data);
 
   return (
     <AdminLayout>

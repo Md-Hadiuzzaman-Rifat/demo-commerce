@@ -229,6 +229,9 @@ export default function EditForm({ data }) {
                     onChange={(e) => setCategory(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
+                    {
+                      console.log(category)
+                    }
                     {getCatSuccess &&
                       getCatData?.length > 0 &&
                       getCatData.map((item) => (
@@ -262,6 +265,7 @@ export default function EditForm({ data }) {
                             className="font-thin rounded-full text-sm"
                             onChange={handleChange}
                             value={item.name}
+                            checked={subcategory.includes(item.name)}
                             type="checkbox"
                           />{" "}
                           <span>{item.name?.toUpperCase()}</span>
