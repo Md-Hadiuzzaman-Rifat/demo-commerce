@@ -3,6 +3,13 @@ import Image2 from "../../assets/product/manpolo.png";
 import Image3 from "../../assets/product/whiteshirt.png";
 import Button from "../Shared/Button";
 
+// Formal Pants
+// T Shirt
+// Cargo Pants
+// Jersey
+// Drop Shoulder
+// Hoodie
+
 const Category = () => {
   return (
     <div className="py-8">
