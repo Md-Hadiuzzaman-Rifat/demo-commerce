@@ -12,7 +12,7 @@ import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
 import { PiToiletPaperLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
-const DetailsContent = ({ desc, img }) => {
+const DetailsContent = ({ desc, img}) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [selectSize, setSelectSize] = useState(null);

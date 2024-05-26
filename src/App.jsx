@@ -25,7 +25,7 @@ import QuickView from "./components/QuickView/QuickView";
 import OrderCollection from "./AdminPannel/components/OrderCollection/OrderCollection";
 import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
 import Control from "./AdminPannel/pages/Control/Control";
-import PaymentPage from "./components/PaymentPage/PaymentPage";
+// import PaymentPage from "./components/PaymentPage/PaymentPage";
 import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
 import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
 import GarbageCollection from "./pages/GarbageCollection/GarbageCollection";
@@ -34,6 +34,7 @@ import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
 import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSkeleton";
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 import Payment2 from "./components/Payment2/Payment2";
+import Category from "./category/Category";
 
 const App = () => {
   React.useEffect(() => {
@@ -56,6 +57,7 @@ const App = () => {
           {formCondition && <OrderForm></OrderForm>}
           <CartIcon></CartIcon>
           <Routes>
+            <Route path="/category" element={<Category></Category>}></Route>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<QuickView />}></Route>
             <Route path="/image" element={<ImageUpload />}></Route>

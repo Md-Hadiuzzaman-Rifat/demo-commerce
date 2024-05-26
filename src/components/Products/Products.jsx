@@ -3,7 +3,6 @@ import { useGetProductsQuery } from "../../features/product/productApi";
 
 const Products = () => {
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-console.log(data);
   return (
     <div>
       <div className="container mt-8">
