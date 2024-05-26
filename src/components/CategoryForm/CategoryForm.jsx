@@ -16,11 +16,6 @@ function CategoryForm() {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("category", category.toLowerCase());
-    // axios
-    //   .post("http://localhost:20220/createCategory", formData)
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data))
-    //   .catch((er) => console.log(er));
 
     addCategory(formData)
   };
@@ -41,8 +36,8 @@ function CategoryForm() {
       <input className="m-2" type="file" onChange={(e) => setFile(e.target.files[0])} />
       
       <input type="text" placeholder="Category Name" onChange={(e) => setCategory(e.target.value)} />
-      <button  className="bg-orange-500 m-2 font-semibold text-white rounded-md p-2" type="button" onClick={upload}>
-        Upload
+      <button  className="bg-orange-500 m-2 font-semibold text-white text-base rounded-md p-2" type="button" onClick={upload}>
+        Create Category
       </button>
 
       <div className="grid mt-4 p-4 bg-gray-100 grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

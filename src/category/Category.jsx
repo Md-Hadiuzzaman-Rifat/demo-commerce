@@ -1,17 +1,4 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
+
 const products = [
     {
       id: 1,
@@ -21,6 +8,7 @@ const products = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
       color: 'Black',
+      available: true
     },
     {
       id: 2,
@@ -30,6 +18,7 @@ const products = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
       color: 'Black',
+      available: true
     },
     {
       id: 3,
@@ -39,6 +28,7 @@ const products = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
       color: 'Black',
+      available: true
     },
     {
       id: 4,
@@ -48,6 +38,7 @@ const products = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
       color: 'Black',
+      available: false
     },
     {
       id: 5,
@@ -57,37 +48,40 @@ const products = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
       color: 'Black',
+      available: false
     },
-    // More products...
   ]
   
   export default function Category() {
     return (
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
   
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                  
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
+                  
                 </div>
+                <p className="absolute top-0 bg-red-500 px-2 py-[2px] text-sm font-semibold text-gray-100">30% OFF</p>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-sm text-gray-700">
+                    <h3 className="text-base text-gray-700">
                       <a href={product.href}>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {product.name}
                       </a>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                    <p className="mt-1 text-base font-abc text-gray-500 font-bold">{product.color}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                  <p className="text-base font-medium text-gray-900">{product.price}</p>
                 </div>
               </div>
             ))}

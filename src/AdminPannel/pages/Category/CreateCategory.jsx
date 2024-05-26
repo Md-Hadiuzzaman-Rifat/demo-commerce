@@ -55,9 +55,9 @@ const CreateCategory = () => {
         </div>
         <button
           type="submit"
-          className="bg-red-500 font-semibold text-white rounded-lg px-4"
+          className="bg-red-500 font-semibold text-white rounded-lg px-4 text-base"
         >
-          Add Sub Category
+          Add Subcategory
         </button>
       </form>
       <div className="my-4 text-gray-800 flex flex-wrap font-semibold">

@@ -3,14 +3,7 @@ import Image2 from "../../assets/product/manpolo.png";
 import Image3 from "../../assets/product/whiteshirt.png";
 import Button from "../Shared/Button";
 
-// Formal Pants
-// T Shirt
-// Cargo Pants
-// Jersey
-// Drop Shoulder
-// Hoodie
-
-const Category = () => {
+const CategoryItem = () => {
   return (
     <div className="py-8">
       <div className="container">
@@ -79,4 +72,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryItem;

@@ -2,8 +2,8 @@ import Products from "../../components/Products/Products.jsx";
 import Blogs from "../../components/Blogs/Blogs.jsx";
 import Popup from "../../components/Popup/Popup.jsx";
 import Hero from "../../components/Hero/Hero.jsx";
-import Category from "../../components/Category/Category.jsx";
-import Category2 from "../../components/Category/Category2.jsx";
+import CategoryItem from "../../components/CategoryItem/CategoryItem.jsx";
+import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 import Partners from "../../components/Partners/Partners.jsx";
@@ -71,8 +71,8 @@ const Home = () => {
       <Notice></Notice>
       <Bars item={bars[0]}></Bars>
       <NewCategory></NewCategory>
-      <Category />
-      <Category2 />
+      <CategoryItem />
+      <CategoryItem2 />
       <Services />
       <Bars item={bars[1]}></Bars>
       <SampleProduct></SampleProduct>

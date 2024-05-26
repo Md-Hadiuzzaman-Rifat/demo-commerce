@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Home from "./pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
-import CategoryPage from "./pages/CategoryPage/CategoryPage";
+// import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -35,6 +35,7 @@ import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSke
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 import Payment2 from "./components/Payment2/Payment2";
 import Category from "./category/Category";
+// import Category from "./category/Category";
 
 const App = () => {
   React.useEffect(() => {
@@ -57,21 +58,23 @@ const App = () => {
           {formCondition && <OrderForm></OrderForm>}
           <CartIcon></CartIcon>
           <Routes>
-            <Route path="/category" element={<Category></Category>}></Route>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/test" element={<QuickView />}></Route>
             <Route path="/image" element={<ImageUpload />}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
-            <Route
+            {/* <Route
               path="/category/:category"
               element={<CategoryPage></CategoryPage>}
-            ></Route>
+            ></Route> */}
             <Route path="/test2" element={<ProductListSkeleton/>}></Route>
             
             <Route
               path="/productDetails/:id"
               element={<ProductDetails />}
             ></Route>
+            {/* search by category start*/}
+            <Route path='/category/:categoryName' element={<Category/>}></Route>
+            {/* search by category end*/}
             <Route path="/categoryPage" element={<SameCategory />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
@@ -81,7 +84,7 @@ const App = () => {
             <Route path="orderSuccess" element={<OrderSuccess />}></Route>
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             {/* //  admin and dashboard page start */}
-
+             
             <Route path="/dashboard">
             <Route path="" element={<AdminLogin />}></Route>
               <AdminLayout>
@@ -113,3 +116,11 @@ const App = () => {
 };
 
 export default App;
+
+
+// Formal Pants
+// T Shirt
+// Cargo Pants
+// Jersey
+// Drop Shoulder
+// Hoodie

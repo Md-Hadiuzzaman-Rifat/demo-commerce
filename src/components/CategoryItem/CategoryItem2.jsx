@@ -4,7 +4,7 @@ import Image3 from "../../assets/category/speaker.png";
 import Button from "../Shared/Button";
 import { Link } from "react-router-dom";
 
-const Category = () => {
+const CategoryItem2 = () => {
 
   return (
     <div className="py-8">
@@ -83,4 +83,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryItem2;
