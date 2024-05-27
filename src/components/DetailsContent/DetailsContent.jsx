@@ -31,7 +31,9 @@ const DetailsContent = ({ desc, img}) => {
     price,
     productName,
     review,
-  } = desc;
+    stock
+  } = desc || {};
+  console.log(stock);
 
   const sizes = makeSizes(extra);
 
@@ -151,58 +153,65 @@ const DetailsContent = ({ desc, img}) => {
           Please Select Size And Quantity
         </p>
       </div>
-      
-      {/* // quantity  */}
-      <div className="lg:mt-11 mt-10">
-        <div className="flex flex-row items-center justify-between">
-          <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
-            {
-              "Select quantity".toUpperCase()
-            }
-          </p>
-          <div className="flex">
-            <span
-              onClick={minusCount}
-              className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
-            >
-              -
-            </span>
-            <input
-              id="counter"
-              aria-label="input"
-              className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
-              type="text"
-              value={count}
-              onChange={(e) => e.target.value}
-            />
-            <span
-              onClick={addCount}
-              className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
-            >
-              +
-            </span>
+      {/* // stock check  */}
+      {
+        stock && <div>
+        {/* // quantity start */}
+        <div className="lg:mt-11 mt-10">
+          <div className="flex flex-row items-center justify-between">
+            <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
+              {
+                "Select quantity".toUpperCase()
+              }
+            </p>
+            <div className="flex">
+              <span
+                onClick={minusCount}
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
+              >
+                -
+              </span>
+              <input
+                id="counter"
+                aria-label="input"
+                className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
+                type="text"
+                value={count}
+                onChange={(e) => e.target.value}
+              />
+              <span
+                onClick={addCount}
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
+              >
+                +
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <button
-        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2"
-        
-      >
-        <Link to="/">Buy More</Link>
-      </button>
-      <button
-        className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
-        onClick={handlePurchase}
-      >
-        Go For Payment
-      </button>
-      <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
-
+        {/* // quantity end  */}
+  
+        <button
+          className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2"
+        >
+          <Link to="/">Buy More</Link>
+        </button>
+        <button
+          className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
+          onClick={handlePurchase}
+        >
+          Go For Payment
+        </button>
+        <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
+        </div>
+      }
+      {/* // stock check end  */}
       <div
         className=" leading-6 text-gray-600 mt-7 dark:text-gray-400 font-normal text-sm font-mont"
         dangerouslySetInnerHTML={{ __html: description }}
       ></div>
-      <div className=" flex flex-row justify-between items-center mt-4">
+      {/* // will work afterward  */}
+
+      {/* <div className=" flex flex-row justify-between items-center mt-4">
         <p className="font-medium text-base leading-4 text-gray-600">
           Dimensions
         </p>
@@ -227,7 +236,8 @@ const DetailsContent = ({ desc, img}) => {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </div> */}
+      {/* // will work afterward  */}
       <hr className=" bg-gray-200 w-full mt-4" />
     </div>
   );

@@ -52,6 +52,7 @@ const navigation = {
             { name: "Jersey", href: "#" },
             { name: "T Shirt", href: "#" },
             { name: "Hoodie", href: "#" },
+            { name: "Formal Pant", href: "#" },
           ],
         },
         {

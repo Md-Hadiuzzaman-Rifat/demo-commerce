@@ -35,6 +35,7 @@ import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSke
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 import Payment2 from "./components/Payment2/Payment2";
 import Category from "./category/Category";
+import SizeModal from "./SizeModal/SizeModal";
 // import Category from "./category/Category";
 
 const App = () => {
@@ -108,6 +109,7 @@ const App = () => {
             </Route>
 
             {/* //  admin and dashboard page end */}
+            <Route path="/test3" element={<SizeModal/>}></Route>
           </Routes>
         </MainPageLayout>
       </AuthProvider>
