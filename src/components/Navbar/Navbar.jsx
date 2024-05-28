@@ -148,7 +148,7 @@ export default function Navbar() {
 
                   {/* Links */}
                   <Tab.Group as="div" className="mt-2">
-                    <div className="border-b border-gray-200">
+                    <div className="border-b border-gray-200 opacity-0">
                       <Tab.List className="-mb-px flex space-x-8 px-4">
                         {navigation.categories.map((category) => (
                           <Tab
@@ -268,8 +268,8 @@ export default function Navbar() {
                   <Link to="/">
                     <span className="sr-only">Your Company</span>
                     <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                      className="h-8 md:h-16 w-auto"
+                      src="/urbanregionbd.png"
                       alt=""
                     />
                   </Link>
