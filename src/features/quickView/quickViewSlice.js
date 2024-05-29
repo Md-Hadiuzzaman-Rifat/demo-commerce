@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const popUpSlice = createSlice({
-  name: 'counter',
+  name: 'quickView',
   initialState,
   reducers: {
     popUpClose: (state) => {

@@ -1,15 +1,22 @@
+/* eslint-disable no-unused-vars */
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { sizeModalClose, sizeModalOpen } from '../../features/sizeModalSlice/sizeModalSlice'
 
-export default function SizeModal() {
-  let [isOpen, setIsOpen] = useState(true)
+
+export default function ExtraModal() {
+  // let [isOpen, setIsOpen] = useState(true)
+  const {isOpen} = useSelector(state=>state.size)
+  const dispatch= useDispatch()
+  console.log(isOpen);
 
   function closeModal() {
-    setIsOpen(false)
+    dispatch(sizeModalClose())
   }
 
   function openModal() {
-    setIsOpen(true)
+    dispatch(sizeModalOpen())
   }
 
   return (

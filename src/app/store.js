@@ -8,6 +8,7 @@ import categorySlice from '../features/category/categorySlice'
 import cardOrderSlice from '../features/CardOrder/cardOrderSlice'
 import cartSlice from "../features/cartSlice/cartSlice"
 import popUpSlice from "../features/quickView/quickViewSlice"
+import sizeModal from "../features/sizeModalSlice/sizeModalSlice"
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -18,7 +19,8 @@ export const store = configureStore({
     productSlice,
     categorySlice,
     cart:cartSlice,
-    popUp:popUpSlice
+    popUp:popUpSlice,
+    size:sizeModal
   },
   middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(apiSlice.middleware)
 })

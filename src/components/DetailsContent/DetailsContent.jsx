@@ -5,12 +5,14 @@
 import {  useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { makeSizes } from "../../utils/sizes";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
 import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
 import { PiToiletPaperLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import SizeModal from "../SizeModal/SizeModal";
+import { sizeModalOpen } from "../../features/sizeModalSlice/sizeModalSlice";
 
 const DetailsContent = ({ desc, img}) => {
   const [rotate, setRotate] = useState(false);
@@ -20,6 +22,7 @@ const DetailsContent = ({ desc, img}) => {
   const [warning, setWarning] = useState(false);
   const [amountWarning, setAmountWarning]= useState(false)
   const { id } = useParams();
+  
 
   const {
     brand,
@@ -31,11 +34,13 @@ const DetailsContent = ({ desc, img}) => {
     price,
     productName,
     review,
-    stock
+    stock,
+    otherLink
   } = desc || {};
-  console.log(stock);
+
 
   const sizes = makeSizes(extra);
+
 
   // make a single number to array for rating
   let newArr = [];
@@ -94,8 +99,18 @@ const DetailsContent = ({ desc, img}) => {
     }
   };
 
+
+  const {isOpen} = useSelector(state=>state.size)
+
+  function openModal() {
+    dispatch(sizeModalOpen(otherLink))
+  }
+
   return (
     <div className="  w-full sm:w-auto md:w-8/12 lg:w-6/12 items-center">
+      {
+           isOpen && <SizeModal />
+      }
       <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600 font-abc  dark:text-gray-400">
         {category?.toUpperCase()}
       </p>
@@ -123,14 +138,15 @@ const DetailsContent = ({ desc, img}) => {
         <span className="inline font-semibold, lg:text-2xl text-xl lg:leading-6 leading-5 font-abc mt-4 font-bold">
           $ {discount}
         </span>
-        
       </div>
-      <button className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
+
+      <button onClick={openModal} className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
+      
       </div>
 
       <p className="font-abc font-semibold mt-4">{extraInfo?.toUpperCase()}</p>
       {/* sizes start */}
-      <div className="flex flex-row gap-2 mt-2">
+      <div className="flex flex-row gap-2 mt-2 flex-wrap">
         {sizes.map((item, index) => (
           <div
             key={index}

@@ -31,9 +31,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-      {
-        open && <QuickView/>
-      }
+
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div>
           {isLoading && <DetailsSkeleton/>}
@@ -58,7 +56,7 @@ const ProductDetails = () => {
         </div>
         {isError && "Failed to load"}
       </div>
-      {/* // item by the same categroy  */}
+      {/* // item by the same category  */}
       {allProductSuccess && isSuccess && (
         <CategoryPage
           data={allProductData}
