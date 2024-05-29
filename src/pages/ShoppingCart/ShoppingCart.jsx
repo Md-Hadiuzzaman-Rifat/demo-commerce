@@ -91,12 +91,12 @@ const ShoppingCart = () => {
               <p className="text-sm text-gray-400">
                 Shipping Charge will calculate in Checkout
               </p>
-              <p className="cursor-pointer bg-indigo-600 text-white rounded-md p-2 font-semibold text-center">
+              <p  onClick={() => dispatch(orderFormOpen())} className="cursor-pointer bg-indigo-600 text-white rounded-md p-2 font-semibold text-center">
                 Checkout
               </p>
-              <div onClick={()=>navigate('/')} className="cursor-pointer flex gap-2 items-center text-gray-400">
-                <FaArrowLeftLong className="text-gray-400 " />{" "}
-                <span className="mb-[2px]">Continue Shopping</span>
+              <div onClick={()=>navigate('/')} className="text-indigo-500 cursor-pointer flex gap-2 items-center">
+                <FaArrowLeftLong />{" "}
+                <span  className="mb-[2px] ">Continue Shopping</span>
               </div>
             </div>
           </div>

@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      // saveUser(user)
+      saveUser(user)
       setLoading(false);
       if(user){
         getIdToken(user)
