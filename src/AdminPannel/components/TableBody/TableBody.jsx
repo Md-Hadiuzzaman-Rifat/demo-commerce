@@ -7,10 +7,9 @@ import {useDeleteProductMutation} from "../../../features/product/productApi"
 
 const TableBody = ({ data }) => {
   const { description: productDetails, images, _id } = data || {};
-  let { category, brand, price, discount, productName, subcategory, extra } =
+  let { category, brand, stock, price, discount, productName, subcategory, extra } =
     productDetails;
 
-    
 
   const navigate = useNavigate();
   const {editProduct}=useDeleteProductMutation()
@@ -74,6 +73,8 @@ const TableBody = ({ data }) => {
           alt=""
         />
       </td>
+      
+      <td className="px-6 py-4">{stock ? "Available" :"stock out" }</td>
       <td className="px-6 py-4">{extra}</td>
       <td className=" px-6 py-4 ">
         <div className="flex gap-1 items-center">

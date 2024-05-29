@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import "./ControlForm.scss";
@@ -14,14 +14,16 @@ import { modalOpen } from "../../../features/cartHandler/cartHandler";
 const ControlForm = () => {
   const [role, setRole] = useState("moderator");
   const { data:findUser } = useGetUsersQuery();
-  const [addUser, {isLoading, isSuccess}]= useAddUserMutation()
+  const [addUser, { isSuccess}]= useAddUserMutation()
 
   const [search, setSearch] = useState("");
   const [result, setResult] = useState();
 
   const dispatch= useDispatch()
+
   const {modalCondition}= useSelector(state=>state.cartCondition) || {}
 
+  // debounce handler start
   const debounceHandler = (fn, delay) => {
     let timeoutId;
     return (...args) => {
@@ -36,11 +38,14 @@ const ControlForm = () => {
     setSearch(value);
   };
   const handleSearch = debounceHandler(doSearch, 500);
+  // debounce handler end
 
   // check either it exist or not
   useEffect(() => {
     setResult(findUser?.find((e) => e.email === search));
   }, [search, findUser]);
+
+  console.log(search);
 
   useEffect(()=>{
     if(isSuccess){
@@ -55,7 +60,7 @@ const ControlForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="ControlForm">
+    <form onSubmit={handleSubmit} className="text-base ControlForm">
       {
         modalCondition && <Modal></Modal>
       }
@@ -64,6 +69,7 @@ const ControlForm = () => {
         type="text"
         id="control-email"
         name="control-email"
+        // value={search}
         onChange={(e) => handleSearch(e.target.value)}
         required
       />

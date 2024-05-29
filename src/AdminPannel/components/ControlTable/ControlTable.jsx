@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "./ControlTable.scss";
 import { useDeleteUserMutation, useEditUserMutation, useGetSingleUserQuery, useGetUsersQuery } from "../../../features/users/userApi";
 import { ImBin } from "react-icons/im";
-import { FiEdit } from "react-icons/fi";
 import Modal from "../../../components/Modal/Modal"
 import { useDispatch, useSelector } from "react-redux";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
@@ -38,7 +38,7 @@ const ControlTable = () => {
   }, [findUser]);
 
   return (
-    <div className="ControlTable">
+    <div className="ControlTable text-base">
       {
         modalCondition && <Modal/>
       }
@@ -70,9 +70,7 @@ const ControlTable = () => {
                   >
                     <ImBin />{" "}
                   </span>
-                  <span className="" onClick={()=>handleEdit(user._id)}>
-                      <FiEdit style={{color:"black"}}/>
-                  </span>
+                 
                 </td>
               </tr>
             ))}

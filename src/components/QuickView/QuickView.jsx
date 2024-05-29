@@ -122,28 +122,7 @@ export default function QuickView() {
                           </p>
                         </div>
 
-                        {/* Reviews */}
-                        {/* <div className="mt-6">
-                          <h4 className="sr-only">Reviews</h4>
-                          <div className="flex items-center">
-                            <div className="flex items-center">
-                              {[0, 1, 2, 3, 4].map((rating) => (
-                                <StarIcon
-                                  key={rating}
-                                  className={classNames(
-                                    product.rating > rating ? 'text-gray-900' : 'text-gray-200',
-                                    'h-5 w-5 flex-shrink-0'
-                                  )}
-                                  aria-hidden="true"
-                                />
-                              ))}
-                            </div>
-                            <p className="sr-only">{product.rating} out of 5 stars</p>
-                            <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                              {product.reviewCount} reviews
-                            </a>
-                          </div>
-                        </div> */}
+                        
                       </section>
 
                       <section
@@ -153,7 +132,12 @@ export default function QuickView() {
                         <h3 id="options-heading" className="sr-only">
                           Product options
                         </h3>
-                        <form>
+                        {/* // stock check start */}
+                        {
+                          !value?.description?.stock && <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">Stock Out...</div>
+                        }
+                        {
+                          value?.description?.stock && <form>
                           <div className="flex flex-row gap-2 mt-2 flex-wrap">
                             {sizes.map((item, index) => (
                               <div
@@ -184,6 +168,9 @@ export default function QuickView() {
                             Add to bag
                           </p>
                         </form>
+                        }
+                        
+                        {/* // stock check end  */}
                       </section>
                     </div>
                   </div>

@@ -100,7 +100,6 @@ const DetailsContent = ({ desc, img}) => {
     }
   };
 
-
   const {isOpen} = useSelector(state=>state.size)
 
   function openModal() {
@@ -171,6 +170,10 @@ const DetailsContent = ({ desc, img}) => {
         </p>
       </div>
       {/* // stock check  */}
+
+      {
+        !stock && <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">Stock Out...</div>
+      }
       
       {
         stock && <div>

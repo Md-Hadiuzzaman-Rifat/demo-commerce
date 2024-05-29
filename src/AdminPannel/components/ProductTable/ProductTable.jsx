@@ -140,6 +140,9 @@ const ProductTable = () => {
                   Image
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Available
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Size
                 </th>
                 <th scope="col" className="px-6 py-3">
