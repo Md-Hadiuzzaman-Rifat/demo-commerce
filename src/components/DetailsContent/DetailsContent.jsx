@@ -37,7 +37,7 @@ const DetailsContent = ({ desc, img}) => {
     stock,
     otherLink
   } = desc || {};
-
+// console.log(desc);
 
   const sizes = makeSizes(extra);
 
@@ -170,6 +170,7 @@ const DetailsContent = ({ desc, img}) => {
         </p>
       </div>
       {/* // stock check  */}
+      
       {
         stock && <div>
         {/* // quantity start */}

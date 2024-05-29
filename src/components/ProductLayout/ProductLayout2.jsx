@@ -41,6 +41,9 @@ const ProductLayout2 = ({ data }) => {
             </div>
           </div>
           <div>
+            {/* {
+              console.log(data)
+            } */}
             <p onClick={()=>handlePopUp(data)} className="text-center mt-4 bg-gray-800 text-white p-1 cursor-pointer font-semibold">
               {" "}
               + Add To Cart

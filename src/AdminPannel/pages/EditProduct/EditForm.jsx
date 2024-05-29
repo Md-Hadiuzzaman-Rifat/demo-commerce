@@ -41,8 +41,8 @@ export default function EditForm({ data }) {
     variants: eVariants,
     videoLink: eVideoLink,
     shortDescription: eShortDescription,
+    stock:eStock
   } = data?.description || {};
-
 
 
   const [productName, setProductName] = useState(eProductName);
@@ -59,6 +59,7 @@ export default function EditForm({ data }) {
   const [extra, setExtra] = useState(eExtra);
   const [extraInfo, setExtraInfo] = useState(eExtraInfo);
   const [brand, setBrand] = useState(eBrand);
+  const [stock, setStock]= useState(eStock || true)
 
   const {id}= useParams()
   const navigate= useNavigate()
@@ -78,6 +79,7 @@ export default function EditForm({ data }) {
     discount,
     extra,
     extraInfo,
+    stock
   };
 
 
@@ -194,6 +196,33 @@ export default function EditForm({ data }) {
                   />
                 </div>
               </div>
+              {
+                console.log(stock)
+              }
+
+                                          {/* // for stock */}
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Stock Available
+              </label>
+              <div className="mt-2">
+                <select
+                  required
+                  id="stock"
+                  name="stock"
+                  autoComplete="stock"
+                  onChange={(e) => setStock(e.target.value)}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                  <option value={true}>Available</option>
+                  <option value={false}>Not Available</option>
+                </select>
+              </div>
+            </div>
+            {/* // stock end  */}
 
               {/* // short Description  */}
               <div className="col-span-full mb-4">
@@ -203,6 +232,7 @@ export default function EditForm({ data }) {
                 >
                   Short Description
                 </label>
+
                 {/* // text area  */}
                 <TextArea
                   shortDescription={shortDescription}
@@ -229,9 +259,7 @@ export default function EditForm({ data }) {
                     onChange={(e) => setCategory(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                    {
-                      console.log(category)
-                    }
+                    
                     {getCatSuccess &&
                       getCatData?.length > 0 &&
                       getCatData.map((item) => (
