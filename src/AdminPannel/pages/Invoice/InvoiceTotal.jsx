@@ -1,7 +1,7 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const InvoiceTotal = ({details}) => {
-  console.log(details);
+  
   return (
     <div className="invoiceTotal">
       <div className="invoice-content">
@@ -15,15 +15,15 @@ const InvoiceTotal = ({details}) => {
             <p>Total:</p>
           </div>
           <div className="right">
-            <p>{details.payable} Taka</p>
-            <p>{details.advancePaid} Taka</p>
-            <p>{Math.floor(details.payable - details.advancePaid)} Taka</p>
+            <p>{details.total} Taka</p>
+            <p>00 Taka</p>
+            <p>{details?.total} Taka</p>
           </div>
         </div>
       </div>
       <hr />
       <div className="invoice-payable">
-        <h2>Total: {Math.floor(details.payable - details.advancePaid)}</h2>
+        <h2>Total: {details?.total}</h2>
       </div>
     </div>
   );

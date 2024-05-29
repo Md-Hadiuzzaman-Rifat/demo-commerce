@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import InvoiceItem from "./InvoiceItem";
 
 const InvoiceDetails = ({details}) => {
@@ -15,7 +15,7 @@ const InvoiceDetails = ({details}) => {
         </thead>
         <tbody>
           {
-            details?.order?.map(item=><InvoiceItem key={item._id} item={item}></InvoiceItem>)
+            details?.orderedItem?.map((item)=><InvoiceItem key={item.id} item={item}></InvoiceItem>)
           }
         </tbody>
       </table>

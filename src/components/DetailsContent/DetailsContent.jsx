@@ -6,7 +6,7 @@ import {  useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { makeSizes } from "../../utils/sizes";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
 import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
 import { PiToiletPaperLight } from "react-icons/pi";
@@ -22,7 +22,7 @@ const DetailsContent = ({ desc, img}) => {
   const [warning, setWarning] = useState(false);
   const [amountWarning, setAmountWarning]= useState(false)
   const { id } = useParams();
-  
+  const navigate= useNavigate()
 
   const {
     brand,
@@ -95,7 +95,8 @@ const DetailsContent = ({ desc, img}) => {
       setWarning(true);
     } else {
       setWarning(false);
-      dispatch(orderFormOpen());
+      // dispatch(orderFormOpen());
+      navigate('/shoppingCart')
     }
   };
 

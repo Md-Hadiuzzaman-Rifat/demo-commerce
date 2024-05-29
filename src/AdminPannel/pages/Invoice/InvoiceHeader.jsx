@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 
 const InvoiceHeader = ({ details }) => {
+  
   return (
     <div className="invoiceHeader font-abc leading-5 pt-4">
       <div className="invoice-top">
         <div>
           <h1 className="invoice-logo">Urban Region BD</h1>
-          <p>Invoice Id: {details._id}</p>
-          <p>Date: {details.timestamp}</p>
+          <p>Invoice Id: {details?._id}</p>
+          <p>Date: {details?.date}</p>
         </div>
         <div className="invoice-text">
           <h1>Invoice</h1>

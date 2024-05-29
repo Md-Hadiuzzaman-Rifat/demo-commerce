@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 
 const Invoice = () => {
   let {state}=useLocation()
-  console.log(state);
   return (
     <div className="Invoice">
       <div className="container">

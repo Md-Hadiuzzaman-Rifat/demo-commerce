@@ -75,7 +75,7 @@ $bg-gray: rgba(0, 0, 0, 0.219);
         .invoice-payable{
             display: flex;
             flex-direction: row;
-            justify-content:end;
+            justify-content:flex-end;
             h2{
                 background-color: $bg-black;
                 color: white;
