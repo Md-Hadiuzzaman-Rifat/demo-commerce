@@ -29,20 +29,20 @@ export default function SampleProduct({ data }) {
                     </p>
                     <div className="mt-4 flex justify-between">
                       <div>
-                        <h3 className="text-base text-gray-700">
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {product?.description?.discount}
-                        </h3>
-                        <p className="mt-1 text-base font-abc text-gray-500 font-bold">
+                      <p className="text-base font-semibold text-gray-900 font-abc">
+                        {product?.description?.discount} Taka                       </p>
+                        
+                        <p className="mt-1 text-base font-abc text-gray-500 font-bold ">
                           {resizeName(product?.description?.productName, 20)}
                         </p>
                       </div>
-                      <p className="text-base font-medium text-gray-900">
-                        {product?.description?.price}
-                      </p>
+                      <h3 className="text-base line-through text-gray-700 font-mont">
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 "
+                          />
+                          ৳ {product?.description?.price} 
+                        </h3>
                     </div>
                   </div>
                 </Link>

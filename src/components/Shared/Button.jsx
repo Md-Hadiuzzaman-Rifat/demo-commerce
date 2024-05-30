@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const Button = ({ text, bgColor, textColor, handler = () => {} }) => {
   return (

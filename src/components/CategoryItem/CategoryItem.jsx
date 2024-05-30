@@ -2,9 +2,16 @@
 import Image3 from "../../assets/fullsleeve.png";
 import Image2 from "../../assets/tshirt.png";
 import Image1 from "../../assets/hoodie.png";
-import Button from "../Shared/Button";
+import {useNavigate} from "react-router-dom"
 
 const CategoryItem = () => {
+
+  const navigate= useNavigate()
+
+  const handleNavigate=()=>{
+    navigate('/category/hoody')
+  }
+
   return (
     <div className="py-8">
       <div className="container">
@@ -18,11 +25,13 @@ const CategoryItem = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
                   Hoodie
                 </p>
-                <Button
-                  text="Browse"
-                  bgColor={"bg-primary"}
-                  textColor={"text-white"}
-                />
+                
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
+                text-white"
+                  onClick={()=>handleNavigate()}
+                >Browse</button>
+
+      
               </div>
             </div>
             <img src={Image1} alt="" className="w-[280px] absolute bottom-0 right-[-3rem]" />
@@ -36,11 +45,12 @@ const CategoryItem = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
                   T-shirt
                 </p>
-                <Button
-                  text="Browse"
-                  bgColor={"bg-primary"}
-                  textColor={"text-white"}
-                />
+               
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
+                text-white"
+                  onClick={()=>handleNavigate()}
+                >Browse</button>
+                
               </div>
             </div>
             <img src={Image2} alt="" className="w-[280px] absolute bottom-0 right-[-3rem]"/>
@@ -54,11 +64,12 @@ const CategoryItem = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Drop <br /> Shoulder
                 </p>
-                <Button
-                  text="Browse"
-                  bgColor={"bg-white"}
-                  textColor={"text-primary"}
-                />
+                
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10  bg-white
+                text-primary"
+                  onClick={()=>handleNavigate()}
+                >Browse</button>
+
               </div>
             </div>
             <img

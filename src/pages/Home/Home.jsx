@@ -3,7 +3,7 @@ import Blogs from "../../components/Blogs/Blogs.jsx";
 import Popup from "../../components/Popup/Popup.jsx";
 import Hero from "../../components/Hero/Hero.jsx";
 import CategoryItem from "../../components/CategoryItem/CategoryItem.jsx";
-import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
+// import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 import Partners from "../../components/Partners/Partners.jsx";
@@ -15,8 +15,6 @@ import FooterBanner from "../../components/FooterBanner/FooterBanner.jsx";
 import ShoppingCartForm from "../../components/ShoppingCartForm/ShoppingCartForm.jsx";
 import NewCategory from "../../components/NewCategory/NewCategory.jsx";
 import Bars from "../../components/Bars/Bars.jsx";
-// import QuickView from "../../components/QuickView/QuickView.jsx";
-
 import RightCart from "../../components/RightCart/RightCart.jsx";
 import Notice from "../../components/Notice/Notice.jsx";
 import { useGetProductsQuery } from "../../features/product/productApi.js";
@@ -75,7 +73,7 @@ const Home = () => {
       <Bars item={bars[0]}></Bars>
       <NewCategory></NewCategory>
       <CategoryItem />
-      <CategoryItem2 />
+      {/* <CategoryItem2 /> */}
       <Services />
       <Bars item={bars[1]}></Bars>
        {/* // send data to top rated  */}
