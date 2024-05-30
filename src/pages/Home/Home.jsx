@@ -19,6 +19,7 @@ import Bars from "../../components/Bars/Bars.jsx";
 
 import RightCart from "../../components/RightCart/RightCart.jsx";
 import Notice from "../../components/Notice/Notice.jsx";
+import { useGetProductsQuery } from "../../features/product/productApi.js";
 
 const BannerData = {
   discount: "30% OFF",
@@ -64,6 +65,8 @@ const bars = [
   },
 ];
 const Home = () => {
+  const { data, isSuccess, isLoading } = useGetProductsQuery();
+
   return (
     <div>
       <RightCart></RightCart>
@@ -75,7 +78,10 @@ const Home = () => {
       <CategoryItem2 />
       <Services />
       <Bars item={bars[1]}></Bars>
-      <SampleProduct></SampleProduct>
+       {/* // send data to top rated  */}
+      {
+        !isLoading && isSuccess && data && <SampleProduct data={data}></SampleProduct>
+      }
       <Banner data={BannerData} />
       <Bars item={bars[2]}></Bars>
       <Products />
@@ -83,12 +89,10 @@ const Home = () => {
       <Blogs />
       <Partners />
       {/* <AppStore></AppStore> */}
-      {/* <QuickView></QuickView> */}
       <FooterBanner></FooterBanner>
       <ShoppingCartForm></ShoppingCartForm>
       <Popup />
     </div>
   );
 };
-// https://react-slick.neostack.com/docs/example/pause-on-hover
 export default Home;

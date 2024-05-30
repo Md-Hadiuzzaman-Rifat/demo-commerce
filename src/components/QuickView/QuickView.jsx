@@ -30,7 +30,6 @@ export default function QuickView() {
     setSelectSize(value);
     setSelectedIndex(index);
   };
-  console.log(warning);
 
   const addCount = () => {
     if (!selectSize) {

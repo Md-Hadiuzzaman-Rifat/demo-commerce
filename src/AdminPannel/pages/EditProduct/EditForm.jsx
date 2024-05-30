@@ -59,10 +59,11 @@ export default function EditForm({ data }) {
   const [extra, setExtra] = useState(eExtra);
   const [extraInfo, setExtraInfo] = useState(eExtraInfo);
   const [brand, setBrand] = useState(eBrand);
-  const [stock, setStock]= useState(eStock || true)
+  const [stock, setStock]= useState(Boolean(eStock))
 
   const {id}= useParams()
   const navigate= useNavigate()
+
 
   const details = {
     productName,
@@ -81,7 +82,6 @@ export default function EditForm({ data }) {
     extraInfo,
     stock
   };
-
 
   const handleChange = (e) => {
     console.log(e.target.checked);
@@ -212,7 +212,8 @@ export default function EditForm({ data }) {
                   id="stock"
                   name="stock"
                   autoComplete="stock"
-                  onChange={(e) => setStock(e.target.value)}
+                  
+                  onChange={(e) => setStock(!e)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value={true}>Available</option>

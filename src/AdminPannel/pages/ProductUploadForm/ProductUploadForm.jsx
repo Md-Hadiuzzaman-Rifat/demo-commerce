@@ -242,7 +242,7 @@ export default function ProductUploadForm() {
             </div>
 
             {/* sub category  */}
-            <div className="sm:col-span-3">
+            <div className="sm:col-span-3 text-base">
               <label
                 htmlFor="subcategory"
                 className="block text-sm font-medium leading-6 text-gray-900"
