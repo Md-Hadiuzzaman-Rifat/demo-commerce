@@ -1,10 +1,16 @@
 import Image1 from "../../assets/cargo.png";
 import Image2 from "../../assets/tshirt1.png";
 import Image3 from "../../assets/trouser1.png";
-import Button from "../Shared/Button";
-import { Link } from "react-router-dom";
+
+import {useNavigate } from "react-router-dom";
 
 const CategoryItem2 = () => {
+
+  const navigate= useNavigate()
+
+  const handleNavigate=(item)=>{
+    navigate(`/category/${item}`,{state:item})
+  }
 
   return (
     <div className="py-8">
@@ -17,15 +23,13 @@ const CategoryItem2 = () => {
                 <p className="mb-[2px] text-white">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Cargo Pant
+                  Cargo Pants
                 </p>
-                <Link to="/category/gaming">
-                <Button
-                  text="Browse"
-                  bgColor={"bg-primary"}
-                  textColor={"text-white"}
-                />
-                </Link>
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
+                text-white"
+                  onClick={()=>handleNavigate("cargo pants")}
+                >Browse</button>
+               
               </div>
             </div>
             <img
@@ -43,13 +47,11 @@ const CategoryItem2 = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
                   T-Shirt
                 </p>
-                <Link to="/category/vr">
-                <Button
-                  text="Browse"
-                  bgColor={"bg-white"}
-                  textColor={"text-brandGreen"}
-                />
-                </Link>
+                
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
+                text-brandGreen"
+                  onClick={()=>handleNavigate("t-shirt")}
+                >Browse</button>
               </div>
             </div>
             <img src={Image2} alt="" className="w-[320px] absolute bottom-0 ml-12" />
@@ -63,12 +65,12 @@ const CategoryItem2 = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Trouser
                 </p>
-                <Link to="/category/gadget">
-                <Button
-                  text="Browse"
-                  bgColor={"bg-white"}
-                  textColor={"text-brandBlue"}
-                /></Link>
+                
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
+                text-brandBlue"
+                  onClick={()=>handleNavigate("trouser")}
+                >Browse</button>
+                
               </div>
             </div>
             <img

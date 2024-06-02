@@ -58,7 +58,7 @@ const ProductDetails = () => {
         </div>
         {isError && "Failed to load"}
       </div>
-      {/* // item by the same categroy  */}
+      {/* // item by the same category  */}
       {allProductSuccess && isSuccess && (
         <CategoryPage
           data={allProductData}

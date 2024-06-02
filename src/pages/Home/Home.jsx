@@ -18,6 +18,7 @@ import Bars from "../../components/Bars/Bars.jsx";
 import RightCart from "../../components/RightCart/RightCart.jsx";
 import Notice from "../../components/Notice/Notice.jsx";
 import { useGetProductsQuery } from "../../features/product/productApi.js";
+import ProductListSkeleton from "../../components/ProductListSkeleton/ProductListSkeleton.jsx";
 
 const BannerData = {
   discount: "30% OFF",
@@ -77,6 +78,9 @@ const Home = () => {
       <Services />
       <Bars item={bars[1]}></Bars>
        {/* top rated  */}
+       {
+        isLoading && <ProductListSkeleton/>
+       }
       {
         !isLoading && isSuccess && data && <SampleProduct data={data}></SampleProduct>
       }
