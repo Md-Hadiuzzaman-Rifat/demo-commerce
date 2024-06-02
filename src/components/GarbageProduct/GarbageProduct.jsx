@@ -19,7 +19,7 @@ const GarbageProduct = ({data}) => {
 
     return (
         <div className="relative">
-            <img src={`http://localhost:20220/images/${data.filename}`} alt="" />
+            <img src={`http://localhost:5000/images/${data.filename}`} alt="" />
             <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 p-4 rounded-md font-semibold text-white hover:text-red-500 hover:bg-white" onClick={handleDelete}>Delete Now</button>
         </div>
     );

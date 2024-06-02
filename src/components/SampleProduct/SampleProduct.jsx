@@ -15,34 +15,33 @@ export default function SampleProduct({ data }) {
               )
               .map((product) => (
                 <Link to={`/productDetails/${product?._id}`} key={product?._id}>
-                  <div className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                      <img
-                        src={`http://localhost:20220/images/${product?.images?.[0].filename}`}
-                        alt="product Image"
-                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                      />
-                    </div>
-
-                    <p className="absolute top-0 bg-red-500 px-2 py-[2px] text-sm font-semibold text-gray-100">
-                      30% OFF
+                  <div className="relative flex flex-col items-center hover:opacity-80 duration-75">
+                    <img
+                      src={`http://localhost:5000/images/${product?.images?.[0].filename}`}
+                      alt=""
+                      className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover "
+                    />
+                    <p className="absolute top-0 left-0 bg-red-500 px-2 py-[2px] text-sm font-semibold text-gray-100">
+                      
+                      {Math.ceil((product?.description?.discount / product?.description?.price)*100)}% OFF
                     </p>
-                    <div className="mt-4 flex justify-between">
+                    <div className="mt-4 flex w-full px-2 justify-between">
                       <div>
-                      <p className="text-base font-semibold text-gray-900 font-abc">
-                        {product?.description?.discount} Taka                       </p>
-                        
+                        <p className="text-base font-semibold text-gray-900 font-abc">
+                          {product?.description?.discount} Taka{" "}
+                        </p>
+
                         <p className="mt-1 text-base font-abc text-gray-500 font-bold ">
                           {resizeName(product?.description?.productName, 20)}
                         </p>
                       </div>
                       <h3 className="text-base line-through text-gray-700 font-mont">
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0 "
-                          />
-                          ৳ {product?.description?.price} 
-                        </h3>
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 "
+                        />
+                         {product?.description?.price}
+                      </h3>
                     </div>
                   </div>
                 </Link>

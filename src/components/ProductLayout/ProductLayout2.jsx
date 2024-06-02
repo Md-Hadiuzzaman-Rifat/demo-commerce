@@ -30,7 +30,7 @@ const ProductLayout2 = ({ data }) => {
         <div>
           <div className="relative flex flex-col items-center">
             <img
-              src={`http://localhost:20220/images/${images[0].filename}`}
+              src={`http://localhost:5000/images/${images[0].filename}`}
               alt=""
               className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover hover:opacity-70 duration-75"
               onClick={() => handleDetails(_id)}

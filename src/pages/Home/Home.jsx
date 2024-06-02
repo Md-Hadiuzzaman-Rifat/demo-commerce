@@ -25,7 +25,7 @@ const BannerData = {
   date: "10 Jan to 28 Jan",
   image: headphone,
   title2: "Air Solo Bass",
-  title3: "Winter Sale",
+  title3: "Summer Sale",
   title4:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
   bgColor: "#ff848a",
@@ -37,7 +37,7 @@ const BannerData2 = {
   date: "14 Jan to 28 Jan",
   image: smartwatch2,
   title2: "Smart Solo",
-  title3: "Winter Sale",
+  title3: "Summer Sale",
   title4:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
   bgColor: "#cccccc",
@@ -58,13 +58,13 @@ const bars = [
   {
     style: "text-[#9059a1] bg-[#d5c1dc]",
     text: "THE BEST QUALITY OUTFIT",
-    heading: "FREE DELIVERY",
+    heading: "FLASH DEALS",
     textStyle: "mb-[-14px] mt-[4px]",
   },
 ];
 const Home = () => {
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-
+  console.log(data)
   return (
     <div>
       <RightCart></RightCart>

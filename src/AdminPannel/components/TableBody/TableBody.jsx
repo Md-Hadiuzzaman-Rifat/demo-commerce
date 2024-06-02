@@ -20,7 +20,7 @@ const TableBody = ({ data }) => {
 
   const editGarbage=async(id)=>{
     console.log(id)
-    fetch(`http://localhost:20220/garbageTrash`,{
+    fetch(`http://localhost:5000/garbageTrash`,{
       method: "PUT",
       headers:{
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const TableBody = ({ data }) => {
   }
 
   const deleteGarbage=async(id)=>{
-    fetch(`http://localhost:20220/garbage/${id}`,{
+    fetch(`http://localhost:5000/garbage/${id}`,{
       method: "DELETE",
     })
   }
@@ -69,7 +69,7 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">
         <img
           className="max-w-20"
-          src={`http://localhost:20220/Images/${images[0]?.filename}`}
+          src={`http://localhost:5000/Images/${images[0]?.filename}`}
           alt=""
         />
       </td>

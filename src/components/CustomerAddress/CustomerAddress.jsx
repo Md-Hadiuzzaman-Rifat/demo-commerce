@@ -35,7 +35,7 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
     e.preventDefault()
 
     // create client 
-    fetch(`http://localhost:20220/addClient`,{
+    fetch(`http://localhost:5000/addClient`,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,15 +47,16 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
     // // // create order 
     purchaseOrder(orderStatus)
   }
+  
  
   useEffect(()=>{
     if(successPurchase && successData){
       setReceivedData(successData)
       dispatch(orderFormClose())
       dispatch(clearCart())
-      navigate('/paymentPage', {state:{successData}})
+      navigate('/paymentPage', {state:{successData, division}})
     }
-  },[successPurchase,successData,receivedData,  dispatch ,navigate])
+  },[successPurchase,successData,receivedData, division , dispatch ,navigate])
 
   return (
     <div className="isolate bg-white px-6  lg:px-8 ">

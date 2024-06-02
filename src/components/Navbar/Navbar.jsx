@@ -20,7 +20,7 @@ const navigation = {
           name: "New Arrivals",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+            "https://i.ibb.co/ZxdDH0w/IMG-2557.png",
           imageAlt:
             "Drawstring top with elastic loop closure and textured interior padding.",
         },
@@ -28,7 +28,7 @@ const navigation = {
           name: "Artwork Tees",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
+            "https://i.ibb.co/Br31f9K/Whats-App-Image-2024-05-15-at-5-25-28-PM-1.jpg",
           imageAlt:
             "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
         },
@@ -242,7 +242,7 @@ export default function Navbar() {
 
         <header className="relative bg-white">
           <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-            Get free delivery on orders over 10,000 Taka
+            Get free delivery on orders over 5,000 Taka
           </p>
           {/* // static navbar  */}
           <div className={`${stickyClass} w-full`}>
@@ -395,7 +395,7 @@ export default function Navbar() {
                   <div className="flex lg:ml-6 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
                     <a href="tel:+6199942413" className="flex items-center gap-2">
                     
-                    <PiPhoneCallLight className=" mb-1  text-gray-400 "/> <span className="text-gray-400 font-abc">+88 01970134360</span>
+                    <PiPhoneCallLight className=" mb-1  text-gray-400 "/> <span className="text-gray-400 font-abc">+88 01648141727</span>
                     </a>
                   </div>
 

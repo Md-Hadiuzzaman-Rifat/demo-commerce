@@ -28,6 +28,7 @@ const DetailsContent = ({ desc, img}) => {
     brand,
     category,
     description,
+    shortDescription,
     discount,
     extra,
     extraInfo,
@@ -37,7 +38,6 @@ const DetailsContent = ({ desc, img}) => {
     stock,
     otherLink
   } = desc || {};
-// console.log(desc);
 
   const sizes = makeSizes(extra);
 
@@ -62,7 +62,7 @@ const DetailsContent = ({ desc, img}) => {
         addToCart({
           id: `${id}>>>${selectSize}`,
           name: desc?.productName,
-          image: `http://localhost:20220/images/${img[0]?.filename}`,
+          image: `http://localhost:5000/images/${img[0]?.filename}`,
           price: desc?.discount,
           cartQuantity: count,
         })
@@ -77,7 +77,7 @@ const DetailsContent = ({ desc, img}) => {
         decreaseCart({
           id: `${id}>>>${selectSize}`,
           name: desc.productName,
-          image: `http://localhost:20220/images/${img[0]?.filename}`,
+          image: `http://localhost:5000/images/${img[0]?.filename}`,
           price: desc.discount,
           cartQuantity: count,
         })
@@ -226,9 +226,10 @@ const DetailsContent = ({ desc, img}) => {
         </div>
       }
       {/* // stock check end  */}
+      
       <div
         className=" leading-6 text-gray-600 mt-7 dark:text-gray-400 font-normal text-sm font-mont"
-        dangerouslySetInnerHTML={{ __html: description }}
+        dangerouslySetInnerHTML={{ __html: shortDescription }}
       ></div>
       {/* // will work afterward  */}
 

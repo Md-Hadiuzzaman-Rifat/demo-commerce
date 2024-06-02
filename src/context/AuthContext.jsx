@@ -77,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:20220/addUser",{
+    fetch("http://localhost:5000/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

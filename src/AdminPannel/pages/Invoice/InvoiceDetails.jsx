@@ -8,6 +8,7 @@ const InvoiceDetails = ({details}) => {
         <thead>
           <tr>
             <th>Item</th>
+            <th>Size</th>
             <th>Quantity</th>
             <th>Rate</th>
             <th>Tax</th>

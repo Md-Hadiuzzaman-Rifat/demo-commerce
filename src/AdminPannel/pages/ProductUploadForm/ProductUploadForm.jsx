@@ -209,8 +209,8 @@ export default function ProductUploadForm() {
               {/* // text area  */}
 
               <TextArea
-                shortDescription={shortDescription}
-                setShortDescription={setShortDescription}
+                description={shortDescription}
+                setDescription={setShortDescription}
               ></TextArea>
             </div>
              {/* category section  */}

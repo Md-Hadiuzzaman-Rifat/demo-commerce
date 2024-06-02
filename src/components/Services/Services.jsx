@@ -10,7 +10,7 @@ const ServiceData = [
     id: 1,
     icon: <FaCarSide className="text-4xl md:text-5xl text-primary" />,
     title: "Free Shipping",
-    description: "Free Shipping Over 2000 taka order",
+    description: "Free Shipping Over 5000 taka order",
   },
   {
     id: 2,
