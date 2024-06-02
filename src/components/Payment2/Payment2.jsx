@@ -47,7 +47,7 @@ const Payment2 = () => {[]
                             </div>
                         </div>
                         <div className="p-4 border rounded-lg font-bold font-abc">
-                            {division === "isd" ? 70 :120 } Taka
+                            {division === "isd" ? 60 :100 } Taka
                         </div>
                     </div>
                     {/* // transaction start  */}

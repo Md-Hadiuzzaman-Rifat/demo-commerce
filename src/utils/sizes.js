@@ -1,5 +1,5 @@
 export const makeSizes = (size) => {
-  const res = size.split(",");
+  const res = size?.split(",");
   return res;
 };
 

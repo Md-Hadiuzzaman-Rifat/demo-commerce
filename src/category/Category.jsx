@@ -1,95 +1,36 @@
+/* eslint-disable no-unused-vars */
+import { useLocation } from "react-router-dom";
+import { useGetProductsQuery } from "../features/product/productApi";
+import SubCategoryPage from "../components/SubCategoryPage/SubCategoryPage";
+import ProductLayout2 from "../components/ProductLayout/ProductLayout2";
+import QuickView from "../components/QuickView/QuickView";
+import ProductListSkeleton from "../components/ProductListSkeleton/ProductListSkeleton";
 
 
-const products = [
-    {
-      id: 1,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-      available: true
-    },
-    {
-      id: 2,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-      available: true
-    },
-    {
-      id: 3,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-      available: true
-    },
-    {
-      id: 4,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-      available: false
-    },
-    {
-      id: 5,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-      available: false
-    },
-  ]
-  
-  export default function Category() {
+export default function Category() {
+  const { state } = useLocation();
+  const { data, isSuccess, isLoading } = useGetProductsQuery();
+  console.log(data);
 
-    return (
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-  
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <div key={product.id} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  
-                  <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                  />
-                  
-                </div>
-                <p className="absolute top-0 bg-red-500 px-2 py-[2px] text-sm font-semibold text-gray-100">30% OFF</p>
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-base text-gray-700">
-                      <a href={product.href}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.name}
-                      </a>
-                    </h3>
-                    <p className="mt-1 text-base font-abc text-gray-500 font-bold">{product.color}</p>
-                  </div>
-                  <p className="text-base font-medium text-gray-900">{product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+  return (
+    <div className="bg-white">
+      {
+        open && <QuickView/>
+      }
+      <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 bg-gray-100 font-abc p-2 mb-4">
+          {state?.toUpperCase()}
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md-grid-cols-4 lg:grid-cols-6">
+          {
+            isLoading && <ProductListSkeleton/>
+          }
+          {
+            isSuccess && !isLoading && data?.map(item=><ProductLayout2 key={item?._id} data={item}/>)
+          }
         </div>
       </div>
-    )
-  }
-  
+    </div>
+  );
+}

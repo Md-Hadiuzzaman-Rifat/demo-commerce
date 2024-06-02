@@ -8,8 +8,8 @@ const CategoryItem = () => {
 
   const navigate= useNavigate()
 
-  const handleNavigate=()=>{
-    navigate('/category/hoody')
+  const handleNavigate=(item)=>{
+    navigate(`/category/${item}`,{state:item})
   }
 
   return (
@@ -28,7 +28,7 @@ const CategoryItem = () => {
                 
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
-                  onClick={()=>handleNavigate()}
+                  onClick={()=>handleNavigate("hoodie")}
                 >Browse</button>
 
       
@@ -48,7 +48,7 @@ const CategoryItem = () => {
                
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
-                  onClick={()=>handleNavigate()}
+                  onClick={()=>handleNavigate("jersey")}
                 >Browse</button>
                 
               </div>
@@ -67,7 +67,7 @@ const CategoryItem = () => {
                 
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10  bg-white
                 text-primary"
-                  onClick={()=>handleNavigate()}
+                  onClick={()=>handleNavigate("drop shoulder")}
                 >Browse</button>
 
               </div>

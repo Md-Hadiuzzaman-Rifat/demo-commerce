@@ -64,7 +64,7 @@ const bars = [
 ];
 const Home = () => {
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-  console.log(data)
+  
   return (
     <div>
       <RightCart></RightCart>
@@ -76,7 +76,7 @@ const Home = () => {
       <CategoryItem2 />
       <Services />
       <Bars item={bars[1]}></Bars>
-       {/* // send data to top rated  */}
+       {/* top rated  */}
       {
         !isLoading && isSuccess && data && <SampleProduct data={data}></SampleProduct>
       }
