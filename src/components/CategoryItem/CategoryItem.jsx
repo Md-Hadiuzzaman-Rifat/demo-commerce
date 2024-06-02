@@ -43,7 +43,7 @@ const CategoryItem = () => {
                 <p className="mb-[2px] text-gray-400">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  T-shirt
+                  Jersey
                 </p>
                
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary

@@ -3,7 +3,7 @@ import Blogs from "../../components/Blogs/Blogs.jsx";
 import Popup from "../../components/Popup/Popup.jsx";
 import Hero from "../../components/Hero/Hero.jsx";
 import CategoryItem from "../../components/CategoryItem/CategoryItem.jsx";
-// import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
+import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 import Partners from "../../components/Partners/Partners.jsx";
@@ -73,7 +73,7 @@ const Home = () => {
       <Bars item={bars[0]}></Bars>
       <NewCategory></NewCategory>
       <CategoryItem />
-      {/* <CategoryItem2 /> */}
+      <CategoryItem2 />
       <Services />
       <Bars item={bars[1]}></Bars>
        {/* // send data to top rated  */}
@@ -82,6 +82,8 @@ const Home = () => {
       }
       <Banner data={BannerData} />
       <Bars item={bars[2]}></Bars>
+      {/* // flash deals   */}
+      
       <Products />
       <Banner data={BannerData2} />
       <Blogs />
