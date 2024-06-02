@@ -83,8 +83,9 @@ const Home = () => {
       <Banner data={BannerData} />
       <Bars item={bars[2]}></Bars>
       {/* // flash deals   */}
-      
-      <Products />
+      {
+        !isLoading && isSuccess && data && <Products data={data}></Products>
+      }
       <Banner data={BannerData2} />
       <Blogs />
       <Partners />
