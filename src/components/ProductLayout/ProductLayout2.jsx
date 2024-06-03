@@ -11,7 +11,6 @@ const ProductLayout2 = ({ data }) => {
 
   const navigate = useNavigate();
 
-
   const dispatch= useDispatch()
   const { price, discount } = data?.description || {};
 
@@ -36,8 +35,8 @@ const ProductLayout2 = ({ data }) => {
               onClick={() => handleDetails(_id)}
             />
             <div className="flex items-center bg-white w-[120px] rounded-md absolute bottom-[-10px] justify-center gap-2 shadow-lg">
-              <p className="font-semibold">৳{price}</p>
-              <p className="font-thin line-through">৳{price - discount}</p>
+              <p className="font-semibold">৳{discount}</p>
+              <p className="font-thin line-through">৳{price}</p>
             </div>
           </div>
           <div>

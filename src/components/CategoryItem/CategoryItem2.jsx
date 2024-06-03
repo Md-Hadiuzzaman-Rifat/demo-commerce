@@ -2,15 +2,9 @@ import Image1 from "../../assets/cargo.png";
 import Image2 from "../../assets/tshirt1.png";
 import Image3 from "../../assets/trouser1.png";
 
-import {useNavigate } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 const CategoryItem2 = () => {
-
-  const navigate= useNavigate()
-
-  const handleNavigate=(item)=>{
-    navigate(`/category/${item}`,{state:item})
-  }
 
   return (
     <div className="py-8">
@@ -25,10 +19,11 @@ const CategoryItem2 = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Cargo Pants
                 </p>
+                
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
-                  onClick={()=>handleNavigate("cargo pants")}
-                >Browse</button>
+                  
+                ><Link to="category/cargo pants">Browse</Link></button>
                
               </div>
             </div>
@@ -50,8 +45,9 @@ const CategoryItem2 = () => {
                 
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
                 text-brandGreen"
-                  onClick={()=>handleNavigate("t-shirt")}
-                >Browse</button>
+                  
+                ><Link to="category/t-shirt">Browse</Link></button>
+               
               </div>
             </div>
             <img src={Image2} alt="" className="w-[320px] absolute bottom-0 ml-12" />
@@ -66,10 +62,16 @@ const CategoryItem2 = () => {
                   Trouser
                 </p>
                 
+                <Link to="category/trouser">
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
+                text-brandBlue"
+                >Browse</button>
+                </Link>
+{/*                 
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
                 text-brandBlue"
                   onClick={()=>handleNavigate("trouser")}
-                >Browse</button>
+                >Browse</button> */}
                 
               </div>
             </div>

@@ -2,15 +2,9 @@
 import Image3 from "../../assets/fullsleeve.png";
 import Image2 from "../../assets/tshirt.png";
 import Image1 from "../../assets/hoodie.png";
-import {useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const CategoryItem = () => {
-
-  const navigate= useNavigate()
-
-  const handleNavigate=(item)=>{
-    navigate(`/category/${item}`,{state:item})
-  }
 
   return (
     <div className="py-8">
@@ -28,10 +22,8 @@ const CategoryItem = () => {
                 
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
-                  onClick={()=>handleNavigate("hoodie")}
-                >Browse</button>
-
-      
+                  
+                ><Link to="category/hoodie">Browse</Link></button>
               </div>
             </div>
             <img src={Image1} alt="" className="w-[280px] absolute bottom-0 right-[-3rem]" />
@@ -48,8 +40,7 @@ const CategoryItem = () => {
                
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
-                  onClick={()=>handleNavigate("jersey")}
-                >Browse</button>
+                ><Link to="category/jersey">Browse</Link></button>
                 
               </div>
             </div>
@@ -64,11 +55,11 @@ const CategoryItem = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Drop <br /> Shoulder
                 </p>
-                
+
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10  bg-white
                 text-primary"
-                  onClick={()=>handleNavigate("drop shoulder")}
-                >Browse</button>
+                 
+              ><Link to="category/drop shoulder">Browse</Link></button>
 
               </div>
             </div>
