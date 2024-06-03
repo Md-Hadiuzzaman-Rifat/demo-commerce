@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./OrderSuccess.scss";
 
 const OrderSuccess = () => {
@@ -10,9 +11,12 @@ const OrderSuccess = () => {
           Your order has been received and is being processed. You will receive
           an email confirmation shortly.
         </p>
-        <a href="/" className="button">
+        {/* <a href="/" className="button">
           Continue Shopping
-        </a>
+        </a> */}
+        <Link className="button" to='/'>
+          Continue Shopping
+        </Link>
       </div>
     </div>
   );

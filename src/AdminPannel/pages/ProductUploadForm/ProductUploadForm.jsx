@@ -22,8 +22,6 @@ export default function ProductUploadForm() {
 
   const selector = useSelector((state) => state.cartHandler);
   
-  // Promise.all([getCatData, getSubCatData])
-  // .then(res=>console.log(res))
  
   const [productName, setProductName] = useState("");
   const [review, setReview] = useState(5);
@@ -97,7 +95,6 @@ export default function ProductUploadForm() {
   useEffect(() => {
     if (addSuccess) {
       dispatch(modalOpen());
-      console.log("success");
     }
   }, [addSuccess, dispatch]);
 
