@@ -17,7 +17,7 @@ export default function SampleProduct({ data }) {
                 <Link to={`/productDetails/${product?._id}`} key={product?._id}>
                   <div className="relative flex flex-col items-center hover:opacity-80 duration-75">
                     <img
-                      src={`http://localhost:5000/images/${product?.images?.[0].filename}`}
+                      src={`https://backend.urbanregionbd.com/images/${product?.images?.[0].filename}`}
                       alt=""
                       className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover "
                     />

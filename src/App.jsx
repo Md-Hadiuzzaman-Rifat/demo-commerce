@@ -118,10 +118,3 @@ const App = () => {
 
 export default App;
 
-
-// Formal Pants
-// T Shirt
-// Cargo Pants
-// Jersey
-// Drop Shoulder
-// Hoodie

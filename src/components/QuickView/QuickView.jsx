@@ -41,7 +41,7 @@ export default function QuickView() {
         addToCart({
           id: `${_id}>>>${selectSize}`,
           name: description?.productName,
-          image: `http://localhost:5000/images/${images?.[0]?.filename}`,
+          image: `https://backend.urbanregionbd.com/images/${images?.[0]?.filename}`,
           price: description?.discount,
           cartQuantity: count,
         })
@@ -93,7 +93,7 @@ export default function QuickView() {
                   <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
                     <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg m-2 bg-gray-100 sm:col-span-4 lg:col-span-5">
                       <img
-                        src={`http://localhost:5000/images/${images?.[0].filename}`}
+                        src={`https://backend.urbanregionbd.com/images/${images?.[0].filename}`}
                         alt="urban_region_bd"
                         className="object-cover object-center"
                       />

@@ -35,7 +35,7 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
     e.preventDefault()
 
     // create client 
-    fetch(`http://localhost:5000/addClient`,{
+    fetch(`https://backend.urbanregionbd.com/addClient`,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",

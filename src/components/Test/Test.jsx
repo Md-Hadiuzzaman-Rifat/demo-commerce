@@ -14,21 +14,21 @@ function Test() {
     formData.append("file", file);
     formData.append("category", category);
     axios
-      .post("http://localhost:5000/upload", formData)
+      .post("https://backend.urbanregionbd.com/upload", formData)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((er) => console.log(er));
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-upload`)
+    fetch(`https://backend.urbanregionbd.com/get-upload`)
       .then((res) => res.json())
       .then((data) => setFind(data));
   }, []);
 
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`http://localhost:5000/category/${imageName}`, {
+    fetch(`https://backend.urbanregionbd.com/category/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -58,7 +58,7 @@ function Test() {
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`http://localhost:5000/images/${item.image}`}
+                src={`https://backend.urbanregionbd.com/images/${item.image}`}
                 className="object-cover"
                 alt=""
               />

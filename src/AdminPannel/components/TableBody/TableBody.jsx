@@ -20,7 +20,7 @@ const TableBody = ({ data }) => {
 
   const editGarbage=async(id)=>{
     console.log(id)
-    fetch(`http://localhost:5000/garbageTrash`,{
+    fetch(`https://backend.urbanregionbd.com/garbageTrash`,{
       method: "PUT",
       headers:{
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const TableBody = ({ data }) => {
   }
 
   const deleteGarbage=async(id)=>{
-    fetch(`http://localhost:5000/garbage/${id}`,{
+    fetch(`https://backend.urbanregionbd.com/garbage/${id}`,{
       method: "DELETE",
     })
   }
@@ -69,7 +69,7 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">
         <img
           className="max-w-20"
-          src={`http://localhost:5000/Images/${images[0]?.filename}`}
+          src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
           alt=""
         />
       </td>

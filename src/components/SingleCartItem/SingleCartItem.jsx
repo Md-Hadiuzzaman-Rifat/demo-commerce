@@ -8,6 +8,7 @@ import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from ".
 const SingleCartItem = ({product}) => {
 
   const {cartQuantity, image, name, price, id} = product || {}
+  console.log(image);
   const cart = useSelector((state) => state.cart);
   const dispatch= useDispatch()
   const [count, setCount] = useState(cartQuantity);

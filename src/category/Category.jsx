@@ -8,17 +8,16 @@ import ProductListSkeleton from "../components/ProductListSkeleton/ProductListSk
 export default function Category() {
   const { state } = useLocation();
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-  console.log(state);
-  console.log(data);
 
   return (
     <div className="bg-white">
       {open && <QuickView />}
-      {isLoading && <ProductListSkeleton />}
-      <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+      
+      <div className="container mt-4">
         <h2 className="text-2xl font-bold  text-gray-900 bg-gray-100 font-abc p-2 mb-4">
           {state?.toUpperCase()}
         </h2>
+        {isLoading && <ProductListSkeleton />}
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md-grid-cols-4 lg:grid-cols-6">
           {isSuccess &&

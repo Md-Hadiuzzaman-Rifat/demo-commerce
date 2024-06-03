@@ -8,6 +8,7 @@ import { popUpOpen} from "../../features/quickView/quickViewSlice"
 
 const ProductLayout2 = ({ data }) => {
   const { images, _id } = data || {};
+  console.log(images);
   const navigate = useNavigate();
   const {open}=  useSelector(state=>state.popUp)
 
@@ -20,7 +21,6 @@ const ProductLayout2 = ({ data }) => {
   };
 
   const handlePopUp=(data)=>{
-    // console.log(data);
     dispatch(popUpOpen(data))
   }
 
@@ -30,7 +30,7 @@ const ProductLayout2 = ({ data }) => {
         <div>
           <div className="relative flex flex-col items-center">
             <img
-              src={`http://localhost:5000/images/${images[0].filename}`}
+              src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
               alt=""
               className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover hover:opacity-70 duration-75"
               onClick={() => handleDetails(_id)}

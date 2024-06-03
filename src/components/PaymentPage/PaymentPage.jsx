@@ -17,7 +17,7 @@ const PaymentPage = () => {
   console.log(insertedId);
   const handlePayment=async(e)=>{
     e.preventDefault()
-    fetch('http://localhost:5000/editPayment',{
+    fetch('https://backend.urbanregionbd.com/editPayment',{
       method:"PUT",
       headers: {
         "Content-Type": "application/json",

@@ -20,7 +20,7 @@ const CarouselItem = ({ data }) => {
       <a href="#">
         <img 
           className="rounded-t-lg max-h-[110px] sm:h-[150px] md:max-h-[250px] w-full object-cover"
-          src={`http://localhost:5000/images/${images?.[0].filename}`}
+          src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
           alt="product image"
         />
       </a>

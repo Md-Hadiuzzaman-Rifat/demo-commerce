@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      saveUser(user)
+      // saveUser(user)
       setLoading(false);
       if(user){
         getIdToken(user)
@@ -77,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:5000/addUser",{
+    fetch("https://backend.urbanregionbd.com/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

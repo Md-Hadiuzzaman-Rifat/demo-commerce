@@ -20,10 +20,10 @@ function CategoryForm() {
     addCategory(formData)
   };
 
-
+console.log(getCatData)
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`http://localhost:5000/category/${imageName}`, {
+    fetch(`https://backend.urbanregionbd.com/category/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -58,7 +58,7 @@ function CategoryForm() {
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`http://localhost:5000/images/${item.image}`}
+                src={`https://backend.urbanregionbd.com/Images/${item.image}`}
                 className="object-cover"
                 alt=""
               />
