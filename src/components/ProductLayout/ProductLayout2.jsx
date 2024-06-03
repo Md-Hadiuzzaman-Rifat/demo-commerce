@@ -1,16 +1,16 @@
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { popUpOpen} from "../../features/quickView/quickViewSlice"
 
 const ProductLayout2 = ({ data }) => {
   const { images, _id } = data || {};
-  console.log(images);
+
   const navigate = useNavigate();
-  const {open}=  useSelector(state=>state.popUp)
+
 
   const dispatch= useDispatch()
   const { price, discount } = data?.description || {};

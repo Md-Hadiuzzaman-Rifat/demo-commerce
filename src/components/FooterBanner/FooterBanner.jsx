@@ -54,8 +54,8 @@ export default function FooterBanner() {
               </dd>
             </div>
           </dl>
-          <p className="mt-4 text-xl leading-8 text-gray-300">
-              This Web Application Created and Maintained By <span className='text-orange-300 font-bold text-2xl mx-3'>URBAN TECH BD.</span>
+          <p className="mt-4 text-base leading-8 text-white font-semibold">
+              This Web Application Created and Maintained By <span className='text-orange-300 font-bold text-2xl mx-3'>PIPRA SOFT</span>
             </p>
         </div>
       </div>

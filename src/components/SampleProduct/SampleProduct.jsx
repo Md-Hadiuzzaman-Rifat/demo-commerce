@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { resizeName } from "../../utils/sizes";
 
 export default function SampleProduct({ data }) {
+
   return (
     <div className="bg-white">
       <div className="mx-auto container py-4  sm:py-8">
@@ -17,13 +18,15 @@ export default function SampleProduct({ data }) {
                 <Link to={`/productDetails/${product?._id}`} key={product?._id}>
                   <div className="relative flex flex-col items-center hover:opacity-80 duration-75">
                     <img
-                      src={`https://backend.urbanregionbd.com/images/${product?.images?.[0].filename}`}
+                      src={`https://backend.urbanregionbd.com/Images/${product?.images?.[0].filename}`}
                       alt=""
                       className="cursor-pointer h-[180px] sm:h-[220px] w-full object-cover "
                     />
                     <p className="absolute top-0 left-0 bg-red-500 px-2 py-[2px] text-sm font-semibold text-gray-100">
-                      
-                      {Math.ceil((product?.description?.discount / product?.description?.price)*100)}% OFF
+                      <span>Save TK : </span> 
+
+                      {Math.ceil(product?.description?.price - product?.description?.discount)} 
+                     
                     </p>
                     <div className="mt-4 flex w-full px-2 justify-between">
                       <div>
