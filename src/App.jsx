@@ -87,12 +87,12 @@ const App = () => {
             {/* //  admin and dashboard page start */}
              
             <Route path="/dashboard">
-            <Route path="" element={<AdminLogin />}></Route>
+            <Route path="" element={<Overview />}></Route>
               {/* <AdminLayout> */}
                 {/* <Route path="users" element={<AllUsers />}></Route> */}
                 <Route path="edit/:id" element={<EditProduct />}></Route>
                 <Route path="upload" element={<UploadProduct />}></Route>
-                <Route path="fuck" element={<Overview />}></Route>
+               
                 <Route
                   path="orders"
                   element={<OrderCollection></OrderCollection>}

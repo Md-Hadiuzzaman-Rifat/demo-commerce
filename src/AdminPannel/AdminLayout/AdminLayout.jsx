@@ -43,7 +43,7 @@ const AdminLayout = ({ children }) => {
               open && "rotate-[360deg]"
             }`}><CgSidebarOpen className="text-white"/>
           </div>
-          <Link to="/dashboard/orders"
+          <Link to="/dashboard"
             className={`text-gray-200 origin-left font-medium text-xl duration-200 underline ${
               !open && "scale-0"
             }`}
