@@ -30,12 +30,13 @@ import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
 import ProductTable from "./AdminPannel/components/ProductTable/ProductTable";
 import GarbageCollection from "./pages/GarbageCollection/GarbageCollection";
 import Invoice from "./AdminPannel/pages/Invoice/Invoice";
-import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
+// import AdminLayout from "./AdminPannel/AdminLayout/AdminLayout";
 import ProductListSkeleton from "./components/ProductListSkeleton/ProductListSkeleton";
 // import AdminRoute from "./AdminPannel/components/AdminRoute/AdminRoute";
 import Payment2 from "./components/Payment2/Payment2";
 import Category from "./category/Category";
 import SizeModal from "./components/SizeModal/SizeModal";
+import Overview from "./AdminPannel/Overview/Overview";
 // import Category from "./category/Category";
 
 const App = () => {
@@ -87,10 +88,11 @@ const App = () => {
              
             <Route path="/dashboard">
             <Route path="" element={<AdminLogin />}></Route>
-              <AdminLayout>
+              {/* <AdminLayout> */}
                 {/* <Route path="users" element={<AllUsers />}></Route> */}
                 <Route path="edit/:id" element={<EditProduct />}></Route>
                 <Route path="upload" element={<UploadProduct />}></Route>
+                <Route path="fuck" element={<Overview />}></Route>
                 <Route
                   path="orders"
                   element={<OrderCollection></OrderCollection>}
@@ -104,7 +106,7 @@ const App = () => {
                 <Route path="allProducts" element={<ProductTable />}></Route>
                 <Route path="garbage" element={<GarbageCollection />}></Route>
                 <Route path="orders/invoice/:id" element={<Invoice />}></Route>
-              </AdminLayout>
+              {/* </AdminLayout> */}
             </Route>
 
             {/* //  admin and dashboard page end */}

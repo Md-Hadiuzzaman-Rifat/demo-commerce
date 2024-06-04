@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // // import { useEffect } from "react";
 // import "./AdminLogin.scss";
 // import { useState } from "react";
@@ -87,21 +88,9 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {}
-//     e.preventDefault();
-
-//     try {
-//       setError("");
-//       setLoading(true);
-//       await login(email, password);
-//       navigate("/dashboard")
-//     } catch (err) {
-//       setError("Failed to Login");
-//       setLoading(false);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+    }
 
   return (
     <div>

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import {  useState } from "react";
+import { useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { makeSizes } from "../../utils/sizes";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,15 +14,15 @@ import { Link } from "react-router-dom";
 import SizeModal from "../SizeModal/SizeModal";
 import { sizeModalOpen } from "../../features/sizeModalSlice/sizeModalSlice";
 
-const DetailsContent = ({ desc, img}) => {
+const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [selectSize, setSelectSize] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [warning, setWarning] = useState(false);
-  const [amountWarning, setAmountWarning]= useState(false)
+  const [amountWarning, setAmountWarning] = useState(false);
   const { id } = useParams();
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const {
     brand,
@@ -36,11 +36,10 @@ const DetailsContent = ({ desc, img}) => {
     productName,
     review,
     stock,
-    otherLink
+    otherLink,
   } = desc || {};
 
   const sizes = makeSizes(extra);
-
 
   // make a single number to array for rating
   let newArr = [];
@@ -96,21 +95,19 @@ const DetailsContent = ({ desc, img}) => {
     } else {
       setWarning(false);
       // dispatch(orderFormOpen());
-      navigate('/shoppingCart')
+      navigate("/shoppingCart");
     }
   };
 
-  const {isOpen} = useSelector(state=>state.size)
+  const { isOpen } = useSelector((state) => state.size);
 
   function openModal() {
-    dispatch(sizeModalOpen(otherLink))
+    dispatch(sizeModalOpen(otherLink));
   }
 
   return (
     <div className="  w-full sm:w-auto md:w-8/12 lg:w-6/12 items-center">
-      {
-           isOpen && <SizeModal />
-      }
+      {isOpen && <SizeModal />}
       <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600 font-abc  dark:text-gray-400">
         {category?.toUpperCase()}
       </p>
@@ -131,17 +128,22 @@ const DetailsContent = ({ desc, img}) => {
       </div>
       {/* price  */}
       <div className="flex flex-row justify-between">
-      <div className="flex flex-row gap-4 ">
-        <p className=" font-semibold text-gray-400 line-through lg:text-xl text-md lg:leading-6 leading-5 mt-4 font-abc">
-          $ {price}
-        </p>
-        <span className="inline font-semibold, lg:text-2xl text-xl lg:leading-6 leading-5 font-abc mt-4 font-bold">
-          $ {discount}
-        </span>
-      </div>
+        <div className="flex flex-row gap-4 ">
+          <p className=" font-semibold text-gray-400 line-through lg:text-xl text-md lg:leading-6 leading-5 mt-4 font-abc">
+            Tk: {price}
+          </p>
+          <span className="inline font-semibold, lg:text-2xl text-xl lg:leading-6 leading-5 font-abc mt-4 font-bold">
+            Tk: {discount}
+          </span>
+        </div>
 
-      <button onClick={openModal} className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "> <PiToiletPaperLight className="text-2xl "/> Size Guide</button>
-      
+        <button
+          onClick={openModal}
+          className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "
+        >
+          {" "}
+          <PiToiletPaperLight className="text-2xl " /> Size Guide
+        </button>
       </div>
 
       <p className="font-abc font-semibold mt-4">{extraInfo?.toUpperCase()}</p>
@@ -171,62 +173,61 @@ const DetailsContent = ({ desc, img}) => {
       </div>
       {/* // stock check  */}
 
-      {
-        !stock && <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">Stock Out...</div>
-      }
-      
-      {
-        stock && <div>
-        {/* // quantity start */}
-        <div className="lg:mt-11 mt-10">
-          <div className="flex flex-row items-center justify-between">
-            <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
-              {
-                "Select quantity".toUpperCase()
-              }
-            </p>
-            <div className="flex">
-              <span
-                onClick={minusCount}
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
-              >
-                -
-              </span>
-              <input
-                id="counter"
-                aria-label="input"
-                className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
-                type="text"
-                value={count}
-                onChange={(e) => e.target.value}
-              />
-              <span
-                onClick={addCount}
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
-              >
-                +
-              </span>
+      {!stock && (
+        <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">
+          Stock Out...
+        </div>
+      )}
+
+      {stock && (
+        <div>
+          {/* // quantity start */}
+          <div className="lg:mt-11 mt-10">
+            <div className="flex flex-row items-center justify-between">
+              <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
+                {"Select quantity".toUpperCase()}
+              </p>
+              <div className="flex">
+                <span
+                  onClick={minusCount}
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border text-2xl dark:bg-gray-600 border-gray-300 border-r-0 w-10 h-10 flex items-center justify-center pb-1"
+                >
+                  -
+                </span>
+                <input
+                  id="counter"
+                  aria-label="input"
+                  className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
+                  type="text"
+                  value={count}
+                  onChange={(e) => e.target.value}
+                />
+                <span
+                  onClick={addCount}
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer text-2xl dark:bg-gray-600 border border-gray-300 border-l-0 w-10 h-10 flex items-center justify-center pb-1 "
+                >
+                  +
+                </span>
+              </div>
             </div>
           </div>
+          {/* // quantity end  */}
+          <Link to="/">
+            <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2">
+              Buy More
+            </button>
+          </Link>
+          <button
+            className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
+            onClick={handlePurchase}
+          >
+            Go For Payment
+          </button>
+          <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
         </div>
-        {/* // quantity end  */}
-  
-        <button
-          className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2"
-        >
-          <Link to="/">Buy More</Link>
-        </button>
-        <button
-          className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
-          onClick={handlePurchase}
-        >
-          Go For Payment
-        </button>
-        <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
-        </div>
-      }
+      )}
       {/* // stock check end  */}
-      
+
       <div
         className=" leading-6 text-gray-600 mt-7 dark:text-gray-400 font-normal text-sm font-mont"
         dangerouslySetInnerHTML={{ __html: shortDescription }}

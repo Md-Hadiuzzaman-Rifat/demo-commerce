@@ -19,11 +19,11 @@ const CategoryItem2 = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
                   Cargo Pants
                 </p>
-                
+                <Link to="category/cargo pants">
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
                 text-white"
                   
-                ><Link to="category/cargo pants">Browse</Link></button>
+                >Browse</button></Link>
                
               </div>
             </div>
@@ -42,11 +42,11 @@ const CategoryItem2 = () => {
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
                   T-Shirt
                 </p>
-                
+                <Link to="category/t-shirt">
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
                 text-brandGreen"
                   
-                ><Link to="category/t-shirt">Browse</Link></button>
+                >Browse</button></Link>
                
               </div>
             </div>
@@ -67,11 +67,7 @@ const CategoryItem2 = () => {
                 text-brandBlue"
                 >Browse</button>
                 </Link>
-{/*                 
-                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
-                text-brandBlue"
-                  onClick={()=>handleNavigate("trouser")}
-                >Browse</button> */}
+
                 
               </div>
             </div>
