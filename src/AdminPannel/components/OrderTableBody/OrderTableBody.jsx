@@ -9,7 +9,7 @@ import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrde
 
 const OrderTableBody = ({item}) => {
   const {_id,total, payment, date, status }= item || {}
-  console.log(item);
+
 
   const [orderStatus, setOrderStatus]=useState(status)
   

@@ -29,7 +29,7 @@ export default function CustomerAddress({orderedItem}) {
   }, [cart, dispatch]);
 
 const data={name, email, phone, address, division}
-const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date().toLocaleString(), total: cart?.cartTotalAmount }
+const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date().toLocaleString(), total: cart?.cartTotalAmount, status:"pending" }
 
   const handleAddress=(e)=>{
     e.preventDefault()

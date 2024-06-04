@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import { useGetSingleOrderQuery } from "../../../features/confirmOrder/confirmOrder";
 import "./ViewOrder.scss";
@@ -21,7 +22,7 @@ const ViewOrder = () => {
     payment,
   } = data || {};
 
-  console.log(orderedItem);
+  
 
   return (
     <div className="viewOrder">
@@ -58,12 +59,14 @@ const ViewOrder = () => {
         orderedItem?.length > 0 &&
         orderedItem.map((item, index) => (
           <div key={index}>
-            <div>
+            <div className="mb-4">
+              <img style={{ width: "80px" }} src={item?.image} alt="" />
               <p>
-                Order id: <span className="font-semibold"> {item.id}</span>
+                Order id: <span className="font-semibold"> {item.id?.split(">>>")[0]}</span>
               </p>
-              {/* <img src={item.image[0]} alt="" /> */}
-              <img style={{ width: "80px" }} src={item.image[0]} alt="" />
+              <p>
+                Size: <span className="font-semibold"> {item.id?.split(">>>")[1]}</span>
+              </p>
               <p>
                 Name: <span className="font-semibold">{item.name}</span>
               </p>

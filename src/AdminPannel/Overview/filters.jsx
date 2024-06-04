@@ -121,8 +121,9 @@ export function DateRangeColumnFilter({
   }, [id, preFilteredRows]);
 
   return (
-    <div>
+    <div className="text-sm">
       <input
+      className="text-sm p-1"
         //min={min.toISOString().slice(0, 10)}
         onChange={(e) => {
           const val = e.target.value;
@@ -133,6 +134,7 @@ export function DateRangeColumnFilter({
       />
       {" to "}
       <input
+      className="text-sm p-1"
         //max={max.toISOString().slice(0, 10)}
         onChange={(e) => {
           const val = e.target.value;

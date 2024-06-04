@@ -10,7 +10,7 @@ const EditProduct = () => {
   const { id } = useParams();
 
   const { data, isError, isLoading, isSuccess } = useGetSingleProductQuery(id);
-  
+
   return (
     <div>
       <AdminLayout>

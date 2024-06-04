@@ -51,12 +51,12 @@ export default function OrderForm() {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden my-8 rounded-lg bg-white text-left shadow-xl transition-all  sm:w-full sm:max-w-lg">
+              <Dialog.Panel className="relative transform overflow-hidden my-16 lg:mt-20 rounded-lg bg-white text-left shadow-xl transition-all  sm:w-full sm:max-w-lg">
                 <div className="bg-gray-50 py-3 flex p-8 items-center">
-                  <p className="text-center font-semibold text-xl p-2">
+                  <p className="text-center font-semibold text-base md:text-lg">
                     ক্যাশ অন ডেলিভারিতে অর্ডার করতে আপনার তথ্য দিন
                   </p>
-                  <span onClick={()=>dispatch(orderFormClose())} className="font-bold cursor-pointer text-2xl">
+                  <span onClick={()=>dispatch(orderFormClose())} className="font-bold cursor-pointer text-2xl ml-4 text-red-500">
                     <RxCross2></RxCross2>
                   </span>
                 </div>
