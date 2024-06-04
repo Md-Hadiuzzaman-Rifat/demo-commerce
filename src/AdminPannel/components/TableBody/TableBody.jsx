@@ -14,8 +14,8 @@ const TableBody = ({ data }) => {
   const navigate = useNavigate();
   const {editProduct}=useDeleteProductMutation()
 
-  if (productName?.length > 20) {
-    productName = productName.substring(0, 18) + "...";
+  if (productName?.length > 25) {
+    productName = productName.substring(0, 21) + "...";
   }
 
   const editGarbage=async(id)=>{
@@ -53,7 +53,7 @@ const TableBody = ({ data }) => {
         className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         <div className="ps-3">
-          <div className="text-base font-semibold">{productName}</div>
+          <div className="text-sm font-semibold">{productName}</div>
           <div className="font-normal text-gray-500">{brand}</div>
         </div>
       </th>

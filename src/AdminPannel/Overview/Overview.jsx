@@ -3,6 +3,7 @@
 
 import React, { useMemo } from "react";
 import { useGetAllOrderedQuery } from "../../features/confirmOrder/confirmOrder";
+import AdminLayout from "../AdminLayout/AdminLayout";
 
 import TableContainer from "./TableContainer";
 import {
@@ -28,11 +29,11 @@ const Overview = () => {
   );
 
   return(
-    <div>
+    <AdminLayout>
         {
             !isLoading && data && <TableContainer columns={columns} data={data} />
         }
-    </div>
+    </AdminLayout>
   );
 };
 
