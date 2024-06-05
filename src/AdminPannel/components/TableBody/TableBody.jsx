@@ -20,7 +20,7 @@ const TableBody = ({ data }) => {
 
   const editGarbage=async(id)=>{
     console.log(id)
-    fetch(`https://backend.urbanregionbd.com/garbageTrash`,{
+    fetch(`${import.meta.env.VITE_ROOT_API}/garbageTrash`,{
       method: "PUT",
       headers:{
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const TableBody = ({ data }) => {
   }
 
   const deleteGarbage=async(id)=>{
-    fetch(`https://backend.urbanregionbd.com/garbage/${id}`,{
+    fetch(`${import.meta.env.VITE_ROOT_API}/garbage/${id}`,{
       method: "DELETE",
     })
   }
@@ -69,7 +69,7 @@ const TableBody = ({ data }) => {
       <td className="px-6 py-4">
         <img
           className="max-w-20"
-          src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
+          src={`${import.meta.env.VITE_ROOT_API}/Images/${images[0]?.filename}`}
           alt=""
         />
       </td>

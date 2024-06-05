@@ -14,21 +14,21 @@ function Test() {
     formData.append("file", file);
     formData.append("category", category);
     axios
-      .post("https://backend.urbanregionbd.com/upload", formData)
+      .post(`${import.meta.env.VITE_ROOT_API}/upload`, formData)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((er) => console.log(er));
   };
 
   useEffect(() => {
-    fetch(`https://backend.urbanregionbd.com/get-upload`)
+    fetch(`${import.meta.env.VITE_ROOT_API}/get-upload`)
       .then((res) => res.json())
       .then((data) => setFind(data));
   }, []);
 
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`https://backend.urbanregionbd.com/category/${imageName}`, {
+    fetch(`${import.meta.env.VITE_ROOT_API}/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -58,7 +58,7 @@ function Test() {
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`https://backend.urbanregionbd.com/images/${item.image}`}
+                src={`${import.meta.env.VITE_ROOT_API}/Images/${item.image}`}
                 className="object-cover"
                 alt=""
               />

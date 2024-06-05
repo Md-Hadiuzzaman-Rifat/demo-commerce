@@ -16,7 +16,7 @@ const Payment2 = () => {[]
   
     const handlePayment=async()=>{
 
-      fetch('https://backend.urbanregionbd.com/editPayment',{
+      fetch(`${import.meta.env.VITE_ROOT_API}/editPayment`,{
         method:"PUT",
         headers: {
           "Content-Type": "application/json",

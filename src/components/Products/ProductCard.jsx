@@ -18,7 +18,7 @@ const ProductCard = ({ data, index }) => {
       >
         <div className="relative">
           <img
-            src={`https://backend.urbanregionbd.com/Images/${images[0].filename}`}
+            src={`${import.meta.env.VITE_ROOT_API}/Images/${images[0].filename}`}
             alt=""
             className="h-[180px] w-[260px] object-cover rounded-md"
           />

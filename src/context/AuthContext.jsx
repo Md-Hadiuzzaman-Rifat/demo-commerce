@@ -77,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("https://backend.urbanregionbd.com/addUser",{
+    fetch(`${import.meta.env.VITE_ROOT_API}/addUser`,{
       method:"POST",
       headers:{
         "content-type":"application/json"

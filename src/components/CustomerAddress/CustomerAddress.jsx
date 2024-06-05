@@ -35,7 +35,7 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
     e.preventDefault()
 
     // create client 
-    fetch(`https://backend.urbanregionbd.com/addClient`,{
+    fetch(`${import.meta.env.VITE_ROOT_API}/addClient`,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",

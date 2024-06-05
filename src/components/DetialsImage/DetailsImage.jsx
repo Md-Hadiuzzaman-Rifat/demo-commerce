@@ -12,7 +12,7 @@ const DetailsImage = ({ images }) => {
       {/* main images  */}
       <div className=" lg:w-10/12 bg-gray-100 flex justify-center items-center">
          <img
-          src={`https://backend.urbanregionbd.com/Images/${images[selected]?.filename}`}
+          src={`${import.meta.env.VITE_ROOT_API}/Images/${images[selected]?.filename}`}
           alt="Wooden Chair Previw"
         /> 
       </div>
@@ -25,7 +25,7 @@ const DetailsImage = ({ images }) => {
             onClick={() => setSelected(index)}
           >
             <img
-              src={`https://backend.urbanregionbd.com/Images/${images[index].filename}`}
+              src={`${import.meta.env.VITE_ROOT_API}/Images/${images[index].filename}`}
               alt="Wooden chair- preview 3"
             />
           </div>

@@ -20,7 +20,7 @@ const CarouselItem = ({ data }) => {
       <a href="#">
         <img 
           className="rounded-t-lg max-h-[140px] sm:h-[180px] md:max-h-[250px] w-full object-cover"
-          src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
+          src={`${import.meta.env.VITE_ROOT_API}/Images/${images[0]?.filename}`}
           alt="product image"
         />
       </a>

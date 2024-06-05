@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react";
 import { useAddCategoryMutation, useGetCategoryQuery } from "../../features/category/categoryApi";
-import axios from "axios";
 
 function CategoryForm() {
   const [file, setFile] = useState();
@@ -23,7 +22,7 @@ function CategoryForm() {
 console.log(getCatData)
   const handleDelete = (imageName) => {
     console.log(imageName);
-    fetch(`https://backend.urbanregionbd.com/category/${imageName}`, {
+    fetch(`${import.meta.env.VITE_ROOT_API}/category/${imageName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -58,7 +57,7 @@ console.log(getCatData)
             <div className="max-w-[300px]">
               <img
                 key={item._id}
-                src={`https://backend.urbanregionbd.com/Images/${item.image}`}
+                src={`${import.meta.env.VITE_ROOT_API}/Images/${item.image}`}
                 className="object-cover"
                 alt=""
               />

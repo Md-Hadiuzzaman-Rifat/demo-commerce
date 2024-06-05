@@ -19,7 +19,7 @@ const CategoryItem = ({ item }) => {
     >
       <img
         className="object-cover w-full  h-56 md:h-52 md:w-48"
-        src={`https://backend.urbanregionbd.com/Images/${images[0]?.filename}`}
+        src={`${import.meta.env.VITE_ROOT_API}/Images/${images[0]?.filename}`}
         alt=""
       />
       <div className="flex flex-col justify-between p-2 leading-normal">

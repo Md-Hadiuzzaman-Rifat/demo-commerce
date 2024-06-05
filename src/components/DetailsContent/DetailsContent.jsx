@@ -61,7 +61,7 @@ const DetailsContent = ({ desc, img }) => {
         addToCart({
           id: `${id}>>>${selectSize}`,
           name: desc?.productName,
-          image: `https://backend.urbanregionbd.com/Images/${img[0]?.filename}`,
+          image: `${import.meta.env.VITE_ROOT_API}/Images/${img[0]?.filename}`,
           price: desc?.discount,
           cartQuantity: count,
         })
@@ -76,7 +76,7 @@ const DetailsContent = ({ desc, img }) => {
         decreaseCart({
           id: `${id}>>>${selectSize}`,
           name: desc.productName,
-          image: `https://backend.urbanregionbd.com/images/${img[0]?.filename}`,
+          image: `${import.meta.env.VITE_ROOT_API}/Images/${img[0]?.filename}`,
           price: desc.discount,
           cartQuantity: count,
         })
