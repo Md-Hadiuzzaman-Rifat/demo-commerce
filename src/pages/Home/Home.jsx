@@ -66,7 +66,7 @@ const bars = [
 ];
 const Home = () => {
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-  console.log(import.meta.env.VITE_ROOT_API);
+
   return (
     <div>
       <RightCart></RightCart>
