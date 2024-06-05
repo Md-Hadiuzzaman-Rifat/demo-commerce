@@ -11,6 +11,7 @@ import { MdOutlineBorderColor } from "react-icons/md";
 import { GrOrderedList } from "react-icons/gr";
 import { CgSidebarOpen } from "react-icons/cg";
 import { FaArrowLeft } from "react-icons/fa";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 
 
 const AdminLayout = ({ children }) => {
@@ -22,6 +23,7 @@ const AdminLayout = ({ children }) => {
     { title: "Control ", src: <MdOutlineAdminPanelSettings className="text-2xl"/>, link:"/dashboard/control"},
     { title: "Garbage ", src: <MdAutoDelete className="text-2xl"/>, link:"/dashboard/garbage"},
     { title: "Category ", src: <MdCategory className="text-2xl"/>, link:"/dashboard/createCategory"},
+    { title: "Overview ", src: <AiOutlineFundProjectionScreen className="text-2xl"/>, link:"/dashboard/overview"},
   ];
   
   return (

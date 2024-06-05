@@ -1,14 +1,13 @@
 /* eslint-disable no-unused-vars */
 //  eslint-disable no-unused-vars
 
-import { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import { useAddCategoryMutation, useGetCategoryQuery } from "../../features/category/categoryApi";
 
 function CategoryForm() {
   const [file, setFile] = useState();
   const [category, setCategory] = useState("");
-  
-  const [addCategory,{isSuccess: addSuccess}]=useAddCategoryMutation()
+  const [addCategory,{isLoading:addLoading}]=useAddCategoryMutation()
   const {data:getCatData, isSuccess: getCatSuccess}= useGetCategoryQuery()
  
   const upload = () => {
@@ -19,9 +18,7 @@ function CategoryForm() {
     addCategory(formData)
   };
 
-console.log(getCatData)
   const handleDelete = (imageName) => {
-    console.log(imageName);
     fetch(`${import.meta.env.VITE_ROOT_API}/category/${imageName}`, {
       method: "DELETE",
     })
@@ -31,7 +28,8 @@ console.log(getCatData)
 
   return (
     <div className="container mx-auto max-w-2xl py-5 sm:px-6 sm:py-12 lg:max-w-7xl">
-
+      
+    {addLoading &&  <h2 className="text-red-500 font-bold text-4xl mb-8">দয়া করে window রিলোড করুন। </h2> }
       <input className="m-2" type="file" onChange={(e) => setFile(e.target.files[0])} />
       
       <input type="text" placeholder="Category Name" onChange={(e) => setCategory(e.target.value)} />

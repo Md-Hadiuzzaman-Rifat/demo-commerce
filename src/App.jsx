@@ -87,7 +87,8 @@ const App = () => {
             {/* //  admin and dashboard page start */}
              
             <Route path="/dashboard">
-            <Route path="" element={<Overview />}></Route>
+            <Route path="" element={<AdminLogin />}></Route>
+            <Route path="overview" element={<Overview />}></Route>
               {/* <AdminLayout> */}
                 {/* <Route path="users" element={<AllUsers />}></Route> */}
                 <Route path="edit/:id" element={<EditProduct />}></Route>

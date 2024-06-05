@@ -23,7 +23,6 @@ const CreateCategory = () => {
   };
   useEffect(()=>{
     if(addSuccess){
-      console.log("fuck");
       setNewSubCategory("")
     }
   },[addSuccess])
@@ -61,6 +60,12 @@ const CreateCategory = () => {
         </button>
       </form>
       <div className="my-4 text-gray-800 flex flex-wrap font-semibold">
+        {
+          subLoading && <p>Loading...</p>
+        }
+        {
+          !subLoading && getSubCatData?.length == 0 && <p className="text-base font-abc">No Subcategory Added.</p>
+        }
       {
           getSubCatSuccess && getSubCatData?.length > 0 && getSubCatData.map((item) => (
             <SubCategory key={item._id} item={item} />
