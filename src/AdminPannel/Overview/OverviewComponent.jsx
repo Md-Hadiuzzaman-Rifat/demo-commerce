@@ -20,7 +20,7 @@ const OverviewComponent = ({ received, pending, failed, delivered }) => {
     let receivedQuantity=0
 
   for(let i=0; i<delivered.length; i++){
-    console.log(delivered[i]);
+    // console.log(delivered[i]);
     deliveredTotal += delivered[i].total
     for(let j=0; j<delivered[i].orderedItem.length; j++){
         deliveredQuantity+=delivered[i].orderedItem[j].cartQuantity
@@ -28,7 +28,7 @@ const OverviewComponent = ({ received, pending, failed, delivered }) => {
   }
 
   for(let i=0; i<failed.length; i++){
-    console.log(failed[i]);
+    // console.log(failed[i]);
     failedTotal += failed[i].total
     for(let j=0; j<failed[i].orderedItem.length; j++){
         failedQuantity+=failed[i].orderedItem[j].cartQuantity
@@ -36,7 +36,7 @@ const OverviewComponent = ({ received, pending, failed, delivered }) => {
   }
 
   for(let i=0; i<received.length; i++){
-    console.log(received[i]);
+    // console.log(received[i]);
     receivedTotal += received[i].total
     for(let j=0; j<received[i].orderedItem.length; j++){
         receivedQuantity+=received[i].orderedItem[j].cartQuantity

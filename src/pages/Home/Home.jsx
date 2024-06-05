@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Products from "../../components/Products/Products.jsx";
 import Blogs from "../../components/Blogs/Blogs.jsx";
 import Popup from "../../components/Popup/Popup.jsx";
@@ -65,7 +66,7 @@ const bars = [
 ];
 const Home = () => {
   const { data, isSuccess, isLoading } = useGetProductsQuery();
-  
+  console.log(import.meta.env.VITE_ROOT_API);
   return (
     <div>
       <RightCart></RightCart>
