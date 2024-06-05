@@ -17,7 +17,7 @@ export default function Category() {
   }, []);
 
   return (
-    <div className="bg-white ">
+    <div className="bg-white " id={categoryName}>
       {open && <QuickView />}
       
       <div className="container mt-4 mb-12">
