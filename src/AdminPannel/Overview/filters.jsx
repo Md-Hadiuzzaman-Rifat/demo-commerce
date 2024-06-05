@@ -1,25 +1,46 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
+import OverviewComponent from "./OverviewComponent";
 
 export const Filter = ({ column }) => {
   
   
   let totalEarn=0
+  let received=[]
+  let pending= []
+  let failed = []
+  let delivered=[] 
   let arr =column?.filteredRows
+
   
  for(let x=0; x<arr?.length; x++){
     // console.log(arr[x]?.original.total);
-    console.log(arr[x]);
+    // console.log(arr[x].original);
+    if(arr[x]?.original?.status=== "received"){
+      received.push(arr[x].original)
+    }
+    if(arr[x]?.original?.status=== "delivered"){
+      delivered.push(arr[x].original)
+    }
+    
+    if(arr[x]?.original?.status=== "pending"){
+      pending.push(arr[x].original)
+    }
+    if(arr[x]?.original?.status=== "failed"){
+      failed.push(arr[x].original)
+    }
     
     totalEarn+= arr[x]?.original?.total
  }
-//  console.log(totalEarn);
+ 
  
   
   return (
     <div style={{ marginTop: 5 }}>
       {column.canFilter && column.render("Filter")}
+      <OverviewComponent received={received} pending={pending} failed={failed} delivered={delivered}></OverviewComponent>
     </div>
   );
 };
@@ -146,6 +167,7 @@ export function DateRangeColumnFilter({
         type="date"
         value={filterValue[1]?.slice(0, 10) || ""}
       />
+      
     </div>
   );
 }

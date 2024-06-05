@@ -14,7 +14,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 
 const AdminLayout = ({ children }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const Menus = [
     { title: "Orders", src: <MdOutlineBorderColor className="text-2xl"/>, gap: true , link:"/dashboard/orders"},
     { title: "Products ", src: <GrOrderedList className="text-2xl"/>, link:"/dashboard/allProducts"},

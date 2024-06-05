@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
@@ -40,7 +41,7 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
   };
   return (
     <Fragment>
-      <table className="table table-hover" {...getTableProps()}>
+      <table className="table table-hover w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             
@@ -63,34 +64,7 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
           ))}
         </thead>
 
-        <tbody {...getTableBodyProps()}>
-          {page.map((row) => {
-            prepareRow(row);
-            return (
-              <Fragment key={row.getRowProps().key}>
-                {/* {
-                  console.log(row?.original)
-                } */}
-                
-                <tr>
-                  {row.cells.map((cell) => {
-                    
-                    return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                    );
-                  })}
-                </tr>
-                {row.isExpanded && (
-                  <tr>
-                    <td colSpan={visibleColumns.length}>
-                      {renderRowSubComponent(row)}
-                    </td>
-                  </tr>
-                )}
-              </Fragment>
-            );
-          })}
-        </tbody>
+        {/* //table body removed  and placed in important text*/}
       </table>
 
       <div
@@ -103,3 +77,6 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
 };
 
 export default TableContainer;
+
+
+

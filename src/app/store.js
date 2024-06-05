@@ -9,6 +9,7 @@ import cardOrderSlice from '../features/CardOrder/cardOrderSlice'
 import cartSlice from "../features/cartSlice/cartSlice"
 import popUpSlice from "../features/quickView/quickViewSlice"
 import sizeModal from "../features/sizeModalSlice/sizeModalSlice"
+import  totalCount  from '../features/review/reviewSlice'
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -20,7 +21,8 @@ export const store = configureStore({
     categorySlice,
     cart:cartSlice,
     popUp:popUpSlice,
-    size:sizeModal
+    size:sizeModal,
+    totalCount
   },
   middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(apiSlice.middleware)
 })
