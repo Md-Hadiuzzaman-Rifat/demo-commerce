@@ -35,7 +35,6 @@ const handleGoogle=()=>{
     }
   };
 
-
     return (
       <div>
         <section className="bg-gray-50 dark:bg-gray-900">
@@ -82,7 +81,7 @@ const handleGoogle=()=>{
                   </div>
 
                   <div className="flex flex-col gap-2">
-                  <button type="submit" className="dark:bg-white dark:text-black text-white bg-gray-500 px-6 py-2 font-semibold rounded-sm text-white">Submit</button>
+                  {/* <button type="submit" className="dark:bg-white dark:text-black text-white bg-gray-500 px-6 py-2 font-semibold rounded-sm text-white">Submit</button> */}
                   <button onClick={handleGoogle} className="bg-orange-500 px-6 py-2 font-semibold rounded-sm text-white">Google++</button>
                   </div>
                   <div className="text-sm font-light text-gray-500 dark:text-gray-400">
