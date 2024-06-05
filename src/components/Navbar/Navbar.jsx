@@ -17,8 +17,8 @@ const navigation = {
       name: "Shop",
       featured: [
         {
-          name: "New Arrivals",
-          href: "#",
+          name: "Top Rated",
+          href: "/",
           imageSrc:
             "https://i.ibb.co/ZxdDH0w/IMG-2557.png",
           imageAlt:
@@ -26,7 +26,7 @@ const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          href: "/",
           imageSrc:
             "https://i.ibb.co/Br31f9K/Whats-App-Image-2024-05-15-at-5-25-28-PM-1.jpg",
           imageAlt:

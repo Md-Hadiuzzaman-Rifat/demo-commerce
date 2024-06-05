@@ -77,7 +77,7 @@ const Home = () => {
       <CategoryItem />
       <CategoryItem2 />
       <Services />
-      <Bars item={bars[1]}></Bars>
+      <Bars item={bars[1]} id="top rated"></Bars>
        {/* top rated  */}
        {
         isLoading && <ProductListSkeleton/>
@@ -86,7 +86,7 @@ const Home = () => {
         !isLoading && isSuccess && data && <SampleProduct data={data}></SampleProduct>
       }
       <Banner data={BannerData} />
-      <Bars item={bars[2]}></Bars>
+      <Bars item={bars[2]} id="flash deals"></Bars>
       {/* // flash deals   */}
       {
         !isLoading && isSuccess && data && <Products data={data}></Products>

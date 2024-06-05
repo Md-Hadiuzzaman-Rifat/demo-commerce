@@ -21,17 +21,19 @@ export const Filter = ({ column }) => {
     if(arr[x]?.original?.status=== "received"){
       received.push(arr[x].original)
     }
-    if(arr[x]?.original?.status=== "delivered"){
+    else if(arr[x]?.original?.status=== "delivered"){
       delivered.push(arr[x].original)
     }
     
-    if(arr[x]?.original?.status=== "pending"){
+    else if(arr[x]?.original?.status=== "pending"){
       pending.push(arr[x].original)
     }
-    if(arr[x]?.original?.status=== "failed"){
+    else{
       failed.push(arr[x].original)
     }
-    
+    // if(arr[x]?.original?.status=== "failed"){
+    //   failed.push(arr[x].original)
+    // }
     totalEarn+= arr[x]?.original?.total
  }
  
