@@ -26,7 +26,7 @@ export default function QuickView() {
   const sizes = makeSizes(description?.extra);
 
   const handleSize = (value, index) => {
-    setWarning(false)
+    setWarning(false);
     setSelectSize(value);
     setSelectedIndex(index);
   };
@@ -41,7 +41,9 @@ export default function QuickView() {
         addToCart({
           id: `${_id}>>>${selectSize}`,
           name: description?.productName,
-          image: `${import.meta.env.VITE_ROOT_API}/Images/${images?.[0]?.filename}`,
+          image: `${import.meta.env.VITE_ROOT_API}/Images/${
+            images?.[0]?.filename
+          }`,
           price: description?.discount,
           cartQuantity: count,
         })
@@ -93,7 +95,9 @@ export default function QuickView() {
                   <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
                     <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg m-2 bg-gray-100 sm:col-span-4 lg:col-span-5">
                       <img
-                        src={`${import.meta.env.VITE_ROOT_API}/Images/${images?.[0].filename}`}
+                        src={`${import.meta.env.VITE_ROOT_API}/Images/${
+                          images?.[0].filename
+                        }`}
                         alt="urban region bd"
                         className="object-cover object-center"
                       />
@@ -117,11 +121,9 @@ export default function QuickView() {
                             {description?.price} Taka
                           </p>
                           <p className="text-xl text-gray-900">
-                            {description?.price} Taka
+                            {description?.discount} Taka
                           </p>
                         </div>
-
-                        
                       </section>
 
                       <section
@@ -132,43 +134,52 @@ export default function QuickView() {
                           Product options
                         </h3>
                         {/* // stock check start */}
-                        {
-                          !value?.description?.stock && <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">Stock Out...</div>
-                        }
-                        {
-                          value?.description?.stock && <form>
-                          <div className="flex flex-row gap-2 mt-2 flex-wrap">
-                            {sizes.map((item, index) => (
-                              <div
-                                key={index}
-                                className={`${
-                                  selectedIndex === index
-                                    ? "transition border cursor-pointer hover:shadow-md font-bold bg-gray-800 text-gray-100 px-6 py-1 duration-100"
-                                    : "transition border cursor-pointer hover:shadow-md px-6 py-1 duration-100"
-                                }`}
-                                onClick={() => handleSize(item, index)}
-                              >
-                                {item.replace(/\s/g, "").toUpperCase()}
-                              </div>
-                            ))}
+                        {!value?.description?.stock && (
+                          <div className="text-white bg-red-500 font-mont font-semibold text-center mt-4 p-2 tracking-wide">
+                            Stock Out...
                           </div>
-                          {/* // warning  */}
-                          <div style={warning ? { display: "block" } : { display: "none" }}>
-        <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100 font-abc">
-          Please Select Size
-        </p>
-      </div>
-                          <p
-                            onClick={addCount}
-                            
-                            className={`focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 cursor-pointer
-                            text-center focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-2 md:py-4 lg:mt-4 mt-2 ${warning && "hover:bg-gray-400"}`}
-                          >
-                            Add to bag
-                          </p>
-                        </form>
-                        }
-                        
+                        )}
+                        {value?.description?.stock && (
+                          <form>
+                            <div className="flex flex-row gap-2 mt-2 flex-wrap">
+                              {sizes.map((item, index) => (
+                                <div
+                                  key={index}
+                                  className={`${
+                                    selectedIndex === index
+                                      ? "transition border cursor-pointer hover:shadow-md font-bold bg-gray-800 text-gray-100 px-6 py-1 duration-100"
+                                      : "transition border cursor-pointer hover:shadow-md px-6 py-1 duration-100"
+                                  }`}
+                                  onClick={() => handleSize(item, index)}
+                                >
+                                  {item.replace(/\s/g, "").toUpperCase()}
+                                </div>
+                              ))}
+                            </div>
+                            {/* // warning  */}
+                            <div
+                              style={
+                                warning
+                                  ? { display: "block" }
+                                  : { display: "none" }
+                              }
+                            >
+                              <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100 font-abc">
+                                Please Select Size
+                              </p>
+                            </div>
+                            <p
+                              onClick={addCount}
+                              className={`focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 cursor-pointer
+                            text-center focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-2 md:py-4 lg:mt-4 mt-2 ${
+                              warning && "hover:bg-gray-400"
+                            }`}
+                            >
+                              Add to bag
+                            </p>
+                          </form>
+                        )}
+
                         {/* // stock check end  */}
                       </section>
                     </div>

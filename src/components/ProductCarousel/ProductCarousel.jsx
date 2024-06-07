@@ -13,7 +13,7 @@ function AutoPlayMethods({category, data}) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 700,
     autoplay: true,
     slidesToShow: 6,
     adaptiveHeight: true,
