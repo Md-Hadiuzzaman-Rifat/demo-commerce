@@ -96,10 +96,6 @@ export default function Navbar() {
       windowHeight > 200 ? setStickyClass('fixed top-0 left-0 z-50 shadow-lg') : setStickyClass('relative');
     }
   };
-
-
-
-
   return (
     <div className="relative">
       <div className="bg-white">
@@ -402,7 +398,7 @@ export default function Navbar() {
                   <div className="ml-4 flow-root lg:ml-6" onClick={()=>navigate('/shoppingCart')}>
                     <a href="#" className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
-                        className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                        className="h-6 w-6 text-red-500 flex-shrink-0  group-hover:text-gray-500"
                         aria-hidden="true"
                       />
                       <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">

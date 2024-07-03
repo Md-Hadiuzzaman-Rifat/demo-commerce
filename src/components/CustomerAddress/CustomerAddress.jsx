@@ -8,69 +8,91 @@ import { useDispatch, useSelector } from "react-redux";
 import { orderFormClose } from "../../features/cartHandler/cartHandler";
 import { clearCart, getTotals } from "../../features/cartSlice/cartSlice";
 
-export default function CustomerAddress({orderedItem}) {
-  const {formCondition}= useSelector(state=>state.cartHandler)
+export default function CustomerAddress({ orderedItem }) {
+  const { formCondition } = useSelector((state) => state.cartHandler);
 
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [division, setDivision] = useState("osd");
-  const [receivedData, setReceivedData]= useState({})
-
+  const [receivedData, setReceivedData] = useState({});
 
   const cart = useSelector((state) => state.cart);
-  const [purchaseOrder,{data:successData ,isSuccess:successPurchase  ,isLoading:purchaseLoading}]= usePurchaseOrderMutation()
+  const [
+    purchaseOrder,
+    {
+      data: successData,
+      isSuccess: successPurchase,
+      isLoading: purchaseLoading,
+    },
+  ] = usePurchaseOrderMutation();
 
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
-const data={name, email, phone, address, division}
-const orderStatus={name, phone ,email, address, division, orderedItem, date:new Date().toLocaleString(), total: cart?.cartTotalAmount, status:"pending" }
+  const data = { name, email, phone, address, division };
+  const orderStatus = {
+    name,
+    phone,
+    email,
+    address,
+    division,
+    orderedItem,
+    date: new Date().toLocaleString(),
+    total: cart?.cartTotalAmount,
+    status: "pending",
+  };
 
-  const handleAddress=(e)=>{
-    e.preventDefault()
+  const handleAddress = (e) => {
+    e.preventDefault();
 
-    // create client 
-    fetch(`${import.meta.env.VITE_ROOT_API}/addClient`,{
-      method:"POST",
+    // create client
+    fetch(`${import.meta.env.VITE_ROOT_API}/addClient`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data), 
+      body: JSON.stringify(data),
     })
-    .then(res=>res.json())
-    .catch(err=>console.log(err+" Failed from create client"))
-    // // // create order 
-    purchaseOrder(orderStatus)
-  }
-  
- 
-  useEffect(()=>{
-    if(successPurchase && successData){
-      setReceivedData(successData)
-      dispatch(orderFormClose())
-      dispatch(clearCart())
-      navigate('/paymentPage', {state:{successData, division}})
+      .then((res) => res.json())
+      .catch((err) => console.log(err + " Failed from create client"));
+    // // // create order
+    purchaseOrder(orderStatus);
+  };
+
+  useEffect(() => {
+    if (successPurchase && successData) {
+      setReceivedData(successData);
+      dispatch(orderFormClose());
+      dispatch(clearCart());
+      navigate("/paymentPage", { state: { successData, division } });
     }
-  },[successPurchase,successData,receivedData, division , dispatch ,navigate])
+  }, [
+    successPurchase,
+    successData,
+    receivedData,
+    division,
+    dispatch,
+    navigate,
+  ]);
 
   return (
     <div className="isolate bg-white px-6  lg:px-8 ">
-      {
-        purchaseLoading && <Radio
-        visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="radio-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
+      {purchaseLoading && (
+        <Radio
+          visible={true}
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="radio-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
         />
-      }
+      )}
       <form
         onSubmit={handleAddress}
         method="POST"
@@ -96,15 +118,13 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
           </div>
         </div>
 
-
-
         <div className="sm:col-span-2">
           <label
             htmlFor="phone-number"
             className="block text-md font-semibold leading-6 text-gray-900"
           >
             ফোন নম্বর <span className="text-red-600 text-md font-bold">*</span>
-          </label> 
+          </label>
           <div className="relative mt-2.5">
             <div className="absolute inset-y-0 left-0 flex items-center">
               <label htmlFor="country" className="sr-only">
@@ -135,7 +155,7 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
             htmlFor="street-address"
             className="block text-md font-bold leading-6 text-gray-900"
           >
-           ঠিকানা <span className="font-bold text-lg text-red-600">*</span>
+            ঠিকানা <span className="font-bold text-lg text-red-600">*</span>
           </label>
           <div className="mt-2">
             <input
@@ -155,20 +175,21 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
         <div className="border my-4 p-4 rounded-md">
           <div className="flex flex-col gap-2">
             <p className="font-bold">শিপিং মেথড</p>
+            <hr />
             <label>
               <input
-                onChange={(e) =>setDivision(e.target.value)}
+                onChange={(e) => setDivision(e.target.value)}
                 type="radio"
                 checked={division === "isd"}
                 name="myRadio"
                 value="isd"
               />{" "}
-              ঢাকার ভিতর 
+              ঢাকার ভিতর
             </label>
 
             <label>
               <input
-                 onChange={(e) =>setDivision(e.target.value)}
+                onChange={(e) => setDivision(e.target.value)}
                 type="radio"
                 name="myRadio"
                 checked={division === "osd"}
@@ -179,20 +200,14 @@ const orderStatus={name, phone ,email, address, division, orderedItem, date:new 
           </div>
         </div>
 
-
-        <div className="mt-2">
+        <div className="mt-2 ">
           <button
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mb-6 text-lg"
+            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mb-6 font-base text-xl"
           >
-            অর্ডার কনফর্ম করুন
+            অর্ডার কনফর্ম করুন 
+            
           </button>
-          {/* <button
-            type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mb-6 text-lg"
-          >
-            অর্ডার কনফর্ম করুন
-          </button> */}
         </div>
       </form>
     </div>

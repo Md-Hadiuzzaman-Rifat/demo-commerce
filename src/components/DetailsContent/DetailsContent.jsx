@@ -139,7 +139,7 @@ const DetailsContent = ({ desc, img }) => {
 
         <button
           onClick={openModal}
-          className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-700 "
+          className="flex underline gap-2 hover:text-gray-600 items-center me-12  text-indigo-600 font-bold"
         >
           {" "}
           <PiToiletPaperLight className="text-2xl " /> Size Guide

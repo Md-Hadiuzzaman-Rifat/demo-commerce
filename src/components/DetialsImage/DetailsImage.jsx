@@ -6,7 +6,6 @@ import "./DetailsImage.scss"
 /* eslint-disable no-unused-vars */
 const DetailsImage = ({ images }) => {
   const [selected, setSelected] = useState(0);
-  // console.log(images);
 
   return (
     <div className=" w-full sm:w-auto md:w-8/12 pt-0 lg:pt-12 lg:w-6/12 flex lg:flex-row-reverse flex-col gap-4">
