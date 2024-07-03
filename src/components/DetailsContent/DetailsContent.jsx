@@ -185,7 +185,7 @@ const DetailsContent = ({ desc, img }) => {
           <div className="lg:mt-11 mt-10">
             <div className="flex flex-row items-center justify-between">
               <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
-                {"Select quantity".toUpperCase()}
+                পরিমান নির্ধারণ করুন
               </p>
               <div className="flex">
                 <span
@@ -199,7 +199,7 @@ const DetailsContent = ({ desc, img }) => {
                   aria-label="input"
                   className="border text-black text-xl font-semibold border-gray-300 text-center w-14 pb-2 h-10"
                   type="text"
-                  value={count}
+                  value={count + 1 }
                   onChange={(e) => e.target.value}
                 />
                 <span
@@ -213,15 +213,15 @@ const DetailsContent = ({ desc, img }) => {
           </div>
           {/* // quantity end  */}
           <Link to="/">
-            <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-700 w-full py-4 lg:mt-4 mt-2">
-              Buy More
+            <button className="focus:outline-none focus:ring-2 duration-200 hover:bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium">
+             আমাদের সাথে সরাসরি কথা বলুন 
             </button>
           </Link>
           <button
-            className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-4 lg:mt-4 mt-2"
+            className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 duration-200 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-blue-600 w-full py-4 lg:mt-4 mt-2"
             onClick={handlePurchase}
           >
-            Go For Payment
+            পেমেন্ট করুন
           </button>
           <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
         </div>
