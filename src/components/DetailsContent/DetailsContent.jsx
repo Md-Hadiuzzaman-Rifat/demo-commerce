@@ -53,9 +53,6 @@ const DetailsContent = ({ desc, img }) => {
   const dispatch = useDispatch();
 
   const addCount = () => {
-    if (!selectSize) {
-      setWarning(true);
-    } else {
       setCount((prev) => prev + 1);
       setWarning(false);
       dispatch(
@@ -67,7 +64,6 @@ const DetailsContent = ({ desc, img }) => {
           cartQuantity: count,
         })
       );
-    }
   };
 
   const minusCount = () => {
@@ -226,7 +222,7 @@ const DetailsContent = ({ desc, img }) => {
             পেমেন্ট করুন
           </button>
           <a href="tel:+8801648141727" className="flex items-center gap-2">
-            <button className="focus:outline-none focus:ring-2 duration-200 bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide hover:bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium">
+            <button className="focus:outline-none focus:ring-2 duration-200 bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide hover:bg-gray-500 w-full py-4 lg:mt-4 mt-2 font-medium">
              আমাদের সাথে সরাসরি কথা বলুন 
             </button>
             </a>

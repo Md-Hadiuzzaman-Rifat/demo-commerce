@@ -26,14 +26,14 @@ const CategoryItem = ({ item }) => {
         <h5 className="mb-0 md:mb-2 text-lg font-semibold text-gray-900 dark:text-white font-abc ">
           {resizeName(productName, 15)}
         </h5>
-        <p className="mb-0 md:mb-2 font-normal text-gray-700 dark:text-gray-400 line-through font-blinker">
+        <p className="font-normal text-gray-700 dark:text-gray-400 line-through font-blinker">
           Price: {price} Taka
         </p>
 
         <p className="mb-1 md:mb-4 font-medium text-gray-700 dark:text-gray-400 font-blinker">
           Offer Price: {discount}
         </p>
-        <button onClick={quickView} className=" bg-black py-1 px-2 font-semibold text-white">Save {price - discount}</button>
+        <button onClick={quickView} className=" bg-black text-sm py-[2px] px-2 font-semibold text-white">Save {price - discount}</button>
       </div>
     </Link>
   );
