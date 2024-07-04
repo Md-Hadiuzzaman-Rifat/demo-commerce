@@ -98,8 +98,8 @@
 
 const Hero = () => {
   return (
-    <div>
-      <img src="/urbanregioncover.jpg" className="object-fill w-full"/>
+    <div >
+      <img className="max-h-[70vh] object-cover w-full" src="/urbanregion.jpg"/>
     </div>
   );
 };

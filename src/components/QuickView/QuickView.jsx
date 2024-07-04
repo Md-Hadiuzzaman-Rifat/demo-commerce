@@ -165,7 +165,7 @@ export default function QuickView() {
                               }
                             >
                               <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-1 text-center mt-2 duration-100 font-abc">
-                                Please Select Size
+                                সাইজ নির্ধারন করুন
                               </p>
                             </div>
                             <p

@@ -20,7 +20,7 @@ export default function Category() {
       {open && <QuickView />}
       
       <div className="container min-h-[100vh] mt-4 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold  text-indigo-600 bg-gray-100 font-abc p-2 mb-4">
+        <h2 className="text-3xl md:text-4xl cat-button font-bold  text-indigo-600 bg-gray-100 font-abc p-2 mb-4">
           {categoryName?.toUpperCase()}
         </h2>
         {isLoading && <ProductListSkeleton />}
