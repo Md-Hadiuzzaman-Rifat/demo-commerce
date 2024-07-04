@@ -2,13 +2,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { makeSizes } from "../../utils/sizes";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { orderFormOpen } from "../../features/cartHandler/cartHandler";
-import { addToCart, decreaseCart } from "../../features/cartSlice/cartSlice";
+import { addToCart, decreaseCart, getTotals } from "../../features/cartSlice/cartSlice";
 import { PiToiletPaperLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import SizeModal from "../SizeModal/SizeModal";
@@ -24,8 +24,6 @@ const DetailsContent = ({ desc, img }) => {
   const [amountWarning, setAmountWarning] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-
-  let cartAmount=0
 
   const {
     brand,
@@ -71,6 +69,14 @@ const DetailsContent = ({ desc, img }) => {
       );
     }
   };
+
+  const cart = useSelector((state) => state.cart);
+  
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+  const paymentCost = useSelector((state) => state.cart);
+
 
   const minusCount = () => {
     if (count > 0) {
@@ -217,23 +223,21 @@ const DetailsContent = ({ desc, img }) => {
           </div>
           {/* // quantity end  */}
           
-            <button onClick={()=>addCount()} className="focus:outline-none focus:ring-2 duration-200 hover:bg-indigo-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium flex items-center justify-center gap-2">
+            <button onClick={()=>addCount()} className="focus:outline-none focus:ring-2 duration-200 hover:bg-red-700 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium flex items-center justify-center gap-2">
               <span> কার্টে যোগ করুন</span> <span><IoCartSharp className="text-2xl"/></span> 
             </button>
-          
-          
-          {/* <button
+            {paymentCost?.cartTotalQuantity > 0 && <Link to="/shoppingCart"> <button
             className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 duration-200 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-blue-600 w-full py-4 lg:mt-4 mt-2"
-            onClick={handlePurchase}
           >
             পেমেন্ট করুন
-          </button> */}
+          </button></Link>}
           
           <a href="tel:+8801648141727" className="flex items-center gap-2">
             <button className="focus:outline-none focus:ring-2 duration-200 bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide hover:bg-gray-500 w-full py-4 lg:mt-4 mt-2 font-medium">
              আমাদের সাথে সরাসরি কথা বলুন 
             </button>
             </a>
+            
           <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
         </div>
         

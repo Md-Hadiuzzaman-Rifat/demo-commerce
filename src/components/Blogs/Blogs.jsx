@@ -1,10 +1,9 @@
-import React from "react";
 import Heading from "../Shared/Heading";
 
 // import images
-import Img1 from "../../assets/blogs/blog-1.jpg";
-import Img2 from "../../assets/blogs/blog-2.jpg";
-import Img3 from "../../assets/blogs/blog-3.jpg";
+import Img1 from "../../assets/blogs/blog1.jpg";
+import Img2 from "../../assets/blogs/blog2.jpg";
+import Img3 from "../../assets/blogs/blog3.jpg";
 
 const BlogData = [
   {
@@ -32,12 +31,13 @@ const BlogData = [
     aosDelay: "400",
   },
 ];
+
 const Blogs = () => {
   return (
     <div className="my-12">
       <div className="container">
         {/* Header section */}
-        <Heading title="Recent News" subtitle={"Explore Our Blogs"} />
+        <Heading title="Facebook Reviews" subtitle={"Visit out facebook page"} />
 
         {/* Blog section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gap-y-8 sm:gap-4 md:gap-7">

@@ -81,10 +81,10 @@ export default function Navbar() {
   const navigate = useNavigate();
   const dispatch= useDispatch()
   const cart = useSelector((state) => state.cart);
+
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
-
 
 
   const [stickyClass, setStickyClass] = useState("relative");
