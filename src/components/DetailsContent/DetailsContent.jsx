@@ -13,6 +13,7 @@ import { PiToiletPaperLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import SizeModal from "../SizeModal/SizeModal";
 import { sizeModalOpen } from "../../features/sizeModalSlice/sizeModalSlice";
+import { IoCartSharp } from "react-icons/io5";
 
 const DetailsContent = ({ desc, img }) => {
   const [rotate, setRotate] = useState(false);
@@ -168,7 +169,7 @@ const DetailsContent = ({ desc, img }) => {
       {/* // warning  */}
       <div style={warning ? { display: "block" } : { display: "none" }}>
         <p className="bg-red-200 border font-semibold text-red-700 border-red-700 rounded-sm p-2 text-xl text-center mt-2 duration-100 font-abc">
-          Please Select Size And Quantity
+          দয়া করে সাইজ নির্ধারণ করুন
         </p>
       </div>
       {/* // stock check  */}
@@ -213,54 +214,34 @@ const DetailsContent = ({ desc, img }) => {
           </div>
           {/* // quantity end  */}
           <Link to="/">
-            <button className="focus:outline-none focus:ring-2 duration-200 hover:bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium">
-             আমাদের সাথে সরাসরি কথা বলুন 
+            <button className="focus:outline-none focus:ring-2 duration-200 hover:bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium flex items-center justify-center gap-2">
+              <span> কার্টে যোগ করুন</span> <span><IoCartSharp className="text-2xl"/></span> 
             </button>
           </Link>
+          
           <button
             className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 duration-200 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-blue-600 w-full py-4 lg:mt-4 mt-2"
             onClick={handlePurchase}
           >
             পেমেন্ট করুন
           </button>
+          <a href="tel:+8801648141727" className="flex items-center gap-2">
+            <button className="focus:outline-none focus:ring-2 duration-200 bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide hover:bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium">
+             আমাদের সাথে সরাসরি কথা বলুন 
+            </button>
+            </a>
           <hr className="h-1 my-2 bg-gray-700 border-0 rounded dark:bg-gray-700" />
         </div>
+        
       )}
+      
       {/* // stock check end  */}
 
       <div
         className=" leading-6 text-gray-600 mt-7 dark:text-gray-400 font-normal text-sm font-mont"
         dangerouslySetInnerHTML={{ __html: shortDescription }}
       ></div>
-      {/* // will work afterward  */}
 
-      {/* <div className=" flex flex-row justify-between items-center mt-4">
-        <p className="font-medium text-base leading-4 text-gray-600">
-          Dimensions
-        </p>
-        <svg
-          onClick={() => setRotate(!rotate)}
-          id="rotateSVG"
-          className={
-            "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer transform " +
-            (rotate ? "rotate-180" : "rotate-0")
-          }
-          width="10"
-          height="6"
-          viewBox="0 0 10 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 1L5 5L1 1"
-            stroke="#4B5563"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div> */}
-      {/* // will work afterward  */}
       <hr className=" bg-gray-200 w-full mt-4" />
     </div>
   );
