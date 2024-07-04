@@ -7,25 +7,22 @@ import Img3 from "../../assets/blogs/blog3.jpg";
 
 const BlogData = [
   {
-    title: "How to choose perfect smartwatch",
-    subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
+    title: "Our Proud Customer.",
+
     published: "Jan 20, 2024 by Dilshad",
     image: Img1,
     aosDelay: "0",
   },
   {
-    title: "How to choose perfect gadget",
-    subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
+    title: "Thanks for supporting us",
+
     published: "Jan 20, 2024 by Satya",
     image: Img2,
     aosDelay: "200",
   },
   {
-    title: "How to choose perfect VR headset",
-    subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
+    title: "Try to be alwys good.",
+
     published: "Jan 20, 2024 by Sabir",
     image: Img3,
     aosDelay: "400",

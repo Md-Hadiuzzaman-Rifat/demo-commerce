@@ -15,6 +15,7 @@ const Payment2 = () => {[]
     const payable=division === "isd" ? "70" :"120"
   
     const handlePayment=async()=>{
+      window.fbq('track', 'ButtonClick');
 
       fetch(`${import.meta.env.VITE_ROOT_API}/editPayment`,{
         method:"PUT",
