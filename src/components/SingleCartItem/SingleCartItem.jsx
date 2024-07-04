@@ -39,7 +39,7 @@ const SingleCartItem = ({product}) => {
   };
 
   const handleRemoveFromCart = (product) => {
-    console.log(product);
+    // console.log(product);
     dispatch(removeFromCart(product));
   };
 

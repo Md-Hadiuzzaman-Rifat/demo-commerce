@@ -25,6 +25,8 @@ const DetailsContent = ({ desc, img }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  let cartAmount=0
+
   const {
     brand,
     category,
@@ -53,6 +55,9 @@ const DetailsContent = ({ desc, img }) => {
   const dispatch = useDispatch();
 
   const addCount = () => {
+    if (!selectSize) {
+      setWarning(true);
+    } else {
       setCount((prev) => prev + 1);
       setWarning(false);
       dispatch(
@@ -64,6 +69,7 @@ const DetailsContent = ({ desc, img }) => {
           cartQuantity: count,
         })
       );
+    }
   };
 
   const minusCount = () => {
@@ -89,6 +95,7 @@ const DetailsContent = ({ desc, img }) => {
   const handlePurchase = () => {
     if (selectSize === null || count === 0) {
       setWarning(true);
+      setCount(1)
     } else {
       setWarning(false);
       // dispatch(orderFormOpen());
@@ -209,18 +216,19 @@ const DetailsContent = ({ desc, img }) => {
             </div>
           </div>
           {/* // quantity end  */}
-          <Link to="/">
-            <button className="focus:outline-none focus:ring-2 duration-200 hover:bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium flex items-center justify-center gap-2">
+          
+            <button onClick={()=>addCount()} className="focus:outline-none focus:ring-2 duration-200 hover:bg-indigo-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide bg-orange-500 w-full py-4 lg:mt-4 mt-2 font-medium flex items-center justify-center gap-2">
               <span> কার্টে যোগ করুন</span> <span><IoCartSharp className="text-2xl"/></span> 
             </button>
-          </Link>
           
-          <button
+          
+          {/* <button
             className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 duration-200 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-blue-600 w-full py-4 lg:mt-4 mt-2"
             onClick={handlePurchase}
           >
             পেমেন্ট করুন
-          </button>
+          </button> */}
+          
           <a href="tel:+8801648141727" className="flex items-center gap-2">
             <button className="focus:outline-none focus:ring-2 duration-200 bg-green-500 focus:ring-offset-2 focus:ring-gray-800  text-base text-white tracking-wide hover:bg-gray-500 w-full py-4 lg:mt-4 mt-2 font-medium">
              আমাদের সাথে সরাসরি কথা বলুন 

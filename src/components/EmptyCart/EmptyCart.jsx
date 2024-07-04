@@ -12,7 +12,7 @@ const EmptyCart = () => {
         <div className="container mt-8">
             <div className="flex flex-col items-center justify-center">
                 
-                <p onClick={redirect} className="text-violet-500 underline cursor-pointer">Home / ShoppingCart</p>
+                <p onClick={redirect} className="text-violet-500 underline cursor-pointer">কেনাকাটা করুন।</p>
 
                 <h1 className="text-2xl md:text-4xl mt-4 font-semibold">Your Cart is Empty!</h1>
 
