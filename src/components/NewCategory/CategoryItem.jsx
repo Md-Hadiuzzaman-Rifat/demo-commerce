@@ -23,7 +23,7 @@ const CategoryItem = ({ item }) => {
       />
       <div className="flex flex-col justify-between p-2 leading-normal">
         <h5 className="mb-0 md:mb-2 text-lg font-semibold text-gray-900 dark:text-white font-abc ">
-          {resizeName(productName, 15)}
+          {resizeName(productName, 25)}
         </h5>
         <p className="font-normal text text-gray-700 dark:text-gray-400 line-through font-blinker text-xs my-[-3px]">
           Price: {price} Taka
