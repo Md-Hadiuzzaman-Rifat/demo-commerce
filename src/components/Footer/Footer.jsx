@@ -1,4 +1,3 @@
-import React from "react";
 import { FaMobileAlt } from "react-icons/fa";
 import {
   FaFacebook,

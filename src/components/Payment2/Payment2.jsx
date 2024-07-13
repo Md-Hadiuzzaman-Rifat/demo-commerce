@@ -15,8 +15,6 @@ const Payment2 = () => {[]
     const payable=division === "isd" ? "70" :"120"
   
     const handlePayment=async()=>{
-      window.fbq('track', 'ButtonClick');
-
       fetch(`${import.meta.env.VITE_ROOT_API}/editPayment`,{
         method:"PUT",
         headers: {
@@ -27,6 +25,7 @@ const Payment2 = () => {[]
       .then(res=>res.json())
       .then(data=>setSuccessData(data))
       .catch(err=>console.log(err))
+      await window.fbq('track', 'ButtonClick');
     }
   
     useEffect(()=>{
