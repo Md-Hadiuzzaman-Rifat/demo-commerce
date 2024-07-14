@@ -29,7 +29,7 @@ const Banner = ({ data }) => {
             <img
               src={data.image}
               alt=""
-              className="scale-155 w-[950px] md:w-[740px] mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,.6)] object-cover"
+              className="scale-155 w-[250px] md:w-[280px] mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,.6)] object-cover"
             />
           </div>
           {/* third col */}
@@ -48,7 +48,11 @@ const Banner = ({ data }) => {
                 style={{ color: data.bgColor }}
                 className="bg-white py-2 px-4 rounded-full"
               >
-                Shop Now
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.facebook.com/urbanregionbd/"
+                >Shop Now</a>
               </button>
             </div>
           </div>

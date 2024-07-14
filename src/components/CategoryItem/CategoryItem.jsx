@@ -1,5 +1,5 @@
 
-import Image3 from "/drop.png";
+import Image3 from "/drop1.png";
 import Image2 from "../../assets/tshirt.png";
 import Image4 from "/trouser1.png";
 import { Link } from "react-router-dom";
@@ -62,7 +62,7 @@ const CategoryItem = () => {
             />
           </div>
           {/* third col */}
-          <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-black/70 to-blue-600/20 text-white rounded-3xl relative h-[320px] flex items-end">
+          <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-black/90 to-blue-400/20 text-white rounded-3xl relative h-[320px] flex items-end">
             <div>
               <div className="mb-4">
                 <p className="mb-[2px] text-white">Enjoy</p>
@@ -83,7 +83,7 @@ const CategoryItem = () => {
             <img
               src={Image3}
               alt=""
-              className="w-[265px] absolute top-1/2 -translate-y-1/2 right-[-1rem]"
+              className="w-[290px] absolute top-1/2 -translate-y-1/2 right-[-1rem]"
             />
           </div>
         </div>

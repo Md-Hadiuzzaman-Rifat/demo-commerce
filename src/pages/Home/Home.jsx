@@ -8,8 +8,8 @@ import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 
-import headphone from "../../assets/red-shirt.png";
-import smartwatch2 from "../../assets/show.png";
+import jerseyCombo from "/jersey-combo1.png";
+import cargoCombo from "/cargo_combo.png";
 import SampleProduct from "../../components/SampleProduct/SampleProduct.jsx";
 // import AppStore from "../../components/AppStore/AppStore.jsx";
 import FooterBanner from "../../components/FooterBanner/FooterBanner.jsx";
@@ -22,27 +22,25 @@ import { useGetProductsQuery } from "../../features/product/productApi.js";
 import ProductListSkeleton from "../../components/ProductListSkeleton/ProductListSkeleton.jsx";
 
 const BannerData = {
-  discount: "30% OFF",
-  title: "Fine Smile",
-  date: "10 Jan to 28 Jan",
-  image: headphone,
-  title2: "Air Solo Bass",
-  title3: "Summer Sale",
+  discount: "২১ টি ভিন্ন ডিজাইন থেকে বেছে নিন আপনার পছন্দ মত জার্সি গুলো। ",
+  title: "Summer Offer",
+  title2: "Combo Offer",
+  image: jerseyCombo,
+  title3: "৫ টি জার্সি মাত্র ৯৫০ টাকা",
   title4:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
-  bgColor: "#ff848a",
+    "২১ টি ভিন্ন ভিন্ন ডিজাইনের জার্সি পছন্দ করে নিতে এখনই ক্লিক করুন।",
+  bgColor: "#777",
 };
 
 const BannerData2 = {
-  discount: "30% OFF",
-  title: "Happy Hours",
-  date: "14 Jan to 28 Jan",
-  image: smartwatch2,
-  title2: "Smart Solo",
-  title3: "Summer Sale",
+  discount: "Summer Sale",
+  title: "6 Pocket, 8 Pocket Cargo",
+  image: cargoCombo,
+  title2: "Combo Offer",
+  title3: "3 টি কার্গো মাত্র ১৯৫০ টাকা",
   title4:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis",
-  bgColor: "#cccccc",
+    "১১ টি ভিন্ন ভিন্ন ডিজাইনের কার্গো পছন্দ করে নিতে এখনই ক্লিক করুন।",
+  bgColor: "#E5D3B3",
 };
 
 const bars = [

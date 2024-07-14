@@ -48,7 +48,7 @@ const CategoryItem2 = () => {
                 >Browse</button></Link>
               </div>
             </div>
-            <img src={Image2} alt="" className="w-[320px] left-[3rem] absolute bottom-0 ml-12" />
+            <img src={Image2} alt="" className="w-[320px] absolute bottom-0 ml-12" />
           </div>
           {/* Third col */}
           

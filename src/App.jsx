@@ -42,9 +42,9 @@ import Overview from "./AdminPannel/Overview/Overview";
 const App = () => {
   React.useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 500,
       easing: "ease-in-sine",
-      delay: 100,
+      delay: 0,
       offset: 100,
     });
     AOS.refresh();

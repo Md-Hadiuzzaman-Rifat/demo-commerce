@@ -31,7 +31,7 @@ const BlogData = [
 
 const Blogs = () => {
   return (
-    <div className="my-12">
+    <div className="my-32">
       <div className="container">
         {/* Header section */}
         <Heading title="Facebook Reviews" subtitle={"Visit out facebook page"} />
