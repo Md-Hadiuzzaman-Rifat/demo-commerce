@@ -1,6 +1,6 @@
 import Image1 from "../../assets/cargo.png";
-import Image2 from "../../assets/tshirt1.png";
-import Image3 from "../../assets/trouser1.png";
+import Image2 from "/tshirt.png";
+import Image3 from "/trouser1.png";
 
 import {Link } from "react-router-dom";
 
@@ -45,12 +45,10 @@ const CategoryItem2 = () => {
                 <Link to="category/t-shirt">
                 <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
                 text-brandGreen"
-                  
                 >Browse</button></Link>
-               
               </div>
             </div>
-            <img src={Image2} alt="" className="w-[320px] absolute bottom-0 ml-12" />
+            <img src={Image2} alt="" className="w-[320px] left-[3rem] absolute bottom-0 ml-12" />
           </div>
           {/* Third col */}
           <div className="py-10 pl-5 bg-gradient-to-br from-black/50 to-white/40 text-white rounded-3xl relative h-[320px] flex items-start">
@@ -74,7 +72,7 @@ const CategoryItem2 = () => {
             <img
               src={Image3}
               alt=""
-              className="w-[140px] absolute bottom-0 right-0"
+              className="w-[210px] absolute bottom-0 right-0"
             />
           </div>
         </div>

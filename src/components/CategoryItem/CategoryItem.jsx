@@ -1,7 +1,7 @@
-// import Image1 from "../../assets/formal.png";
-import Image3 from "../../assets/fullsleeve.png";
+
+import Image3 from "/drop.png";
 import Image2 from "../../assets/tshirt.png";
-import Image1 from "../../assets/hoodie.png";
+import Image1 from "/hoodie1.png";
 import { Link } from "react-router-dom";
 
 const CategoryItem = () => {
@@ -31,7 +31,7 @@ const CategoryItem = () => {
             <img
               src={Image1}
               alt=""
-              className="w-[280px] absolute bottom-0 right-[-3rem]"
+              className="w-[210px] absolute bottom-0 right-[0rem]"
             />
           </div>
           {/* second col */}
@@ -56,11 +56,11 @@ const CategoryItem = () => {
             <img
               src={Image2}
               alt=""
-              className="w-[280px] absolute bottom-0 right-[-3rem]"
+              className="w-[300px] absolute bottom-0 right-[-3rem]"
             />
           </div>
           {/* third col */}
-          <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-black/70 to-black/90 text-white rounded-3xl relative h-[320px] flex items-end">
+          <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-black/70 to-blue-600/20 text-white rounded-3xl relative h-[320px] flex items-end">
             <div>
               <div className="mb-4">
                 <p className="mb-[2px] text-white">Enjoy</p>
@@ -81,7 +81,7 @@ const CategoryItem = () => {
             <img
               src={Image3}
               alt=""
-              className="w-[255px] absolute top-1/2 -translate-y-1/2 right-[-1rem]"
+              className="w-[265px] absolute top-1/2 -translate-y-1/2 right-[-1rem]"
             />
           </div>
         </div>
