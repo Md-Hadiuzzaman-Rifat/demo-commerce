@@ -1,7 +1,7 @@
 
 import Image3 from "/drop.png";
 import Image2 from "../../assets/tshirt.png";
-import Image1 from "/hoodie1.png";
+import Image4 from "/trouser1.png";
 import { Link } from "react-router-dom";
 
 const CategoryItem = () => {
@@ -10,32 +10,34 @@ const CategoryItem = () => {
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* first col */}
-          <div className="py-10 pl-5 bg-gradient-to-br from-black/90 to-black/30 text-white rounded-3xl relative h-[320px] flex items-end">
+
+          <div className="py-10 pl-5 bg-gradient-to-br from-black/50 to-white/40 text-white rounded-3xl relative h-[320px] flex items-start">
             <div>
               <div className="mb-4">
-                <p className="mb-[2px] text-gray-400">Enjoy</p>
+                <p className="mb-[2px] text-white">Enjoy</p>
                 <p className="text-2xl font-semibold mb-[2px]">With</p>
-                <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Hoodie
+                <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
+                  Trouser
                 </p>
-                <Link to="category/hoodie">
-                  <button
-                    className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-primary
-                text-white"
-                  >
-                    Browse
-                  </button>
+                
+                <Link to="category/trouser">
+                <button className="cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10 bg-white
+                text-brandBlue"
+                >Browse</button>
                 </Link>
+
+                
               </div>
             </div>
             <img
-              src={Image1}
+              src={Image4}
               alt=""
-              className="w-[210px] absolute bottom-0 right-[0rem]"
+              className="w-[210px] absolute bottom-0 right-0"
             />
           </div>
+          
           {/* second col */}
-          <div className="py-10 pl-5 bg-gradient-to-br from-black/50 to-black/90 text-white rounded-3xl relative h-[320px] flex items-end">
+          <div className="py-10 pl-5 bg-gradient-to-br from-black/30 to-black/90 text-white rounded-3xl relative h-[320px] flex items-end">
             <div>
               <div className="mb-4">
                 <p className="mb-[2px] text-gray-400">Enjoy</p>
@@ -56,7 +58,7 @@ const CategoryItem = () => {
             <img
               src={Image2}
               alt=""
-              className="w-[300px] absolute bottom-0 right-[-3rem]"
+              className="w-[320px] absolute bottom-0 right-[-3rem]"
             />
           </div>
           {/* third col */}
