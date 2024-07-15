@@ -192,7 +192,7 @@ const DetailsContent = ({ desc, img }) => {
       {stock && (
         <div>
           {/* // quantity start */}
-          <div className="lg:mt-11 mt-10">
+          <div className="mt-4">
             <div className="flex flex-row items-center justify-between">
               <p className=" font-semibold text-base leading-4 text-gray-600 dark:text-gray-200 font-abc">
                 পরিমান নির্ধারণ করুন

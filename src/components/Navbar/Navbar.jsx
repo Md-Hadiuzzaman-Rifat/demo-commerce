@@ -11,6 +11,9 @@ import { PiPhoneCallLight } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "../../features/cartSlice/cartSlice";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+
 
 
 
@@ -393,17 +396,27 @@ export default function Navbar() {
                   <div className="ml-auto flex items-center">
                     {/* Contact */}
                     <div className="flex lg:ml-6 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
+
+
+                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/urbanregionbd/">
+                    <FaInstagramSquare className="text-pink-500 mr-3 text-3xl"></FaInstagramSquare>
+                    </a>
+                    
+                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/urbanregionbd">
+                    <FaFacebookSquare className="text-blue-500 text-3xl"></FaFacebookSquare>
+                    </a>
                       <a
                         href="tel:+8801648141727"
                         className="flex items-center gap-2"
                       >
-                        <PiPhoneCallLight className=" mb-1  text-gray-400 " />{" "}
-                        <span className="text-gray-400 font-abc">
+                        <PiPhoneCallLight className=" mb-1  text-gray-400 text-3xl ml-3" />{" "}
+                        <span className="text-gray-400 font-abc hidden md:block">
                           +88 01648141727
                         </span>
                       </a>
+                      
                     </div>
-                 
+                    
 
                     {/* Cart */}
                     <div

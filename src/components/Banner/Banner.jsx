@@ -15,7 +15,7 @@ const Banner = ({ data }) => {
             </p>
             <h1
               data-aos="zoom-out"
-              className="uppercase text-4xl lg:text-7xl font-bold"
+              className="uppercase text-4xl lg:text-6xl font-bold"
             >
               {" "}
               {data.title}
@@ -52,7 +52,7 @@ const Banner = ({ data }) => {
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.facebook.com/urbanregionbd/"
-                >Shop Now</a>
+                >ইনবক্স করুন</a>
               </button>
             </div>
           </div>
