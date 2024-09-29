@@ -5,6 +5,7 @@ import Popup from "../../components/Popup/Popup.jsx";
 import Hero from "../../components/Hero/Hero.jsx";
 import CategoryItem from "../../components/CategoryItem/CategoryItem.jsx";
 import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
+import CategoryItem3 from "../../components/CategoryItem/CategoryItem3.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
 
@@ -74,6 +75,7 @@ const Home = () => {
       <NewCategory></NewCategory>
       <CategoryItem />
       <CategoryItem2 />
+      <CategoryItem3/>
       <Services />
       <Bars item={bars[1]} id="top rated"></Bars>
        {/* top rated  */}

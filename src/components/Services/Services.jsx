@@ -16,7 +16,7 @@ const ServiceData = [
     id: 2,
     icon: <FaCheckCircle className="text-4xl md:text-5xl text-primary" />,
     title: "Safe Money ",
-    description: "30 Days Money Back",
+    description: "7 Days Money Back",
   },
   {
     id: 3,

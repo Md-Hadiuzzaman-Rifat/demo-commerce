@@ -47,6 +47,8 @@ const navigation = {
             { name: "Drop Shoulder", href: "/category/drop shoulder" },
             { name: "Hoodie", href: "/category/hoodie" },
             { name: "T-Shirt", href: "/category/t-shirt" },
+            { name: "Trouser", href: "/category/trouser" },
+
           ],
         },
         {

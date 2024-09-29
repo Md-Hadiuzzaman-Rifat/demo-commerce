@@ -55,7 +55,7 @@ const Payment2 = () => {[]
                     <p>১. <span className="text-yellow-300 font-bold">*247#</span> ডায়েল করে আপনার Bkash মোবাইল মেনু তে যান অথবা BKASH App এ যান। </p>
                     
                     <p>২. <span className="text-yellow-300 font-bold">Payment</span> এ ক্লিক করুন। </p>
-                    <p>৩. প্রাপক নম্বর হিসেবে লিখুন <span className="text-yellow-300 font-bold">01970134360</span></p>
+                    <p>৩. প্রাপক নম্বর হিসেবে লিখুন <span className="text-yellow-300 font-bold">01858124027</span></p>
                     <p>৪. ডেলিভারি চার্জ পরিশোধ করে অর্ডার কনফর্ম করুন।</p>
                     <p>৫. সব কিছু ঠিক থাকলে BKASH থেকে একটি বার্তা পাবেন।</p>
                     <p>৬। আপনার বিকাশ নম্বর ও <span className="text-yellow-300 font-bold">Transaction ID</span> দিয়ে নিচের ফর্ম পুরন করুন। </p>

@@ -8,6 +8,7 @@ const MainContent = () => {
         <div className='mainContent'>
             <h2>Order Page:</h2>
             <OrderTable></OrderTable>
+            <p className="h-10"></p>
         </div>
         </AdminLayout>
     );
