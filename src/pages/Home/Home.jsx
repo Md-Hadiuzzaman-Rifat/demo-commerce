@@ -8,7 +8,6 @@ import CategoryItem2 from "../../components/CategoryItem/CategoryItem2.jsx";
 import CategoryItem3 from "../../components/CategoryItem/CategoryItem3.jsx";
 import Services from "../../components/Services/Services.jsx";
 import Banner from "../../components/Banner/Banner.jsx";
-
 import jerseyCombo from "/jersey-combo1.png";
 import cargoCombo from "/cargo_combo.png";
 import SampleProduct from "../../components/SampleProduct/SampleProduct.jsx";
